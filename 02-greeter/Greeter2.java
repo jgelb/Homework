@@ -3,7 +3,11 @@ import java.util.*;
 
 //COMMENTING SOMETHING FOR THE HW ASSIGNMENT
 
-public class Greeter {
+public class Greeter2 {
+	//INSTANCE VARIABLES (ATTRIBUTES) GO HERE:
+	
+	//
+
 	public void greet() {
 		String s = new String("Hello World!");
 		System.out.println(s);
