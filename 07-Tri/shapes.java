@@ -1,5 +1,5 @@
 
-public class files{
+public class shapes{
     public String Tri2(int n){
 	int x = 1;
         int rot = 1;
