@@ -7,5 +7,9 @@ public class Driver{
 		System.out.println(OBJ.tri2(5));
 		System.out.println("");
 		System.out.println(OBJ.tri3(5));
+		System.out.println("");
+		System.out.println(OBJ.diamond(5));
+		System.out.println("");
+		System.out.println(OBJ.tri4(5));
 	}
 }
