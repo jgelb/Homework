@@ -5,5 +5,9 @@ public class Driver{
 		System.out.println(c.getHealth());
 		Warrior w = new Warrior(15);
 		System.out.println(w.getHealth());
+		Mage m = new Mage();
+		w.setName("Garen");
+		m.setName("Ryze");
+		w.attack(m);
 	}
 }
