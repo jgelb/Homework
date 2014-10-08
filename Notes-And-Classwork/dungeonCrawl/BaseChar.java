@@ -1,7 +1,15 @@
 public class BaseChar{
 	private int health = 20;
 	private String name;
+/*
+	public BaseChar(String n){
+		setName(n);
+	}
 
+	public BaseChar(){
+		setName("DefGoon");
+	}
+*/
 	public void setName(String name) {
 		this.name = name;
 	}
