@@ -1,0 +1,62 @@
+Part 1- The gaming system
+
+- Represent each character as 'turtle': Note netlogo was made with java. Turtles are simply a class with variables
+  who, color, shape, etc. In our case, our 'turtle' class will be the basechar class, with variables: type (warrior, mage, etc.),
+  Name, Strength (Attack Damage), Health, Dexterity (damage reduction), Speed (how fast the character moves, and also determines
+  dodge chance), and Level/Experience
+- Encounters are handled by loading a separate world or battle class, like a cutscene. Each character has a set of moves and will
+  choose what to use on their turn (battles are turn by turn). Like in the RPG and dungeon crawlers of old, death will reset your
+  entire character. Winning increases your experience, and therefore increasing your stats
+- Gameplay:
+    - Set in a labyrinth, and you are given the choice to go up, down, left, or right (out of combat)
+    - You Choose which direction to go, and it will randomly decide if there is a monster there or not.
+    - If there is a monster, you must battle it unless you have an escape spell
+    - Game ends with character death, or character escapes the labyrinth
+    - **BONUS** After moving, the code will decide if you encounter a NPC (Non-player character). If you do, it will offer a quest.
+      Upon acceptance, the game will record which monster the quest wants you to kill, and your future movement will randomly decide
+      when you will fight this monster
+    - Finishing a quest will grant bonus exp and faster exit of the labyrinth
+    
+Part 2 - The classes and subclasses
+
+Game.java
+	Mob.java
+		BaseChar.java
+			Warrior - Object (High Attack Damage, High Dexterity, Low Speed)
+			Mage - Object (High speed, High Attack Damage, Low Dexterity)
+			Archer - Object (High Speed, Very high attack damage, low health, low dexterity)
+			Dwarf - Object (High Health, Very High Dexterity, Very Low Speed, Slightly Low Attack Damage)
+		Monster.java
+			Kobold - Object (Attacks fast (more attacks per turn), low health)
+			Spider - Object (High Speed, Low Health, Low Dexterity)
+			Golem - Object (High Health, High Dexterity, Low Speed)
+			**QuestBoss** Dragon - Object (+50 on all stats)
+			**QuestBoss** The_Predator - Object (+75 on all stats except speed, +150 speed)
+			**QuestBoss** The_GateKeeper - Object [SPECIAL CONDITION: only appears on last level of labyrinth] 
+			              (+ 9001 on all stats except speed, Has 0 Speed (cannot avoid attacks)
+		%Variables%
+		int Health
+		String Name
+		int Dexterity
+		int Strength
+		int Speed
+		int Level
+		int Experience
+	World.java
+		Labyrinth.java
+			Move - Method (Takes user input (0/U - Up, 1/D - Down, 2/L - Left, 
+			       3/R - Right, Anything else forces reinput)
+			switchToBattle - Method (Decides when to switch to Battle.java)
+			%Variables%
+			boolean isMonster (Is there a monster there)
+		Battle.java
+			Attack - Method (...Self explanatory. Takes into account Strength, Speed, and Dexterity)
+			Death - Method (Display "Haha Game Over" screen with player records, 
+			        and a 'Go Back To Beginning' option)
+			Victory - Method (Increases Experience, and if experience is reached, increases level and stats)
+			switchToLabyrinth - Method (Called by victory to move back to Labyrinth.java and increment stage)
+			%Variables%
+			boolean turn (True = player, False = monster)
+			boolean isDead (Checks if player or monster health <= 0)
+		%Variables%
+		int Stage (From 1 to 200: There are 200 rooms of the labyrinth to go through to beat the game)
