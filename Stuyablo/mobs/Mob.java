@@ -16,14 +16,4 @@ public class Mob{
 		dexterity = dex;
 		speed = speed;
 	}
-
-	public attack(Mob attacker, Mob defender){
-		System.out.println(attacker.name + " is attacking " + defender.name);
-		int damageTaken = attacker.strength + (defender.dexterity / 5);
-		defender.health = defender.health - damageTaken;
-		System.out.println(defender.name + " lost " + damageTaken);
-		if (defender.health <= 0) {
-			
-		}
-	}
 }
