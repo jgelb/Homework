@@ -10,6 +10,8 @@ public class Driver{
 		System.out.println("");
 		System.out.println(OBJ.diamond(5));
 		System.out.println("");
+		System.out.println(OBJ.diamond(10));
+		System.out.println("");
 		System.out.println(OBJ.tri4(5));
 	}
 }
