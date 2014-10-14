@@ -6,7 +6,7 @@ public class Mob{
 	public int speed; //Movement and attack speed
 	public int level;
 	public int experience;
-
+/*
 	public Mob(int h, String s, int l, int atkdmg, int dex, int spd){
 		health = h;
 		name = s;
@@ -15,5 +15,8 @@ public class Mob{
 		strength = atkdmg;
 		dexterity = dex;
 		speed = speed;
+
+
 	}
+*/
 }
