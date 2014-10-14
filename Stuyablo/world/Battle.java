@@ -1,9 +1,16 @@
 import java.util.*;
 import java.io.*;
 
-public class Battle{
-	public void endScreenMonster(){
-		
+public class Battle extends World{
+	public void endScreenMonster(BaseChar victor){
+		System.out.println("You defeated the monster!");
+		victor.setExperience(victor.experience() + 20);
+		System.out.println("You have gained 20 exp!");
+		if (victor.experience() >= victor.level() * 100){
+			victor.setLevel(victor.level() + 1);
+			victor.setExperience(0);
+			System.out.println("You have levelled up!");
+		}
 	}
 
 	public void endScreenBaseChar(){
@@ -16,7 +23,7 @@ public class Battle{
 		defender.setHealth(defender.health() - damageTaken);
 		System.out.println(defender.name() + " lost " + damageTaken + " health.");
 		if (defender.health() <= 0) {
-			endScreenMonster();
+			endScreenMonster(attacker);
 		}
 	}
 
