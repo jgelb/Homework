@@ -18,9 +18,9 @@ public class Battle extends World{
 		System.out.println("You ended the game with: ");
 		System.out.println(loser.level + " levels");
 		System.out.println(loser.experience + "Exp");
-		System.out.print("Do you wish to be reborn anew?");
 		boolean checkResp = false;
 		while (!checkResp){
+			System.out.print("Do you wish to be reborn anew?");
 			Scanner sc = new Scanner();
 			if (sc.next().toUpper.equals("Y") || sc.next().toUpper.equals("YES")){
 				//RESTART THE GAME HERE
@@ -31,7 +31,7 @@ public class Battle extends World{
 				checkResp = true;
 			}
 			else {
-
+				System.out.println("Make a choice! Yes/No, Y/N");
 			}
 		}
 	}
