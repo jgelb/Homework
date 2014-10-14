@@ -2,6 +2,8 @@ import java.util.*;
 import java.io.*;
 
 public class Monster extends Mob{
+
+/*
 	public Monster(int h, String s, int l, int atkdmg, int dex, int spd){
 		super.health = h;
 		super.name = s;
@@ -11,6 +13,7 @@ public class Monster extends Mob{
 		super.dexterity = dex;
 		super.speed = speed;
 	}
+*/
 
 //Data Grabbers
 	public int health(){return super.health;}

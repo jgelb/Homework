@@ -4,6 +4,7 @@ import java.io.*;
 public class BaseChar extends Mob{
 	public BaseChar(int h, String s, int l, int atkdmg, int dex, int spd){
 		super.health = h;
+		super.maxHealth = h;
 		super.name = s;
 		super.level = l;
 		super.experience = 0;
@@ -19,6 +20,7 @@ public class BaseChar extends Mob{
 	public int dexterity(){return super.dexterity;}
 	public int speed(){return super.speed;}
 	public int strength(){return super.strength;}
+	public int maxHealth(){return super.maxHealth;}
 	public String name(){return super.name;}
 	
 //Data Setters
@@ -28,6 +30,7 @@ public class BaseChar extends Mob{
 	public void setStrength(int n){super.strength = n;}
 	public void setDexterity(int n){super.dexterity = n;}
 	public void setSpeed(int n){super.speed = n;}
+	public void setMaxHealth(int n){super.maxHealth = n;}
 	public void setName(String s){super.name = s;}
 
 //BaseChar types:
@@ -39,6 +42,7 @@ public class BaseChar extends Mob{
 */
 	public void warriorTemplate(String s){
 		super.health = 100;
+		super.maxHealth = 100;
 		super.name = s;
 		super.level = 1;
 		super.experience = 0;
@@ -49,6 +53,7 @@ public class BaseChar extends Mob{
 
 	public void mageTemplate(String s){
 		super.health = 100;
+		super.maxHealth = 100;
 		super.name = s;
 		super.level = 1;
 		super.experience = 0;
@@ -59,6 +64,7 @@ public class BaseChar extends Mob{
 
 	public void archerTemplate(String s){
 		super.health = 65;
+		super.maxHealth = 65;
 		super.name = s;
 		super.level = 1;
 		super.experience = 0;
@@ -69,6 +75,7 @@ public class BaseChar extends Mob{
 
 	public void dwarfTemplate(String s){
 		super.health = 120;
+		super.maxHealth = 120;
 		super.name = s;
 		super.level = 1;
 		super.experience = 0;

@@ -10,7 +10,12 @@ public class Battle extends World{
 			victor.setLevel(victor.level + 1);
 			victor.setExperience(0);
 			System.out.println("You have levelled up!");
+			victor.setStrength(victor.strength() + 1);
+			victor.setSpeed(victor.speed() + 1);
+			victor.setDexterity(victor.dexterity() + 1);
+			victor.setMaxHealth(victor.maxHealth() + 10);
 		}
+		victor.setHealth(victor.maxHealth());
 	}
 
 	public void endScreenBaseChar(BaseChar loser){
