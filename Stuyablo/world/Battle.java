@@ -3,7 +3,7 @@ import java.io.*;
 
 public class Battle extends World{
 
-	public Battle(Basechar ch , Monster mon){
+	public Battle(BaseChar ch , Monster mon){
 		while (ch.health() > 0 || mon.health() > 0) {
 			attack(ch , mon);
 			attack(mon , ch);
@@ -35,11 +35,11 @@ public class Battle extends World{
 		while (!checkResp){
 			System.out.print("Do you wish to be reborn anew?");
 			Scanner sc = new Scanner(System.in);
-			if (sc.next().toUpper.equals("Y") || sc.next().toUpper.equals("YES")){
+			if (sc.next().toString().toUpper.equals("Y") || sc.next().toString().toUpper.equals("YES")){
 				//RESTART THE GAME HERE
 				checkResp = true;
 			}
-			else if (sc.next().toUpper.equals("N") || sc.next().toUpper.equals("NO")){
+			else if (sc.next().toString().toUpper.equals("N") || sc.next().toString().toUpper.equals("NO")){
 				//Exit cleanly
 				checkResp = true;
 			}

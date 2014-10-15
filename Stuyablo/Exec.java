@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
-import mobs.*;
-import world.*;
+//import mobs.*;
+//import world.*;
 
 public class Exec{
 	public static void main(String[] args){
@@ -11,13 +11,17 @@ public class Exec{
 			System.out.print(i + " - ");
 			switch (i) {
 				case 0:
-					Harry.warriorTemplate("Harry").displayStats();
+					Harry.warriorTemplate("Harry");
+					Harry.displayStats();
 				case 1:
-					Harry.mageTemplate("Harry").displayStats();
+					Harry.mageTemplate("Harry");
+					Harry.displayStats();
 				case 2:
-					Harry.archerTemplate("Harry").displayStats();
+					Harry.archerTemplate("Harry");
+					Harry.displayStats();
 				case 3:
-					Harry.dwarfTemplate("Harry").displayStats();
+					Harry.dwarfTemplate("Harry");
+					Harry.displayStats();
 				default:
 					Harry.displayStats();
 			}
@@ -46,7 +50,7 @@ public class Exec{
 		Labyrinth PLACE = new Labyrinth(Harry);
 		PLACE.super.stage = 1;
 		while (PLACE.super.stage < 200) {
-			PLACE.move(Harry);
+			PLACE.move();
 		}
 	}
 }

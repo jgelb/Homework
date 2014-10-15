@@ -12,7 +12,7 @@ public class Labyrinth extends World{
 
 	public boolean isMonster(){
 		Random random = new Random();
-    		return random.nextBoolean());
+    		return random.nextBoolean();
 	}
 
 	public Monster getMonster(){
