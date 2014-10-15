@@ -47,7 +47,7 @@ public class Labyrinth extends World{
 		boolean chosen;
 		chosen = false;
 		while (!chosen){
-			Scanner sc = new Scanner();
+			Scanner sc = new Scanner(System.in);
 			if (sc.next().toUpper.equals("U")) {
 				chosen = false;
 				action();
@@ -90,11 +90,13 @@ public class Labyrinth extends World{
 				writer.println(player.strength());
 				writer.println(player.speed());
 				writer.println(player.dexterity());
+				writer.println(super.stage);
 				writer.close();
 			}
 			else {
 				System.out.println("Invalid Command");
 			}
 		}
+		super.stage = super.stage + 1;
 	}
 }

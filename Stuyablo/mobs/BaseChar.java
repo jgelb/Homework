@@ -25,7 +25,7 @@ public class BaseChar extends Mob{
 	public int strength(){return super.strength;}
 	public int maxHealth(){return super.maxHealth;}
 	public String name(){return super.name;}
-	
+
 //Data Setters
 	public void setHealth(int n){super.health = n;}
 	public void setExperience(int n){super.experience = n;}

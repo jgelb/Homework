@@ -45,7 +45,7 @@ Game.java
 	World.java
 		Labyrinth.java
 			Move - Method (Takes user input (0/U - Up, 1/D - Down, 2/L - Left, 
-			       3/R - Right, Anything else forces reinput)
+			       3/R - Right, S/Save = save, Anything else forces reinput)
 			switchToBattle - Method (Decides when to switch to Battle.java)
 			%Variables%
 			boolean isMonster (Is there a monster there)
