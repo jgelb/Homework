@@ -34,7 +34,7 @@ public class Battle extends World{
 		boolean checkResp = false;
 		while (!checkResp){
 			System.out.print("Do you wish to be reborn anew?");
-			Scanner sc = new Scanner();
+			Scanner sc = new Scanner(System.in);
 			if (sc.next().toUpper.equals("Y") || sc.next().toUpper.equals("YES")){
 				//RESTART THE GAME HERE
 				checkResp = true;
