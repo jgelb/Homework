@@ -39,48 +39,33 @@ public class Labyrinth extends World{
 
 	public void move(){
 		print("Instructions:");
-		print("0/u/U - Up");
-		print("1/d/D - Down");
-		print("2/l/L - Left");
-		print("3/r/R - Right");
+		print("u/U - Up");
+		print("d/D - Down");
+		print("l/L - Left");
+		print("r/R - Right");
 		print("s/S/Save/save - Save your current info");
 		boolean chosen;
 		chosen = false;
 		while (!chosen){
 			Scanner sc = new Scanner(System.in);
-			if (sc.next().toUpper.equals("U")) {
+			String response = sc.next();
+			if (response.toUpper.equals("U")) {
 				chosen = false;
 				action();
 			}
-			else if (sc.next().equals(0)){
+			else if (response.toUpper.equals("D")) {
 				chosen = false;
 				action();
 			}
-			else if (sc.next().toUpper.equals("D")) {
+			else if (response.toUpper.equals("L")) {
 				chosen = false;
 				action();
 			}
-			else if (sc.next().equals(1)){
+			else if (response.toUpper.equals("R")) {
 				chosen = false;
 				action();
 			}
-			else if (sc.next().toUpper.equals("L")) {
-				chosen = false;
-				action();
-			}
-			else if (sc.next().equals(2)){
-				chosen = false;
-				action();
-			{
-			else if (sc.next().toUpper.equals("R")) {
-				chosen = false;
-				action();
-			}
-			else if (sc.next().equals(3)){
-				chosen = false;
-				action();
-			}
-			else if (sc.next().toUpper().equals("S") || sc.next.toUpper().equals("SAVE")){
+			else if (response.toUpper().equals("S") || response.toUpper().equals("SAVE")){
 				PrintWriter writer = new PrintWriter("stuyablosave.txt", "UTF-8");
 				writer.println(player.name());
 				writer.println(player.level());
