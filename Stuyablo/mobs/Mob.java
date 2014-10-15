@@ -7,6 +7,7 @@ public class Mob{
 	public int level;
 	public int experience;
 	public int maxHealth;
+	public String type;
 /*
 	public Mob(int h, String s, int l, int atkdmg, int dex, int spd){
 		health = h;

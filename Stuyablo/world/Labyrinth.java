@@ -37,7 +37,6 @@ public class Labyrinth extends World{
                 }
 	}
 
-
 	public void move(){
 		print("Instructions:");
 		print("0/u/U - Up");
@@ -50,32 +49,52 @@ public class Labyrinth extends World{
 		while (!chosen){
 			Scanner sc = new Scanner();
 			if (sc.next().toUpper.equals("U")) {
+				chosen = false;
 				action();
 			}
 			else if (sc.next().equals(0)){
+				chosen = false;
 				action();
 			}
 			else if (sc.next().toUpper.equals("D")) {
-
+				chosen = false;
+				action();
 			}
 			else if (sc.next().equals(1)){
-
+				chosen = false;
+				action();
 			}
 			else if (sc.next().toUpper.equals("L")) {
-
+				chosen = false;
+				action();
 			}
 			else if (sc.next().equals(2)){
-
+				chosen = false;
+				action();
 			{
 			else if (sc.next().toUpper.equals("R")) {
-
+				chosen = false;
+				action();
 			}
 			else if (sc.next().equals(3)){
-
+				chosen = false;
+				action();
+			}
+			else if (sc.next().toUpper().equals("S") || sc.next.toUpper().equals("SAVE")){
+				PrintWriter writer = new PrintWriter("stuyablosave.txt", "UTF-8");
+				writer.println(player.name());
+				writer.println(player.level());
+				writer.println(player.experience());
+				writer.println(player.maxHealth());
+				writer.println(player.health());
+				writer.println(player.strength());
+				writer.println(player.speed());
+				writer.println(player.dexterity());
+				writer.close();
 			}
 			else {
-
-			} 
+				System.out.println("Invalid Command");
+			}
 		}
 	}
 }

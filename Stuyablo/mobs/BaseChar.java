@@ -2,6 +2,8 @@ import java.util.*;
 import java.io.*;
 
 public class BaseChar extends Mob{
+
+/*
 	public BaseChar(int h, String s, int l, int atkdmg, int dex, int spd){
 		super.health = h;
 		super.maxHealth = h;
@@ -12,6 +14,7 @@ public class BaseChar extends Mob{
 		super.dexterity = dex;
 		super.speed = speed;
 	}
+*/
 
 //Data Grabbers
 	public int health(){return super.health;}
@@ -49,6 +52,7 @@ public class BaseChar extends Mob{
 		super.strength = 8;
 		super.dexterity = 5;
 		super.speed = 2;
+		super.type = "WARRIOR";
 	}
 
 	public void mageTemplate(String s){
@@ -60,6 +64,7 @@ public class BaseChar extends Mob{
 		super.strength = 8;
 		super.dexterity = 1;
 		super.speed =  4;
+		super.type = "MAGE";
 	}
 
 	public void archerTemplate(String s){
@@ -71,6 +76,7 @@ public class BaseChar extends Mob{
 		super.strength = 13;
 		super.dexterity = 0;
 		super.speed = 5;
+		super.type = "ARCHER";
 	}
 
 	public void dwarfTemplate(String s){
@@ -82,6 +88,13 @@ public class BaseChar extends Mob{
 		super.strength = 7;
 		super.dexterity = 9;
 		super.speed = 1;
+		super.type = "DWARF";
 	}
 
+	public void displayStats(){
+		System.out.println("Class: " + super.type);
+		System.out.println("Health: " + super.health);
+		System.out.println("Dexterity: " + super.dexterity);
+		System.out.println("Speed: " + super.speed);
+	}
 }
