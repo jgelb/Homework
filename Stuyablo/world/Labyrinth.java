@@ -2,12 +2,19 @@ import java.util.*;
 import java.io.*;
 
 public class Labyrinth extends World{
+	private BaseChar player;
+
+	public Labyrinth(BaseChar bc){
+		player = bc;
+	}
+
 	public void print(String s){System.out.println(s);}
+
 	public boolean isMonster(){
 		Random random = new Random();
     		return random.nextBoolean());
 	}
-	
+
 	public Monster getMonster(){
 		Monster m = new Monster();
 		Random n = new Random();
@@ -24,6 +31,13 @@ public class Labyrinth extends World{
 		return m;
 	}
 
+	public void action(){
+		if (isMonster()){
+                	Battle b = new Battle(player , getMonster());
+                }
+	}
+
+
 	public void move(){
 		print("Instructions:");
 		print("0/u/U - Up");
@@ -36,10 +50,10 @@ public class Labyrinth extends World{
 		while (!chosen){
 			Scanner sc = new Scanner();
 			if (sc.next().toUpper.equals("U")) {
-
+				action();
 			}
 			else if (sc.next().equals(0)){
-
+				action();
 			}
 			else if (sc.next().toUpper.equals("D")) {
 

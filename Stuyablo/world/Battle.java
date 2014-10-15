@@ -2,6 +2,14 @@ import java.util.*;
 import java.io.*;
 
 public class Battle extends World{
+
+	public Battle(Basechar ch , Monster mon){
+		while (ch.health() > 0 || mon.health() > 0) {
+			attack(ch , mon);
+			attack(mon , ch);
+		}
+	}
+
 	public void endScreenMonster(BaseChar victor){
 		System.out.println("You defeated the monster!");
 		victor.setExperience(victor.experience + 20);
