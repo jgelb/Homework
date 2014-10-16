@@ -8,4 +8,5 @@ cp world/*.java COMPILED/
 cd COMPILED
 pwd
 javac Exec.java
+clear
 java Exec
