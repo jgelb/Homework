@@ -4,7 +4,7 @@ import java.io.*;
 public class Battle extends World{
 
 	public Battle(BaseChar ch , Monster mon){
-		while (ch.health() > 0 || mon.health() > 0) {
+		while (ch.health() > 0 && mon.health() > 0) {
 			attack(ch , mon);
 			attack(mon , ch);
 		}
