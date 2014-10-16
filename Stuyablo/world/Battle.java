@@ -60,6 +60,7 @@ public class Battle extends World{
 		}
 	}
 
+
 /*
 	public void attack(BaseChar attacker , Monster defender) {
 		System.out.println("You have engaged in battle against a " + defender.name);
@@ -89,8 +90,8 @@ public class Battle extends World{
 				case 2:
                                         Random n = new Random();
                                         int chance = n.nextInt(100);
-                                        if (n > defender.speed) {
-                                                int damageTaken = (int)(Math.random() * 100000) % attacker.strength - (defender.dexterity / 5);
+                                        if (n < 15) {
+                                                int damageTaken = attacker.strength * 2;
                                                 defender.setHealth(defender.health - damageTaken);
                                                 System.out.println(defender.name + " lost " + damageTaken + " health.");
                                         }
@@ -115,10 +116,11 @@ public class Battle extends World{
 				case 4:
                                         Random n = new Random();
                                         int chance = n.nextInt(100);
-                                        if (n > defender.speed) {
-                                                int damageTaken = (int)(Math.random() * 100000) % attacker.strength - (defender.dexterity / 5);
-                                                defender.setHealth(defender.health - damageTaken);
-                                                System.out.println(defender.name + " lost " + damageTaken + " health.");
+                                        if (n < 2) {
+                                                System.out.println("You ran away successfully!");
+						attacker.setExperience(attacker.experience - 50);
+						System.out.println("You lost 50 exp :( ");
+                                                defender.setHealth(-100);
                                         }
                                         else {
                                                 System.out.println("Attack missed!");
