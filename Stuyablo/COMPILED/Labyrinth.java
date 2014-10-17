@@ -52,13 +52,14 @@ public class Labyrinth extends World{
 
 	public void move(){
 		print("Instructions:");
-		print("u/U - Up");
-		print("d/D - Down");
-		print("l/L - Left");
-		print("r/R - Right");
-		print("s/S/Save/save - Save your current info");
-		print("Stat - Displays your stats");
-		print("quit - Quits the game without saving");
+		print("u/U -        Up");
+		print("d/D -        Down");
+		print("l/L -        Left");
+		print("r/R -        Right");
+		print("s/save -     Save your current info");
+		print("Stat -       Displays your stats");
+		print("quit -       Quits the game without saving");
+		System.out.println("Stage:       " + getStage() + "/200");
 		boolean chosen;
 		chosen = false;
 		while (!chosen){

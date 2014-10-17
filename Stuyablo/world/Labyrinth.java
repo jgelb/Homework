@@ -63,6 +63,7 @@ public class Labyrinth extends World{
 		boolean chosen;
 		chosen = false;
 		while (!chosen){
+			System.out.print(player.name() + "@stuyablo $ ");
 			Scanner sc = new Scanner(System.in);
 			String response = sc.next();
 			if (response.toUpperCase().equals("U")) {
