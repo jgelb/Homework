@@ -19,7 +19,7 @@ public class Labyrinth extends World{
 		Monster m = new Monster();
 		Random n = new Random();
 		int chance = n.nextInt(100);
-		int lev = (int)((super.stage / 10) + 1)
+		int lev = (int)((super.stage / 10) + 1);
 		if (chance < 33) {
 			m.koboldTemplate("Kobold" , lev);
 		}
