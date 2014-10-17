@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class Exec{
-	public static void main(String[] args){
+	public static void newGame(){
 		BaseChar Harry = new BaseChar();
 		Scanner sc = new Scanner(System.in);
 		for (int i=0; i<4; i++){
@@ -62,6 +62,41 @@ public class Exec{
 		game.setStage(1);
 		while (game.getStage() < 200) {
 			game.move();
+		}
+	}
+
+	public static void loadGame(){
+		try{
+			FileInputStream saveFile = new FileInputStream("stuyablosave.txt");
+			ObjectInputStream save = new ObjectInputStream(saveFile);
+			BaseChar load = new BaseChar();
+			Labyrinth gameRes = new Labyrinth(load);
+			//RESTORE THE DATA!
+			load.setName((String) save.readObject());
+			load.setLevel((Integer) save.readObject());
+			load.setExperience((Integer) save.readObject());
+			load.setMaxHealth((Integer) save.readObject());
+			load.setHealth((Integer) save.readObject());
+			load.setStrength((Integer) save.readObject());
+			load.setSpeed((Integer) save.readObject());
+			load.setDexterity((Integer) save.readObject());
+			gameRes.setStage((Integer) save.readObject());
+			load.setType((String) save.readObject());
+			save.close();
+			while (gameRes.getStage() < 200) {
+                        	gameRes.move();
+                	}
+		} catch(Exception e) {e.printStackTrace();}
+	}
+
+	public static void main(String[] args){
+		File f = new File("stuyablosave.txt");
+		if (f.exists()){
+			System.out.println("Save file detected. Loading save...");
+			loadGame();
+		}
+		else {
+			newGame();
 		}
 	}
 }

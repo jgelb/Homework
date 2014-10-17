@@ -1,8 +1,10 @@
 #!/bin/bash
 
 echo "Loading code..."
-rm -rf COMPILED
+
 mkdir COMPILED
+rm -rf COMPILED/*.java
+rm -rf COMPILED/*.class
 cp *.java COMPILED/
 cp mobs/*.java COMPILED/
 cp world/*.java COMPILED/

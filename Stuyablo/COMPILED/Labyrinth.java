@@ -53,6 +53,7 @@ public class Labyrinth extends World{
 		print("r/R - Right");
 		print("s/S/Save/save - Save your current info");
 		print("Stat - Displays your stats");
+		print("quit - Quits the game without saving");
 		boolean chosen;
 		chosen = false;
 		while (!chosen){
@@ -76,23 +77,29 @@ public class Labyrinth extends World{
 			}
 			else if (response.toUpperCase().equals("S") || response.toUpperCase().equals("SAVE")){
 				try {
-					PrintWriter writer = new PrintWriter("stuyablosave.txt", "UTF-8");
-					writer.println(player.name());
-					writer.println(player.level());
-					writer.println(player.experience());
-					writer.println(player.maxHealth());
-					writer.println(player.health());
-					writer.println(player.strength());
-					writer.println(player.speed());
-					writer.println(player.dexterity());
-					writer.println(super.stage);
-					writer.close();
-				} catch(Exception e) {}
+					FileOutputStream saveFile = new FileOutputStream("stuyablosave.txt");
+					ObjectOutputStream save = new ObjectOutputStream(saveFile);
+					save.writeObject(player.name());
+					save.writeObject(player.level());
+					save.writeObject(player.experience());
+					save.writeObject(player.maxHealth());
+					save.writeObject(player.health());
+					save.writeObject(player.strength());
+					save.writeObject(player.speed());
+					save.writeObject(player.dexterity());
+					save.writeObject(super.stage);
+					save.writeObject(player.type());
+					save.close();
+				} catch(Exception e) {e.printStackTrace();}
 			}
 			else if (response.toUpperCase().equals("STAT")){
 				System.out.println("Level:         " + player.level);
 				System.out.println("Experience:    " + player.experience);
 				player.displayStats();
+			}
+			else if (response.toUpperCase().equals("QUIT")){
+				System.out.println("Exiting... ");
+				System.exit(0);
 			}
 			else {
 				System.out.println("Invalid Command");

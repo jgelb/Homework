@@ -74,13 +74,17 @@ public class Battle extends World{
                 while (!checkResp){
                         System.out.print("Choose your action: ");
                         Scanner sc = new Scanner(System.in);
-                        int response = (int)sc.nextInt();
+			int response;
+			try {
+                        	response = (int)sc.nextInt();
+			} catch(Exception e) {response = 1;}
 			Random n = new Random();
 	                int chance = n.nextInt(100);
                         switch (response) {
 				case 1:
 					if (chance > defender.speed) {
 						int damageTaken = (int)(Math.random() * 100000) % attacker.strength - (defender.dexterity / 5);
+						damageTaken = Math.abs(damageTaken);
 						defender.setHealth(defender.health - damageTaken);
 						System.out.println(defender.name + " lost " + damageTaken + " health.");
 					}

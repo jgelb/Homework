@@ -25,6 +25,7 @@ public class BaseChar extends Mob{
 	public int strength(){return super.strength;}
 	public int maxHealth(){return super.maxHealth;}
 	public String name(){return super.name;}
+	public String type(){return super.type;}
 
 //Data Setters
 	public void setHealth(int n){super.health = n;}
@@ -35,6 +36,7 @@ public class BaseChar extends Mob{
 	public void setSpeed(int n){super.speed = n;}
 	public void setMaxHealth(int n){super.maxHealth = n;}
 	public void setName(String s){super.name = s;}
+	public void setType(String s){super.type = s;}
 
 //BaseChar types:
 /*
