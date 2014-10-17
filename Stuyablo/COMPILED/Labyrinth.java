@@ -19,14 +19,15 @@ public class Labyrinth extends World{
 		Monster m = new Monster();
 		Random n = new Random();
 		int chance = n.nextInt(100);
+		int lev = (int)((super.stage / 10) + 1)
 		if (chance < 33) {
-			m.koboldTemplate("Kobold" , 1);
+			m.koboldTemplate("Kobold" , lev);
 		}
 		else if (chance < 67 && chance >= 33) {
-			m.spiderTemplate("Spider" , 1);
+			m.spiderTemplate("Spider" , lev);
 		}
 		else if (chance < 100 && chance >= 67) {
-			m.golemTemplate("Golem" , 1);
+			m.golemTemplate("Golem" , lev);
 		}
 		return m;
 	}
