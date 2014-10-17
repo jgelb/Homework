@@ -100,6 +100,10 @@ public class Exec{
 				if (resp.toUpperCase().equals("Y") || resp.toUpperCase().equals("YES")){
 					System.out.println("Save file detected. Loading save...");
 					checkResp = true;
+					try{
+	                                        Thread.sleep(1000);
+        	                        } catch(Exception e) {}
+                	                System.out.print("\033\143");
 					loadGame();
 				}
 				else if (resp.toUpperCase().equals("N") || resp.toUpperCase().equals("NO")){

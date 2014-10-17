@@ -33,6 +33,10 @@ public class Labyrinth extends World{
 	}
 
 	public void action(){
+//		try{
+//	                Thread.sleep(650);
+//		} catch(Exception e) {}
+                System.out.print("\033\143");
 		if (isMonster()){
                 	Battle b = new Battle(player , getMonster());
                 }
