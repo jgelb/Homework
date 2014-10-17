@@ -55,6 +55,9 @@ public class Monster extends Mob{
 		super.strength = 5 + l;
 		super.dexterity = 5 + l;
 		super.speed = 15 + l;
+		if (super.speed > 50) {
+			super.speed = 50;
+		}
 	}
 
 	public void spiderTemplate(String s, int l){
@@ -66,6 +69,10 @@ public class Monster extends Mob{
 		super.strength = 5 + l;
 		super.dexterity = 1 + l;
 		super.speed = 15 + l;
+		if (super.speed > 50) {
+                        super.speed = 50;
+                }
+
 	}
 
 	public void golemTemplate(String s, int l){
@@ -77,6 +84,10 @@ public class Monster extends Mob{
 		super.strength = 7 + l;
 		super.dexterity = 8 + l;
 		super.speed = 2 + l;
+		if (super.speed > 50) {
+                        super.speed = 50;
+                }
+
 	}
 
 	public void DRAGONTemplate(String s, int l){
@@ -98,7 +109,7 @@ public class Monster extends Mob{
 		super.experience = 0;
 		super.strength = 75 + l;
 		super.dexterity = 75 + l;
-		super.speed = 125;
+		super.speed = 85;
 	}
 
 	public void GATEKEEPERTemplate(String s, int l){

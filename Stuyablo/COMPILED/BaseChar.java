@@ -33,7 +33,14 @@ public class BaseChar extends Mob{
 	public void setLevel(int n){super.level = n;}
 	public void setStrength(int n){super.strength = n;}
 	public void setDexterity(int n){super.dexterity = n;}
-	public void setSpeed(int n){super.speed = n;}
+	public void setSpeed(int n){
+		if (n > 50) {
+			super.speed = 50;
+		}
+		else {
+			super.speed = n;
+		}
+	}
 	public void setMaxHealth(int n){super.maxHealth = n;}
 	public void setName(String s){super.name = s;}
 	public void setType(String s){super.type = s;}

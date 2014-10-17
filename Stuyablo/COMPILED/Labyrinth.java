@@ -32,22 +32,28 @@ public class Labyrinth extends World{
 		return m;
 	}
 
+	public int potionRoom(){
+		Random room = new Random();
+		int upgrade = room.nextInt(100);
+		return upgrade;
+	}
+
 	public void action(){
 //		try{
 //	                Thread.sleep(650);
 //		} catch(Exception e) {}
                 System.out.print("\033\143");
-		if (getStage() == 100){
+		if (getStage() == 99){
 			Monster drag = new Monster();
 			drag.DRAGONTemplate("Ebonmaw" , 1);
 			Battle boss1 = new Battle(player , drag);
 		}
-		else if (getStage() == 150){
+		else if (getStage() == 149){
 			Monster pred = new Monster();
 			pred.PREDATORTemplate("Rangor" , 1);
 			Battle boss2 = new Battle(player , pred);
 		}
-		else if (getStage() == 200){
+		else if (getStage() == 199){
 			Monster gate = new Monster();
 			gate.GATEKEEPERTemplate("Zim 'Ann Skior" , 1);
 			Battle boss3 = new Battle(player , gate);
@@ -55,6 +61,41 @@ public class Labyrinth extends World{
 		else if (isMonster()){
                 	Battle b = new Battle(player , getMonster());
                 }
+		else if (potionRoom() < 15){
+			int upgrade = potionRoom() % 4;
+			Random amount = new Random();
+			int x = 0;
+			switch (upgrade) {
+				case 0:
+					System.out.println("You have found a Potion of Vitality!");
+					x = amount.nextInt(25) + 10;
+					System.out.println("You have gained " + x + " health!");
+					player.setMaxHealth(player.maxHealth() + x);
+					player.setHealth(player.maxHealth());
+					break;
+				case 1:
+					System.out.println("You have found a Potion of Vorocity!");
+					x = amount.nextInt(5) + 5;
+					System.out.println("You have gained " + x + " strength!");
+					player.setStrength(player.strength() + x);
+					break;
+				case 2:
+					System.out.println("You have found a Potion of Will!");
+					x = amount.nextInt(10) + 3;
+					System.out.println("You have gained " + x + " dexterity!");
+					player.setDexterity(player.dexterity() + x);
+					break;
+				case 3:
+					System.out.println("You have found a Potion of Alacrity!");
+					x = amount.nextInt(3) + 3;
+					System.out.println("You have gained " + x + " speed!");
+					player.setSpeed(player.speed() + x);
+					break;
+				default:
+					System.out.println("You have found a glorious empty bottle.");
+					break;
+			}
+		}
 	}
 
         public int getStage() {

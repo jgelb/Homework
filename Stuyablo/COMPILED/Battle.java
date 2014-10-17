@@ -151,6 +151,7 @@ public class Battle extends World{
 					else if (attacker.type.equals("ARCHER")){
 						if (chance > defender.speed) {
                                                 	int damageTaken = (int)(Math.random() * 100000) % (attacker.speed * 3) - (defender.dexterity / 5);
+							damageTaken = Math.abs(damageTaken);
 							defender.setHealth(defender.health - damageTaken);
 							System.out.println("#~~~~~~~~=~~~~~~~~> Enchanted arrow!");
                                                 	System.out.println(defender.name + " lost " + damageTaken + " health.");
@@ -165,7 +166,8 @@ public class Battle extends World{
 					else if (attacker.type.equals("DWARF")){
 						if (chance > defender.speed) {
                                                 	int damageTaken = (int)(Math.random() * 100000) % (int)(attacker.health / 3 + attacker.dexterity) - (defender.dexterity / 5);
-                                                	defender.setHealth(defender.health - damageTaken);
+                                                	damageTaken = Math.abs(damageTaken);
+							defender.setHealth(defender.health - damageTaken);
 							System.out.println(" -----) Wrath of the Pickaxe!");
                                                 	System.out.println(defender.name + " lost " + damageTaken + " health.");
 							System.out.println("Special move penalty: Drunken rage hangover!");
