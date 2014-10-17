@@ -39,6 +39,7 @@ public class Battle extends World{
                 try{
                         Thread.sleep(1750);
                 } catch(Exception e) {}
+		System.out.print("\033\143");
 	}
 
 	public void endScreenBaseChar(BaseChar loser){
@@ -210,6 +211,7 @@ public class Battle extends World{
 		defender.setHealth(defender.health - damageTaken);
 		System.out.println(defender.name + " lost " + damageTaken + " health.");
 		System.out.println(defender.name + " health: " + defender.health + "/" + defender.maxHealth);
+		System.out.println("Waiting for turn end...");
 		if (defender.health <= 0) {
 			endScreenBaseChar(defender);
 		}
