@@ -37,7 +37,22 @@ public class Labyrinth extends World{
 //	                Thread.sleep(650);
 //		} catch(Exception e) {}
                 System.out.print("\033\143");
-		if (isMonster()){
+		if (getStage() == 100){
+			Monster drag = new Monster();
+			drag.DRAGONTemplate("Ebonmaw" , 1);
+			Battle boss1 = new Battle(player , drag);
+		}
+		else if (getStage() == 150){
+			Monster pred = new Monster();
+			pred.PREDATORTemplate("Rangor" , 1);
+			Battle boss2 = new Battle(player , pred);
+		}
+		else if (getStage() == 200){
+			Monster gate = new Monster();
+			gate.GATEKEEPERTemplate("Zim 'Ann Skior" , 1);
+			Battle boss3 = new Battle(player , gate);
+		}
+		else if (isMonster()){
                 	Battle b = new Battle(player , getMonster());
                 }
 	}
@@ -63,6 +78,7 @@ public class Labyrinth extends World{
 		boolean chosen;
 		chosen = false;
 		while (!chosen){
+			System.out.print(player.name() + "@stuyablo $ ");
 			Scanner sc = new Scanner(System.in);
 			String response = sc.next();
 			if (response.toUpperCase().equals("U")) {
