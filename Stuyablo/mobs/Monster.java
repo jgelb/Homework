@@ -22,6 +22,7 @@ public class Monster extends Mob{
 	public int dexterity(){return super.dexterity;}
 	public int speed(){return super.speed;}
 	public int strength(){return super.strength;}
+	public int maxHealth(){return super.maxHealth;}
 	public String name(){return super.name;}
 
 //Data Setters
@@ -31,6 +32,7 @@ public class Monster extends Mob{
 	public void setStrength(int n){super.strength = n;}
 	public void setDexterity(int n){super.dexterity = n;}
 	public void setSpeed(int n){super.speed = n;}
+	public void setMaxHealth(int n){super.maxHealth = n;}
 	public void setName(String s){super.name = s;}
 
 //Monster Templates
@@ -46,6 +48,7 @@ public class Monster extends Mob{
 
 	public void koboldTemplate(String s, int l){
 		super.health = 20 + 2 * l;
+		super.maxHealth = super.health;
 		super.name = s;
 		super.level = l;
 		super.experience = 0;
@@ -56,6 +59,7 @@ public class Monster extends Mob{
 
 	public void spiderTemplate(String s, int l){
 		super.health = 20 + 2 * l;
+		super.maxHealth = super.health;
 		super.name = s;
 		super.level = l;
 		super.experience = 0;
@@ -66,6 +70,7 @@ public class Monster extends Mob{
 
 	public void golemTemplate(String s, int l){
 		super.health = 40 + 2 * l;
+		super.maxHealth = super.health;
 		super.name = s;
 		super.level = l;
 		super.experience = 0;
@@ -76,6 +81,7 @@ public class Monster extends Mob{
 
 	public void DRAGONTemplate(String s, int l){
 		super.health = 150 + 5 * l;
+		super.maxHealth = super.health;
 		super.name = s;
 		super.level = l;
 		super.experience = 0;
@@ -86,6 +92,7 @@ public class Monster extends Mob{
 
 	public void PREDATORTemplate(String s, int l){
 		super.health = 175 + 5 * l;
+		super.maxHealth = super.health;
 		super.name = s;
 		super.level = l;
 		super.experience = 0;
@@ -96,6 +103,7 @@ public class Monster extends Mob{
 
 	public void GATEKEEPERTemplate(String s, int l){
 		super.health = 9001;
+		super.maxHealth = super.health;
 		super.name = s;
 		super.level = l;
 		super.experience = 0;

@@ -52,6 +52,7 @@ public class Labyrinth extends World{
 		print("l/L - Left");
 		print("r/R - Right");
 		print("s/S/Save/save - Save your current info");
+		print("Stat - Displays your stats");
 		boolean chosen;
 		chosen = false;
 		while (!chosen){
@@ -87,6 +88,11 @@ public class Labyrinth extends World{
 					writer.println(super.stage);
 					writer.close();
 				} catch(Exception e) {}
+			}
+			else if (response.toUpperCase().equals("STAT")){
+				System.out.println("Level:         " + player.level);
+				System.out.println("Experience:    " + player.experience);
+				player.displayStats();
 			}
 			else {
 				System.out.println("Invalid Command");
