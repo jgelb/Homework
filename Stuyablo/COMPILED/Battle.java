@@ -4,10 +4,15 @@ import java.io.*;
 public class Battle extends World{
 
 	public Battle(BaseChar ch , Monster mon){
-		System.out.flush();
 		while (ch.health() > 0 && mon.health() > 0) {
+			System.out.print("\033[2J");
+                	System.out.println(ch.name + " health: " + ch.health + "/" + ch.maxHealth);
+                	System.out.println(mon.name + " health: " + mon.health + "/" + mon.maxHealth);
 			attack1(ch , mon);
 			if (ch.health() > 0 && mon.health() > 0){
+			try{
+				Thread.sleep(1500);
+			} catch(Exception e) {}
 				attack2(mon , ch);
 			}
 		}
