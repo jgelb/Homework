@@ -53,6 +53,7 @@ public class Labyrinth extends World{
 		print("r/R - Right");
 		print("s/S/Save/save - Save your current info");
 		print("Stat - Displays your stats");
+		print("quit - Quits the game without saving");
 		boolean chosen;
 		chosen = false;
 		while (!chosen){
@@ -93,6 +94,10 @@ public class Labyrinth extends World{
 				System.out.println("Level:         " + player.level);
 				System.out.println("Experience:    " + player.experience);
 				player.displayStats();
+			}
+			else if (response.toUpperCase().equals("QUIT")){
+				System.out.println("Exiting... ");
+				System.exit(0);
 			}
 			else {
 				System.out.println("Invalid Command");
