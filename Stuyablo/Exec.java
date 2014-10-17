@@ -92,8 +92,25 @@ public class Exec{
 	public static void main(String[] args){
 		File f = new File("stuyablosave.txt");
 		if (f.exists()){
-			System.out.println("Save file detected. Loading save...");
-			loadGame();
+			boolean checkResp = false;
+			Scanner check = new Scanner(System.in);
+			while (!checkResp){
+				System.out.println("You seem to have a save file. Load the save? (Y/N)");
+				String resp = check.next();
+				if (resp.toUpperCase().equals("Y") || resp.toUpperCase().equals("YES")){
+					System.out.println("Save file detected. Loading save...");
+					checkResp = true;
+					loadGame();
+				}
+				else if (resp.toUpperCase().equals("N") || resp.toUpperCase().equals("NO")){
+					System.out.println("Starting new game...");
+					checkResp = true;
+					newGame();
+				}
+				else{
+					System.out.println("Invalid response. Valid responses: Y , Yes , N , No");
+				}
+			}
 		}
 		else {
 			newGame();
