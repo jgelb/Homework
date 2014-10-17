@@ -5,6 +5,7 @@ public class Battle extends World{
 
 	public Battle(BaseChar ch , Monster mon){
 		System.out.flush();
+		System.out.println(defender.name + " health: " + defender.health + "/" + defender.maxHealth);
 		while (ch.health() > 0 && mon.health() > 0) {
 			attack1(ch , mon);
 			if (ch.health() > 0 && mon.health() > 0){
