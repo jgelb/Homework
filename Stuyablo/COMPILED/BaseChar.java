@@ -96,6 +96,7 @@ public class BaseChar extends Mob{
 	public void displayStats(){
 		System.out.println("Class:         " + super.type);
 		System.out.println("Health:        " + super.health);
+		System.out.println("Strength:      " + super.strength);
 		System.out.println("Dexterity:     " + super.dexterity);
 		System.out.println("Speed:         " + super.speed);
 		System.out.println("=====================================");

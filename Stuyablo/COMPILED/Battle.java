@@ -4,6 +4,7 @@ import java.io.*;
 public class Battle extends World{
 
 	public Battle(BaseChar ch , Monster mon){
+		System.out.flush();
 		while (ch.health() > 0 && mon.health() > 0) {
 			attack1(ch , mon);
 			if (ch.health() > 0 && mon.health() > 0){
@@ -65,6 +66,7 @@ public class Battle extends World{
 
 
 	public void attack1(BaseChar attacker , Monster defender){
+		System.out.flush();
 		System.out.println("You have engaged in battle against a " + defender.name);
 		System.out.println("1 - Basic Attack: Base Damage");
 		System.out.println("2 - Hail Mary: Slight chance to do double damage, but will miss otherwise");
@@ -135,7 +137,7 @@ public class Battle extends World{
 					}
 					else if (attacker.type.equals("ARCHER")){
 						if (chance > defender.speed) {
-                                                	int damageTaken = (int)(Math.random() * 100000) % (attacker.speed * 3) - (defender.dexterity / 5);                                                	
+                                                	int damageTaken = (int)(Math.random() * 100000) % (attacker.speed * 3) - (defender.dexterity / 5);
 							defender.setHealth(defender.health - damageTaken);
 							System.out.println("#~~~~~~~~=~~~~~~~~> Enchanted arrow!");
                                                 	System.out.println(defender.name + " lost " + damageTaken + " health.");
