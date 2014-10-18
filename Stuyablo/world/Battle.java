@@ -49,7 +49,8 @@ public class Battle extends World{
 		System.out.println(loser.experience + "Exp");
 		boolean checkResp = false;
 		while (!checkResp){
-			System.out.print("Do you wish to be reborn anew?");
+			System.out.println("Do you wish to be reborn anew? (Y/N)");
+			System.out.print(loser.name + "@Stuyablo $ ");
 			Scanner sc = new Scanner(System.in);
 			String response = sc.next();
 			if (response.toUpperCase().equals("Y") || response.toUpperCase().equals("YES")){

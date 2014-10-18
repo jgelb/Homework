@@ -3,12 +3,6 @@ import java.io.*;
 
 public class Exec{
 
-        public void pauseSleep(int n){
-                try{
-                        Thread.sleep(n);
-                } catch(Exception e){}
-        }
-
 	public static void newGame(){
 		BaseChar Harry = new BaseChar();
 		Scanner sc = new Scanner(System.in);
@@ -77,15 +71,15 @@ public class Exec{
 //			chosen = null;
                         newGame();
                 }
-                else if(gameRes.getStage() >= 200){
+                else if(game.getStage() >= 200){
                         System.out.println("You walk out the portal created by Zim 'Ann Skior's body...");
-                        pauseSleep(2000);
+                        game.pauseSleep(2000);
                         System.out.println("You take a deep breath...");
-                        pauseSleep(2000);
+                        game.pauseSleep(2000);
                         System.out.print("...");
-                        pauseSleep(2000);
+                        game.pauseSleep(2000);
                         System.out.println("... No...");
-                        pauseSleep(2100);
+                        game.pauseSleep(2100);
                         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                         System.out.println("Thanks for playing Stuyablo!");
                         System.out.println("Credits:");
