@@ -1,5 +1,10 @@
 #!/bin/bash
 
+echo "Running updater from git..."
+git pull
+
+echo "Update complete."
+
 echo "Loading code..."
 
 mkdir COMPILED
