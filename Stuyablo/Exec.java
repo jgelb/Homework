@@ -60,9 +60,33 @@ public class Exec{
 		System.out.println("You wake up in a dungeon. You look around and are confused. How do I get out?");
 		Labyrinth game = new Labyrinth(Harry);
 		game.setStage(1);
-		while (game.getStage() < 200) {
+		while (game.getStage() < 200 && Harry.health() > 0) {
 			game.move();
 		}
+                if (Harry.health() <= 0){
+			Harry = null;
+			game = null;
+			sc = null;
+			chosen = null;
+                        newGame();
+                }
+                else if(gameRes.getStage() >= 200){
+                        System.out.println("You walk out the portal created by Zim 'Ann Skior's body...");
+                        gameRes.pauseSleep(2000);
+                        System.out.println("You take a deep breath...");
+                        gameRes.pauseSleep(2000);
+                        System.out.print("...");
+                        gameRes.pauseSleep(2000);
+                        System.out.println("... No...");
+                        gameRes.pauseSleep(2100);
+                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("Thanks for playing Stuyablo!");
+                        System.out.println("Credits:");
+                        System.out.println("Everything: Ethan Cheng");
+                        System.out.println("Game exitting...");
+                        System.exit(0);
+                }
+
 	}
 
 	public static void loadGame(){
@@ -83,9 +107,28 @@ public class Exec{
 			gameRes.setStage((Integer) save.readObject());
 			load.setType((String) save.readObject());
 			save.close();
-			while (gameRes.getStage() < 200) {
+			while (gameRes.getStage() < 200 && load.health() > 0) {
                         	gameRes.move();
                 	}
+			if (load.health() <= 0){
+				newGame();
+			}
+			else if(gameRes.getStage() >= 200){
+				System.out.println("You walk out the portal created by Zim 'Ann Skior's body...");
+				gameRes.pauseSleep(2000);
+				System.out.println("You take a deep breath...");
+				gameRes.pauseSleep(2000);
+				System.out.print("...");
+				gameRes.pauseSleep(2000);
+				System.out.println("... No...");
+				gameRes.pauseSleep(2100);
+				System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+				System.out.println("Thanks for playing Stuyablo!");
+				System.out.println("Credits:");
+				System.out.println("Everything: Ethan Cheng");
+				System.out.println("Game exitting...");
+				System.exit(0);
+			}
 		} catch(Exception e) {e.printStackTrace();}
 	}
 

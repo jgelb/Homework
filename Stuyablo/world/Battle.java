@@ -59,6 +59,7 @@ public class Battle extends World{
 			else if (response.toUpperCase().equals("N") || response.toUpperCase().equals("NO")){
 				//Exit cleanly
 				checkResp = true;
+				System.exit(0);
 			}
 			else {
 				System.out.println("Make a choice! Yes/No, Y/N");
