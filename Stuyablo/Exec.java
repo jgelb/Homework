@@ -2,6 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class Exec{
+
 	public static void newGame(){
 		BaseChar Harry = new BaseChar();
 		Scanner sc = new Scanner(System.in);
@@ -67,18 +68,18 @@ public class Exec{
 			Harry = null;
 			game = null;
 			sc = null;
-			chosen = null;
+//			chosen = null;
                         newGame();
                 }
-                else if(gameRes.getStage() >= 200){
+                else if(game.getStage() >= 200){
                         System.out.println("You walk out the portal created by Zim 'Ann Skior's body...");
-                        gameRes.pauseSleep(2000);
+                        game.pauseSleep(2000);
                         System.out.println("You take a deep breath...");
-                        gameRes.pauseSleep(2000);
+                        game.pauseSleep(2000);
                         System.out.print("...");
-                        gameRes.pauseSleep(2000);
+                        game.pauseSleep(2000);
                         System.out.println("... No...");
-                        gameRes.pauseSleep(2100);
+                        game.pauseSleep(2100);
                         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                         System.out.println("Thanks for playing Stuyablo!");
                         System.out.println("Credits:");

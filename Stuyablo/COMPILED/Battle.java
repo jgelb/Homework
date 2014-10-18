@@ -55,10 +55,12 @@ public class Battle extends World{
 			if (response.toUpperCase().equals("Y") || response.toUpperCase().equals("YES")){
 				//RESTART THE GAME HERE
 				checkResp = true;
+				//Restart mechanism handled by Exec.java
 			}
 			else if (response.toUpperCase().equals("N") || response.toUpperCase().equals("NO")){
 				//Exit cleanly
 				checkResp = true;
+				System.exit(0);
 			}
 			else {
 				System.out.println("Make a choice! Yes/No, Y/N");
