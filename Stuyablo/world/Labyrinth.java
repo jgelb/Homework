@@ -38,6 +38,12 @@ public class Labyrinth extends World{
 		return upgrade;
 	}
 
+	public void pauseSleep(int n){
+		try{
+			Thread.sleep(n);
+		} catch(Exception e){}
+	}
+
 	public void action(){
 //		try{
 //	                Thread.sleep(650);
@@ -45,17 +51,45 @@ public class Labyrinth extends World{
                 System.out.print("\033\143");
 		if (getStage() == 99){
 			Monster drag = new Monster();
-			drag.DRAGONTemplate("Ebonmaw" , 1);
+			drag.DRAGONTemplate("Ebonmaw, the Wicked Dragon" , 1);
+			System.out.print("You enter a room...");
+			pauseSleep(900);
+			System.out.println(" It seems to be empty...");
+			pauseSleep(900);
+			System.out.println("~ I am Ebonmaw... ~");
+			pauseSleep(900);
+			System.out.println("THE DRAGON LORD!");
+			pauseSleep(500);
+			System.out.println("Ebonmaw, the Wicked Dragon crashed down from the ceiling!");
 			Battle boss1 = new Battle(player , drag);
 		}
 		else if (getStage() == 149){
 			Monster pred = new Monster();
-			pred.PREDATORTemplate("Rangor" , 1);
+			pred.PREDATORTemplate("Rangor, the Esteemed Hunter" , 1);
+			System.out.println("*shuffle swish shuffle swoosh*");
+			pauseSleep(400);
+			System.out.println("... What was that?");
+			pauseSleep(1000);
+			System.out.println("*swoosh!*");
+			System.out.println("...!");
+			pauseSleep(400);
+			System.out.println("A knife barely misses your head!");
+			pauseSleep(500);
+			System.out.println("I am Rangor... You are my prey...");
+			pauseSleep(1000);
 			Battle boss2 = new Battle(player , pred);
 		}
 		else if (getStage() == 199){
 			Monster gate = new Monster();
-			gate.GATEKEEPERTemplate("Zim 'Ann Skior" , 1);
+			gate.GATEKEEPERTemplate("Zim 'Ann Skior, the Dungeon Master" , 1);
+			System.out.println("You dare try to escape MY dungeon?");
+			pauseSleep(750);
+			System.out.println("Foolish mortal...");
+			pauseSleep(500);
+			System.out.println("*A beam of light appears!*");
+			pauseSleep(750);
+			System.out.println("You will never escape...");
+			pauseSleep(600);
 			Battle boss3 = new Battle(player , gate);
 		}
 		else if (isMonster()){
