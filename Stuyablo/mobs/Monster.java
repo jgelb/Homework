@@ -91,25 +91,25 @@ public class Monster extends Mob{
 	}
 
 	public void DRAGONTemplate(String s, int l){
-		super.health = 150 + 5 * l;
+		super.health = 120 + 5 * l;
 		super.maxHealth = super.health;
 		super.name = s;
 		super.level = l;
 		super.experience = 0;
-		super.strength = 50 + l;
-		super.dexterity = 50 + l;
-		super.speed = 50;
+		super.strength = 28 + l;
+		super.dexterity = 10 + l;
+		super.speed = 20;
 	}
 
 	public void PREDATORTemplate(String s, int l){
-		super.health = 175 + 5 * l;
+		super.health = 100 + 5 * l;
 		super.maxHealth = super.health;
 		super.name = s;
 		super.level = l;
 		super.experience = 0;
 		super.strength = 75 + l;
-		super.dexterity = 75 + l;
-		super.speed = 85;
+		super.dexterity = 5 + l;
+		super.speed = 45;
 	}
 
 	public void GATEKEEPERTemplate(String s, int l){

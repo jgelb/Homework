@@ -62,6 +62,40 @@ public class Labyrinth extends World{
 			pauseSleep(500);
 			System.out.println("Ebonmaw, the Wicked Dragon crashed down from the ceiling!");
 			Battle boss1 = new Battle(player , drag);
+			if (drag.health() <= 0) {
+				System.out.println("You have vanquished the Wicked Dragon!");
+				pauseSleep(1300);
+				System.out.println("... You look around his fallen body and see his scales lying around... ");
+				pauseSleep(1500);
+				Scanner dragChoice = new Scanner(System.in);
+				System.out.println("What do you make? A sword? A shield? Armor?");
+				System.out.println("~A helpful sparrow says~ : Enter sword, shield, or armor!");
+				System.out.println("Sword grants strength! Shield grants dexterity! Armor grants health!");
+				System.out.println("~The helpful sparrow flies away~");
+				boolean chosen = false;
+				while (!chosen){
+					String resp = dragChoice.next();
+					if (resp.toUpperCase().equals("SWORD")){
+						player.setStrength(player.strength() + 10);
+						System.out.println("You have gained 10 strength!");
+						chosen = true;
+					}
+					else if (resp.toUpperCase().equals("SHIELD")){
+						player.setDexterity(player.dexterity() + 10);
+						System.out.println("You have gained 10 dexterity!");
+						chosen = true;
+					}
+					else if (resp.toUpperCase().equals("ARMOR")){
+						player.setMaxHealth(player.maxHealth() + 10);
+						player.setHealth(player.maxHealth());
+						System.out.println("You have gained 10 health!");
+						chosen = true;
+					}
+					else {
+						System.out.println("Invalid choice! sword/shield/armor");
+					}
+				}
+			}
 		}
 		else if (getStage() == 149){
 			Monster pred = new Monster();
@@ -78,6 +112,18 @@ public class Labyrinth extends World{
 			System.out.println("I am Rangor... You are my prey...");
 			pauseSleep(1000);
 			Battle boss2 = new Battle(player , pred);
+			System.out.println("You have vanquished Rangor, the Esteemed Hunter...");
+			pauseSleep(1000);
+			System.out.print("...");
+			pauseSleep(1500);
+			System.out.println("The head of Rangor begins to glow...");
+			pauseSleep(1000);
+			System.out.println("He bestows you with the gift of Ferocity:");
+			System.out.println("+ 10 Strength");
+			System.out.println("+ 10 Speed");
+			player.setStrength(player.strength() + 10);
+			player.setSpeed(player.speed() + 10);
+			pauseSleep(1300);
 		}
 		else if (getStage() == 199){
 			Monster gate = new Monster();
