@@ -224,6 +224,7 @@ public class Battle extends World{
 	public void attack2(Monster attacker, BaseChar defender){
 		System.out.println(attacker.name + " is attacking " + defender.name);
 		int damageTaken = (int)(Math.random() * 10000) % attacker.strength - (defender.dexterity / 5);
+		damageTaken = Math.abs(damageTaken);
 		defender.setHealth(defender.health - damageTaken);
 		System.out.println(defender.name + " lost " + damageTaken + " health.");
 		System.out.println(defender.name + " health: " + defender.health + "/" + defender.maxHealth);
