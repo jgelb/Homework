@@ -3,7 +3,7 @@ import java.io.*;
 
 public class Exec{
 
-	public void titleScreen(){
+	public static void titleScreen(){
 		System.out.println("                                                                              ");
 		System.out.println(" @@@@@@   @@@@@@@  @@@  @@@  @@@ @@@   @@@@@@   @@@@@@@   @@@        @@@@@@   ");
 		System.out.println("@@@@@@@   @@@@@@@  @@@  @@@  @@@ @@@  @@@@@@@@  @@@@@@@@  @@@       @@@@@@@@  ");
