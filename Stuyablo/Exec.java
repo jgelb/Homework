@@ -4,14 +4,17 @@ import java.io.*;
 public class Exec{
 
 	public void titleScreen(){
-		System.out.println(" _______ _________                   _______  ______   _        _______ ");
-		System.out.println("(  ____ \\\\__   __\/|\\     \/||\\     \/|(  ___  )(  ___ \\ ( \\      (  ___  )");
-		System.out.println("| (    \\\/   ) (   | )   ( |( \\   \/ )| (   ) || (   ) )| (      | (   ) |");
-		System.out.println("| (_____    | |   | |   | | \\ (_) \/ | (___) || (__\/ \/ | |      | |   | |");
-		System.out.println("(_____  )   | |   | |   | |  \\   \/  |  ___  ||  __ (  | |      | |   | |");
-		System.out.println("      ) |   | |   | |   | |   ) (   | (   ) || (  \\ \\ | |      | |   | |");
-		System.out.println("\/\\____) |   | |   | (___) |   | |   | )   ( || )___) )| (____\/\\| (___) |");
-		System.out.println("\\_______)   )_(   (_______)   \\_\/   |\/     \\||\/ \\___\/ (_______\/(_______)");
+		System.out.println("                                                                              ");
+		System.out.println(" @@@@@@   @@@@@@@  @@@  @@@  @@@ @@@   @@@@@@   @@@@@@@   @@@        @@@@@@   ");
+		System.out.println("@@@@@@@   @@@@@@@  @@@  @@@  @@@ @@@  @@@@@@@@  @@@@@@@@  @@@       @@@@@@@@  ");
+		System.out.println("!@@         @@!    @@!  @@@  @@! !@@  @@!  @@@  @@!  @@@  @@!       @@!  @@@  ");
+		System.out.println("!@!         !@!    !@!  @!@  !@! @!!  !@!  @!@  !@   @!@  !@!       !@!  @!@  ");
+		System.out.println("!!@@!!      @!!    @!@  !@!   !@!@!   @!@!@!@!  @!@!@!@   @!!       @!@  !@!  ");
+		System.out.println(" !!@!!!     !!!    !@!  !!!    @!!!   !!!@!!!!  !!!@!!!!  !!!       !@!  !!!  ");
+		System.out.println("     !:!    !!:    !!:  !!!    !!:    !!:  !!!  !!:  !!!  !!:       !!:  !!!  ");
+		System.out.println("    !:!     :!:    :!:  !:!    :!:    :!:  !:!  :!:  !:!  :!:       :!:  !:!  ");
+		System.out.println(":::::::      ::    ::::: ::     ::    ::   :::  ::: ::::  :: ::::   ::::::::  ");
+		System.out.println("::::::       :      : :  :      :     ::   : :  :::::::   : :: ::    ::::::   ");
 		System.out.println("");
 		System.out.println("                    Tale of the Land of R' Meot");
 		//Easter egg! R 'Meot = Rm EOT = Rm 307
