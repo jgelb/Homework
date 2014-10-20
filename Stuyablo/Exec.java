@@ -25,6 +25,7 @@ public class Exec{
 	public static void newGame(){
 		BaseChar Harry = new BaseChar();
 		Scanner sc = new Scanner(System.in);
+		System.out.println("Choose the number that corresponds to the class. (0-3)");
 		for (int i=0; i<4; i++){
 			System.out.println(i + " - ");
 			switch (i) {
