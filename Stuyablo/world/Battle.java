@@ -89,7 +89,7 @@ public class Battle extends World{
 	public void attack1(BaseChar attacker , Monster defender){
 		System.out.flush();
 		System.out.println("You have engaged in battle against " + defender.name);
-		System.out.println("1 - Basic Attack: Base Damage");
+		System.out.println("1 - Basic Attack: Base Damage, Slight chance to heal on hit.");
 		System.out.println("2 - Hail Mary: Slight chance to do double damage, but will miss otherwise");
 		System.out.println("3 - Class Special: Use your class's signature move!");
 		System.out.println("4 - Run: Try to escape the battle, but you will lose exp if you succeed and will get damaged heavily if you fail.");
@@ -106,10 +106,15 @@ public class Battle extends World{
                         switch (response) {
 				case 1:
 					if (chance > defender.speed) {
-						int damageTaken = (int)(Math.random() * 100000) % attacker.strength - (defender.dexterity / 5);
-						damageTaken = Math.abs(damageTaken) + attacker.level();
+						int damageTaken = (int)(Math.random() * 100000) % (attacker.strength - attacker.level()) - (defender.dexterity / 5);
+						damageTaken = Math.abs(damageTaken) + 2 * attacker.level();
 						defender.setHealth(defender.health - damageTaken);
 						System.out.println(defender.name + " lost " + damageTaken + " health.");
+						if ((int)(Math.random() * 100) < 30){
+							attacker.setHealth(attacker.health() + (int)(damageTaken / 2));
+							damageTaken = (int)(damageTaken / 2);
+							System.out.println("You gained " + damageTaken + " health from your attack!");
+						}
 					}
 					else {
 						System.out.println("Attack missed!");
@@ -131,12 +136,12 @@ public class Battle extends World{
 					if (attacker.type.equals("WARRIOR")){
 						if (chance > defender.speed) {
                                                 	int damageTaken = Math.abs((int)(Math.random() * 100000) % (attacker.level * 12) - (defender.dexterity / 5));
-							damageTaken = damageTaken + attacker.level();
+							damageTaken = damageTaken + attacker.level() * 3;
                                                 	defender.setHealth(defender.health - damageTaken);
 							System.out.println("c===(=========>   Whirlwind blade!");
                                                 	System.out.println(defender.name + " lost " + damageTaken + " health.");
 							System.out.println("Special move penalty: Take backlash damage!");
-							attacker.setHealth(attacker.health - (int)(damageTaken / 10));
+							attacker.setHealth(attacker.health - (int)(damageTaken / 6));
 							System.out.println(attacker.name + " health: " + attacker.health + "/" + attacker.maxHealth);
                                         	}
                                         	else {
@@ -146,7 +151,7 @@ public class Battle extends World{
 					else if (attacker.type.equals("MAGE")){
 						if (chance > defender.speed) {
                                                 	int damageTaken = Math.abs((int)(Math.random() * 100000) % (int)(attacker.level * 10 + attacker.strength * 0.5) - (defender.dexterity / 5));
-                                                	damageTaken = damageTaken + attacker.level();
+                                                	damageTaken = damageTaken + attacker.level() * 2 + attacker.strength();
 							defender.setHealth(defender.health - damageTaken);
 							System.out.println("o-z-z-o-z-o-o-o-z-zo-zo-o-z Lightning fire storm!");
                                                 	System.out.println(defender.name + " lost " + damageTaken + " health.");
@@ -161,12 +166,12 @@ public class Battle extends World{
 					else if (attacker.type.equals("ARCHER")){
 						if (chance > defender.speed) {
                                                 	int damageTaken = (int)(Math.random() * 100000) % (attacker.speed * 3) - (defender.dexterity / 5);
-							damageTaken = Math.abs(damageTaken) + attacker.level();
+							damageTaken = Math.abs(damageTaken) + (int)(attacker.level() * 1.5) + attacker.speed();
 							defender.setHealth(defender.health - damageTaken);
 							System.out.println("#~~~~~~~~=~~~~~~~~> Enchanted arrow!");
                                                 	System.out.println(defender.name + " lost " + damageTaken + " health.");
 							System.out.println("Special move penalty: Splicing bow string!");
-							attacker.setHealth(attacker.health - attacker.speed);
+							attacker.setHealth(attacker.health() - (int)(damageTaken / 2));
 							System.out.println(attacker.name + " health: " + attacker.health + "/" + attacker.maxHealth);
                                         	}
                                         	else {
@@ -175,14 +180,14 @@ public class Battle extends World{
 					}
 					else if (attacker.type.equals("DWARF")){
 						if (chance > defender.speed) {
-                                                	int damageTaken = (int)(Math.random() * 100000) % (int)(attacker.health / 3 + attacker.dexterity) - (defender.dexterity / 5);
-                                                	damageTaken = damageTaken + attacker.level();
+                                                	int damageTaken = (int)(Math.random() * 100000) % (int)(attacker.maxHealth() / 3 + attacker.dexterity) - (defender.dexterity / 5);
+                                                	damageTaken = damageTaken + attacker.level() + attacker.strength();
 							damageTaken = Math.abs(damageTaken);
 							defender.setHealth(defender.health - damageTaken);
 							System.out.println(" -----) Wrath of the Pickaxe!");
                                                 	System.out.println(defender.name + " lost " + damageTaken + " health.");
 							System.out.println("Special move penalty: Drunken rage hangover!");
-							attacker.setHealth(attacker.health - attacker.dexterity);
+							attacker.setHealth(attacker.health - (int)(attacker.dexterity() / 3 + damageTaken / 2));
 							System.out.println(attacker.name + " health: " + attacker.health + "/" + attacker.maxHealth);
                                         	}
                                         	else {
