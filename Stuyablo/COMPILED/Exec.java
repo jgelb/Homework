@@ -3,6 +3,25 @@ import java.io.*;
 
 public class Exec{
 
+	public static void titleScreen(){
+		System.out.println("                                                                              ");
+		System.out.println(" @@@@@@   @@@@@@@  @@@  @@@  @@@ @@@   @@@@@@   @@@@@@@   @@@        @@@@@@   ");
+		System.out.println("@@@@@@@   @@@@@@@  @@@  @@@  @@@ @@@  @@@@@@@@  @@@@@@@@  @@@       @@@@@@@@  ");
+		System.out.println("!@@         @@!    @@!  @@@  @@! !@@  @@!  @@@  @@!  @@@  @@!       @@!  @@@  ");
+		System.out.println("!@!         !@!    !@!  @!@  !@! @!!  !@!  @!@  !@   @!@  !@!       !@!  @!@  ");
+		System.out.println("!!@@!!      @!!    @!@  !@!   !@!@!   @!@!@!@!  @!@!@!@   @!!       @!@  !@!  ");
+		System.out.println(" !!@!!!     !!!    !@!  !!!    @!!!   !!!@!!!!  !!!@!!!!  !!!       !@!  !!!  ");
+		System.out.println("     !:!    !!:    !!:  !!!    !!:    !!:  !!!  !!:  !!!  !!:       !!:  !!!  ");
+		System.out.println("    !:!     :!:    :!:  !:!    :!:    :!:  !:!  :!:  !:!  :!:       :!:  !:!  ");
+		System.out.println(":::::::      ::    ::::: ::     ::    ::   :::  ::: ::::  :: ::::   ::::::::  ");
+		System.out.println("::::::       :      : :  :      :     ::   : :  :::::::   : :: ::    ::::::   ");
+		System.out.println("");
+		System.out.println("                    Tale of the Land of R' Meot");
+		//Easter egg! R 'Meot = Rm EOT = Rm 307
+		System.out.println("");
+		System.out.println("OpenSource Software, Created by Ethan Cheng");
+	}
+
 	public static void newGame(){
 		BaseChar Harry = new BaseChar();
 		Scanner sc = new Scanner(System.in);
@@ -134,6 +153,7 @@ public class Exec{
 	}
 
 	public static void main(String[] args){
+		titleScreen();
 		File f = new File("stuyablosave.txt");
 		if (f.exists()){
 			boolean checkResp = false;

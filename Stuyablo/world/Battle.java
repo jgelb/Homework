@@ -105,7 +105,7 @@ public class Battle extends World{
 	                int chance = n.nextInt(100);
                         switch (response) {
 				case 1:
-					if (chance > defender.speed / 2.5) {
+					if (chance > defender.speed() - 5) {
 						int damageTaken = (int)(Math.random() * 100000) % (attacker.strength - attacker.level()) - (defender.dexterity / 5);
 						damageTaken = Math.abs(damageTaken) + 2 * attacker.level();
 						defender.setHealth(defender.health - damageTaken);
@@ -134,7 +134,7 @@ public class Battle extends World{
 					break;
 				case 3:
 					if (attacker.type.equals("WARRIOR")){
-						if (chance > defender.speed() / 2) {
+						if (chance > defender.speed()) {
                                                 	int damageTaken = Math.abs((int)(Math.random() * 100000) % (attacker.level * 12) - (defender.dexterity / 5));
 							damageTaken = damageTaken + attacker.level() * 3;
                                                 	defender.setHealth(defender.health - damageTaken);
@@ -149,7 +149,7 @@ public class Battle extends World{
                                         	}
 					}
 					else if (attacker.type.equals("MAGE")){
-						if (chance > defender.speed() / 2) {
+						if (chance > defender.speed()) {
                                                 	int damageTaken = Math.abs((int)(Math.random() * 100000) % (int)(attacker.level * 10 + attacker.strength * 0.5) - (defender.dexterity / 5));
                                                 	damageTaken = damageTaken + attacker.level() * 2 + attacker.strength();
 							defender.setHealth(defender.health - damageTaken);
@@ -164,7 +164,7 @@ public class Battle extends World{
                                         	}
 					}
 					else if (attacker.type.equals("ARCHER")){
-						if (chance > defender.speed() / 2) {
+						if (chance > defender.speed()) {
                                                 	int damageTaken = (int)(Math.random() * 100000) % (attacker.speed * 3) - (defender.dexterity / 5);
 							damageTaken = Math.abs(damageTaken) + (int)(attacker.level() * 1.5) + attacker.speed();
 							defender.setHealth(defender.health - damageTaken);
@@ -179,7 +179,7 @@ public class Battle extends World{
                                         	}
 					}
 					else if (attacker.type.equals("DWARF")){
-						if (chance > defender.speed() / 2) {
+						if (chance > defender.speed()) {
                                                 	int damageTaken = (int)(Math.random() * 100000) % (int)(attacker.maxHealth() / 3 + attacker.dexterity) - (defender.dexterity / 5);
                                                 	damageTaken = damageTaken + attacker.level() + attacker.strength();
 							damageTaken = Math.abs(damageTaken);
