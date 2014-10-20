@@ -52,27 +52,29 @@ public class Exec{
 		System.out.println("Choose your class!");
 		boolean chosen = false;
 		while (!chosen){
-			switch ((int)sc.nextInt()) {
-				case 0:
-					Harry.warriorTemplate("Harry");
-					chosen = true;
-					break;
-				case 1:
-					Harry.mageTemplate("Harry");
-					chosen = true;
-					break;
-				case 2:
-					Harry.archerTemplate("Harry");
-					chosen = true;
-					break;
-				case 3:
-					Harry.dwarfTemplate("Harry");
-					chosen = true;
-					break;
-				default:
-					System.out.println("Invalid choice. Please choose again.");
-					break;
-			}
+			try {
+				switch ((int)sc.nextInt()) {
+					case 0:
+						Harry.warriorTemplate("Harry");
+						chosen = true;
+						break;
+					case 1:
+						Harry.mageTemplate("Harry");
+						chosen = true;
+						break;
+					case 2:
+						Harry.archerTemplate("Harry");
+						chosen = true;
+						break;
+					case 3:
+						Harry.dwarfTemplate("Harry");
+						chosen = true;
+						break;
+					default:
+						System.out.println("Invalid choice. Please choose again.");
+						break;
+				}
+			} catch(Exception e){System.out.println("Choose a number between 0 and 3 that corresponds to the class.");}
 		}
 		System.out.print("Name your character: ");
 		Harry.setName(sc.next());
