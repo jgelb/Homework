@@ -229,10 +229,10 @@ public class Battle extends World{
 	public void attack2(Monster attacker, BaseChar defender){
 		Random n = new Random();
                 int chance = n.nextInt(100);
-                if (chance > defender.speed / 2.5) {
+                if (chance > defender.speed - 30) {
 			System.out.println(attacker.name + " is attacking " + defender.name);
 			int damageTaken = (int)(Math.random() * 10000) % attacker.strength - (defender.dexterity / 5);
-			damageTaken = Math.abs(damageTaken);
+			damageTaken = Math.abs(damageTaken) + super.stage();
 			defender.setHealth(defender.health - damageTaken);
 			System.out.println(defender.name + " lost " + damageTaken + " health.");
 			System.out.println(defender.name + " health: " + defender.health + "/" + defender.maxHealth);

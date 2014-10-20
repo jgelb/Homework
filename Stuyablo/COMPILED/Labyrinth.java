@@ -29,6 +29,8 @@ public class Labyrinth extends World{
 		else if (chance < 100 && chance >= 67) {
 			m.golemTemplate("Golem" , lev);
 		}
+		m.setMaxHealth(m.maxHealth() + super.stage);
+		m.setHealth(m.maxHealth());
 		return m;
 	}
 
