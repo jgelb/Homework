@@ -52,8 +52,9 @@ public class Exec{
 		System.out.println("Choose your class!");
 		boolean chosen = false;
 		while (!chosen){
+			int choice = (int)sc.nextInt();
 			try {
-				switch ((int)sc.nextInt()) {
+				switch (choice) {
 					case 0:
 						Harry.warriorTemplate("Harry");
 						chosen = true;
@@ -74,7 +75,13 @@ public class Exec{
 						System.out.println("Invalid choice. Please choose again.");
 						break;
 				}
-			} catch(Exception e){System.out.println("Choose a number between 0 and 3 that corresponds to the class."); break;}
+			} catch(Exception e){
+				Harry.warriorTemplate("Harry");
+				chosen = true;
+				System.out.println("Invalid choice. Choose an integer between 0 and 3.");
+				System.out.println("Warrior Template chosen as default.");
+				System.out.println("If you don't want to be a warrior, quit the game and create a new character.");
+			}
 		}
 		System.out.print("Name your character: ");
 		Harry.setName(sc.next());
