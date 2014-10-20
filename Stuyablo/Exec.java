@@ -74,7 +74,7 @@ public class Exec{
 						System.out.println("Invalid choice. Please choose again.");
 						break;
 				}
-			} catch(Exception e){System.out.println("Choose a number between 0 and 3 that corresponds to the class.");}
+			} catch(Exception e){System.out.println("Choose a number between 0 and 3 that corresponds to the class."); break;}
 		}
 		System.out.print("Name your character: ");
 		Harry.setName(sc.next());
