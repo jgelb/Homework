@@ -16,7 +16,7 @@ public class Exec{
 		System.out.println(":::::::      ::    ::::: ::     ::    ::   :::  ::: ::::  :: ::::   ::::::::  ");
 		System.out.println("::::::       :      : :  :      :     ::   : :  :::::::   : :: ::    ::::::   ");
 		System.out.println("");
-		System.out.println("                    Tale of the Land of R' Meot");
+		System.out.println("                       Tale of the Land of R' Meot");
 		//Easter egg! R 'Meot = Rm EOT = Rm 307
 		System.out.println("");
 		System.out.println("OpenSource Software, Created by Ethan Cheng");
