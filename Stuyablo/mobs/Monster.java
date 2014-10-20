@@ -47,13 +47,13 @@ public class Monster extends Mob{
 */
 
 	public void koboldTemplate(String s, int l){
-		super.health = 20 + 2 * l;
+		super.health = 20 + 3 * l;
 		super.maxHealth = super.health;
 		super.name = s;
 		super.level = l;
 		super.experience = 0;
-		super.strength = 5 + l;
-		super.dexterity = 5 + l;
+		super.strength = 5 + 2 * l;
+		super.dexterity = 5 + 2 * l;
 		super.speed = 15 + l;
 		if (super.speed > 50) {
 			super.speed = 50;
@@ -61,14 +61,14 @@ public class Monster extends Mob{
 	}
 
 	public void spiderTemplate(String s, int l){
-		super.health = 20 + 2 * l;
+		super.health = 20 + 3 * l;
 		super.maxHealth = super.health;
 		super.name = s;
 		super.level = l;
 		super.experience = 0;
-		super.strength = 5 + l;
-		super.dexterity = 1 + l;
-		super.speed = 15 + l;
+		super.strength = 5 + 2 * l;
+		super.dexterity = 1 + 2 * l;
+		super.speed = 15 + 2 * l;
 		if (super.speed > 50) {
                         super.speed = 50;
                 }
@@ -76,13 +76,13 @@ public class Monster extends Mob{
 	}
 
 	public void golemTemplate(String s, int l){
-		super.health = 40 + 2 * l;
+		super.health = 40 + 3 * l;
 		super.maxHealth = super.health;
 		super.name = s;
 		super.level = l;
 		super.experience = 0;
-		super.strength = 7 + l;
-		super.dexterity = 8 + l;
+		super.strength = 7 + 2 * l;
+		super.dexterity = 8 + 2 * l;
 		super.speed = 2 + l;
 		if (super.speed > 50) {
                         super.speed = 50;
