@@ -79,8 +79,8 @@ public class Exec{
 				Harry.warriorTemplate("Harry");
 				chosen = true;
 				System.out.println("Invalid choice. Choose an integer between 0 and 3.");
-				System.out.println("Warrior Template chosen as default.");
-				System.out.println("If you don't want to be a warrior, quit the game and create a new character.");
+				System.out.println("Game will now exit. Restart the game and choose a valid choice upon character creation.");
+				System.exit(0);
 			}
 		}
 		System.out.print("Name your character: ");
