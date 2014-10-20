@@ -107,7 +107,7 @@ public class Battle extends World{
 				case 1:
 					if (chance > defender.speed() - 5) {
 						int damageTaken = (int)(Math.random() * 100000) % (attacker.strength - attacker.level()) - (defender.dexterity / 5);
-						damageTaken = Math.abs(damageTaken) + 2 * attacker.level();
+						damageTaken = Math.abs(damageTaken) + attacker.level();
 						defender.setHealth(defender.health - damageTaken);
 						System.out.println(defender.name + " lost " + damageTaken + " health.");
 						if ((int)(Math.random() * 100) < 30){
@@ -166,7 +166,7 @@ public class Battle extends World{
 					else if (attacker.type.equals("ARCHER")){
 						if (chance > defender.speed()) {
                                                 	int damageTaken = (int)(Math.random() * 100000) % (attacker.speed * 3) - (defender.dexterity / 5);
-							damageTaken = Math.abs(damageTaken) + (int)(attacker.level() * 1.5) + attacker.speed();
+							damageTaken = Math.abs(damageTaken) + (int)(attacker.level() * 1.5) + (int)(attacker.speed() / 2);
 							defender.setHealth(defender.health - damageTaken);
 							System.out.println("#~~~~~~~~=~~~~~~~~> Enchanted arrow!");
                                                 	System.out.println(defender.name + " lost " + damageTaken + " health.");
