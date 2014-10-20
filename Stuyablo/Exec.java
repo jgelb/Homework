@@ -52,8 +52,8 @@ public class Exec{
 		System.out.println("Choose your class!");
 		boolean chosen = false;
 		while (!chosen){
-			int choice = (int)sc.nextInt();
 			try {
+				int choice = (int)sc.nextInt();
 				switch (choice) {
 					case 0:
 						Harry.warriorTemplate("Harry");
