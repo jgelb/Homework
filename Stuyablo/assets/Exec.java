@@ -20,7 +20,7 @@ public class Exec{
 		//Easter egg! R 'Meot = Rm EOT = Rm 307
 		System.out.println("");
 		System.out.println("OpenSource Software, Created by Ethan Cheng");
-		System.out.println("Press any key and then enter to continue...");
+		System.out.println("Press Enter to continue...");
 		try {
 			System.in.read();
 		} catch(Exception e){e.printStackTrace();}
