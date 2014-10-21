@@ -1,5 +1,5 @@
 X Fix character creating bug: Bad input error
-- Add 'Press any key' fxn between title screen and character creation/save loading
+X Add 'Press any key' fxn between title screen and character creation/save loading
 - Improve Labyrinth to have xcor, ycor, etc
 - Add poison effect to spider for post-40 stages
 - Add dexterity buildup effect to golems for post-40 stages
