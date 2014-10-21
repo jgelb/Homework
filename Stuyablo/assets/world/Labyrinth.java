@@ -288,5 +288,20 @@ public class Labyrinth extends World{
 			}
 		}
 		setStage(getStage() + 1);
+		player.setExperience(player.experience() + 2);
+		System.out.println("You have gained 2 experience.");
+		if (victor.experience() >= victor.level * 100){
+                        victor.setLevel(victor.level + 1);
+                        if (victor.level() == 3){
+                                System.out.println("You have unlocked your class special move!");
+                        }
+                        victor.setExperience(0);
+                        System.out.println("You have levelled up!");
+                        victor.setStrength(victor.strength() + 2);
+                        victor.setSpeed(victor.speed() + 1);
+                        victor.setDexterity(victor.dexterity() + 2);
+                        victor.setMaxHealth(victor.maxHealth() + 15);
+                }
+                victor.setHealth(victor.maxHealth());
 	}
 }

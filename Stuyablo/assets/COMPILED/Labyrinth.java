@@ -29,7 +29,7 @@ public class Labyrinth extends World{
 		else if (chance < 100 && chance >= 67) {
 			m.golemTemplate("Golem" , lev);
 		}
-		m.setMaxHealth(m.maxHealth() + (int)(super.stage / 2) + lev + (int)(player.maxHealth() / 10));
+		m.setMaxHealth(m.maxHealth() + (int)(super.stage / 2) + (int)(lev / 2.5) + (int)(player.maxHealth() / 30));
 		m.setHealth(m.maxHealth());
 		return m;
 	}
@@ -144,38 +144,75 @@ public class Labyrinth extends World{
                 	Battle b = new Battle(player , getMonster());
                 }
 		else if (potionRoom() < 15){
-			int upgrade = potionRoom() % 4;
+			int upgrade = potionRoom() % 12;
 			Random amount = new Random();
 			int x = 0;
-			switch (upgrade) {
-				case 0:
-					System.out.println("You have found a Potion of Vitality!");
-					x = amount.nextInt(25) + 10;
-					System.out.println("You have gained " + x + " health!");
-					player.setMaxHealth(player.maxHealth() + x);
-					player.setHealth(player.maxHealth());
-					break;
-				case 1:
-					System.out.println("You have found a Potion of Vorocity!");
-					x = amount.nextInt(5) + 5;
-					System.out.println("You have gained " + x + " strength!");
-					player.setStrength(player.strength() + x);
-					break;
-				case 2:
-					System.out.println("You have found a Potion of Will!");
-					x = amount.nextInt(10) + 3;
-					System.out.println("You have gained " + x + " dexterity!");
-					player.setDexterity(player.dexterity() + x);
-					break;
-				case 3:
-					System.out.println("You have found a Potion of Alacrity!");
-					x = amount.nextInt(3) + 3;
-					System.out.println("You have gained " + x + " speed!");
-					player.setSpeed(player.speed() + x);
-					break;
-				default:
-					System.out.println("You have found a glorious empty bottle.");
-					break;
+			System.out.print("You have come across a treasure chest. Open it? (Y/N)");
+			Scanner chestChoice = new Scanner(System.in);
+			boolean chestChosen = false;
+			while (!chestChosen) {
+				String chCh = chestChoice.next();
+				if (chCh.toUpperCase().equals("YES") || chCh.toUpperCase().equals("Y")){
+					switch (upgrade) {
+						case 0:
+							System.out.println("You have found a Potion of Vitality!");
+							x = amount.nextInt(25) + 10;
+							System.out.println("You have gained " + x + " health!");
+							player.setMaxHealth(player.maxHealth() + x);
+							player.setHealth(player.maxHealth());
+							break;
+						case 1:
+							System.out.println("You have found a Potion of Vorocity!");
+							x = amount.nextInt(5) + 5;
+							System.out.println("You have gained " + x + " strength!");
+							player.setStrength(player.strength() + x);
+							break;
+						case 2:
+							System.out.println("You have found a Potion of Will!");
+							x = amount.nextInt(10) + 3;
+							System.out.println("You have gained " + x + " dexterity!");
+							player.setDexterity(player.dexterity() + x);
+							break;
+						case 3:
+							System.out.println("You have found a Potion of Alacrity!");
+							x = amount.nextInt(3) + 3;
+							System.out.println("You have gained " + x + " speed!");
+							player.setSpeed(player.speed() + x);
+							break;
+						case 4:
+							System.out.println("A mist of ailment comes out of the chest!");
+							player.setMaxHealth(player.maxHealth() - 10);
+							player.setHealth(player.maxHealth());
+							System.out.println("Your health has been decreased!");
+							break;
+						case 5:
+							System.out.println("A mist of weakness comes out of the chest!");
+							player.setStrength(player.strength() - 3);
+							System.out.println("Your strength has been decreased.");
+							break;
+						case 6:
+							System.out.println("A mist of slowness comes out of the chest!");
+							player.setSpeed(player.speed() - 3);
+							System.out.println("Your speed has been decreased.");
+							break;
+						case 7:
+							System.out.println("A mist of deterioration comes out of the chest!");
+							player.setDexterity(player.dexterity() - 4);
+							System.out.println("Your dexterity has been decreased.");
+							break;
+						default:
+							System.out.println("You have found a glorious empty bottle.");
+							break;
+					}
+					chestChosen = true;
+				}
+				else if (chCh.toUpperCase().equals("NO") || chCh.toUpperCase().equals("N")){
+					System.out.println("You leave the chest alone.");
+					chestChosen = true;
+				}
+				else {
+					System.out.println("Are you going to open the chest or not? (Y/N)");
+				}
 			}
 		}
 	}
