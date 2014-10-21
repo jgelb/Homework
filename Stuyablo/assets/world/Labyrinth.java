@@ -214,6 +214,8 @@ public class Labyrinth extends World{
 					System.out.println("Are you going to open the chest or not? (Y/N)");
 				}
 			}
+			player.setExperience(player.experience() + 2);
+                	System.out.println("You have gained 2 experience.");
 		}
 	}
 
@@ -288,8 +290,6 @@ public class Labyrinth extends World{
 			}
 		}
 		setStage(getStage() + 1);
-		player.setExperience(player.experience() + 2);
-		System.out.println("You have gained 2 experience.");
 		if (player.experience() >= player.level * 100){
                         player.setLevel(player.level + 1);
                         if (player.level() == 3){
