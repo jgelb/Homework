@@ -7,7 +7,7 @@ echo "Loading code..."
 mkdir assets/COMPILED
 rm -rf assets/COMPILED/*.java
 rm -rf assets/COMPILED/*.class
-cp *.java assets/COMPILED/
+cp assets/*.java assets/COMPILED/
 cp assets/mobs/*.java assets/COMPILED/
 cp assets/world/*.java assets/COMPILED/
 cd assets/COMPILED

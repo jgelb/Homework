@@ -28,6 +28,9 @@ public class Battle extends World{
 		System.out.println("You have gained 20 exp!");
 		if (victor.experience() >= victor.level * 100){
 			victor.setLevel(victor.level + 1);
+			if (victor.level() == 3){
+				System.out.println("You have unlocked your class special move!");
+			}
 			victor.setExperience(0);
 			System.out.println("You have levelled up!");
 			victor.setStrength(victor.strength() + 2);
