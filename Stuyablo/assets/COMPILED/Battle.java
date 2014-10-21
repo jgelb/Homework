@@ -145,7 +145,9 @@ public class Battle extends World{
 								System.out.println("c===(=========>   Whirlwind blade!");
 	                                                	System.out.println(defender.name + " lost " + damageTaken + " health.");
 								System.out.println("Special move penalty: Take backlash damage!");
-								attacker.setHealth(attacker.health - (int)(damageTaken / 6));
+								int reflectDmg = (int)(damageTaken / 6);
+								if (reflectDmg > 100){reflectDmg = 100;}
+								attacker.setHealth(attacker.health - reflectDmg);
 								System.out.println(attacker.name + " health: " + attacker.health + "/" + attacker.maxHealth);
 	                                        	}
 	                                        	else {
@@ -160,7 +162,9 @@ public class Battle extends World{
 								System.out.println("o-z-z-o-z-o-o-o-z-zo-zo-o-z Lightning fire storm!");
 	                                                	System.out.println(defender.name + " lost " + damageTaken + " health.");
 								System.out.println("Special move penalty: Electric essense shift!");
-								attacker.setHealth(attacker.health - attacker.level * 2);
+								int reflectDmg = attacker.level * 2;
+								if (reflectDmg > 100){reflectDmg = 100;}
+								attacker.setHealth(attacker.health - reflectDmg);
 								System.out.println(attacker.name + " health: " + attacker.health + "/" + attacker.maxHealth);
                                 	        	}
                         	                	else {
@@ -175,7 +179,9 @@ public class Battle extends World{
 								System.out.println("#~~~~~~~~=~~~~~~~~> Enchanted arrow!");
 	                                                	System.out.println(defender.name + " lost " + damageTaken + " health.");
 								System.out.println("Special move penalty: Splicing bow string!");
-								attacker.setHealth(attacker.health() - (int)(damageTaken / 2));
+								int reflectDmg = (int)(damageTaken / 2);
+								if (reflectDmg > 100){reflectDmg = 100;}
+								attacker.setHealth(attacker.health() - reflectDmg);
 								System.out.println(attacker.name + " health: " + attacker.health + "/" + attacker.maxHealth);
 	                                        	}
 	                                        	else {
@@ -191,7 +197,9 @@ public class Battle extends World{
 								System.out.println(" -----) Wrath of the Pickaxe!");
 	                                                	System.out.println(defender.name + " lost " + damageTaken + " health.");
 								System.out.println("Special move penalty: Drunken rage hangover!");
-								attacker.setHealth(attacker.health - (int)(attacker.dexterity() / 3 + damageTaken / 2));
+								int reflectDmg = (int)(attacker.dexterity() / 3 + damageTaken / 2);
+								if (reflectDmg > 120){reflectDmg = 120;}
+								attacker.setHealth(attacker.health - reflectDmg);
 								System.out.println(attacker.name + " health: " + attacker.health + "/" + attacker.maxHealth);
 	                                        	}
 	                                        	else {
@@ -219,11 +227,11 @@ public class Battle extends World{
                                         }
                                         checkResp = true;
 					break;
-				case 1337:
+/*				case 1337:
 					System.out.println("Cheat code activated!");
 					defender.setHealth(-9001);
 					break;
-				default:
+*/				default:
 					System.out.println("Invalid choice.");
 					break;
 			}
