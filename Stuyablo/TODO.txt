@@ -1,0 +1,13 @@
+- Fix character creating bug: Bad input error
+- Add 'Press any key' fxn between title screen and character creation/save loading
+- Improve Labyrinth to have xcor, ycor, etc
+- Add poison effect to spider for post-40 stages
+- Add dexterity buildup effect to golems for post-40 stages
+- Add strength buildup effect to kobolds for post-40 stages
+- Mage spells?
+- Warrior crits?
+- Hunter double shots?
+- Dwarf diggy diggy?
+- Make 'run' option vary based on speed
+- Stopping run will be based on monster speed
+- Trap rooms: decrease stats, rob exp/levels, etc.

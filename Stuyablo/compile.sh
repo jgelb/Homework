@@ -2,18 +2,15 @@
 
 echo "Running updater from git..."
 git pull
-
 echo "Update complete."
-
 echo "Loading code..."
-
-mkdir COMPILED
-rm -rf COMPILED/*.java
-rm -rf COMPILED/*.class
-cp *.java COMPILED/
-cp mobs/*.java COMPILED/
-cp world/*.java COMPILED/
-cd COMPILED
+mkdir assets/COMPILED
+rm -rf assets/COMPILED/*.java
+rm -rf assets/COMPILED/*.class
+cp *.java assets/COMPILED/
+cp assets/mobs/*.java assets/COMPILED/
+cp assets/world/*.java assets/COMPILED/
+cd assets/COMPILED
 pwd
 echo "Compiling source..."
 javac *.java
