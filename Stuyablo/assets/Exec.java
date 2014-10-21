@@ -21,10 +21,7 @@ public class Exec{
 		System.out.println("");
 		System.out.println("OpenSource Software, Created by Ethan Cheng");
 		System.out.println("Press any key and then enter to continue...");
-		Scanner waitfor = new Scanner(System.in);
-		String waitedReward = waitfor.next();
-		waitfor = null;
-		waitedReward = null;
+		System.in.read();
 	}
 
 	public static void newGame(){
