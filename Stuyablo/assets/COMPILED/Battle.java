@@ -208,7 +208,7 @@ public class Battle extends World{
 					}
 					break;
 				case 4:
-                                        if (chance < 5 + attacker.speed()) {
+                                        if (chance < 5 + attacker.speed() - defender.speed()) {
                                                 System.out.println("You ran away successfully!");
 						attacker.setExperience(attacker.experience - 50);
 						System.out.println("You lost 50 exp :( ");

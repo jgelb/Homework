@@ -243,6 +243,19 @@ public class Battle extends World{
 			damageTaken = Math.abs(damageTaken) + super.stage;
 			defender.setHealth(defender.health - damageTaken);
 			System.out.println(defender.name + " lost " + damageTaken + " health.");
+			if (defender.name().equals("Spider") && super.stage > 40) {
+				int poisonDmg = (int)(super.stage / 10);
+				System.out.println("Spider has toxic fangs! You have taken " + poisonDmg +  " points of poison damage!");
+				defender.setHealth(defender.health - poisonDmg);
+			}
+			if (defender.name().equals("Kobold") && super.stage > 40) {
+				attacker.setStrength(attacker.strength() + super.stage - 40);
+				System.out.println("Kobold grows in strength...");
+			}
+			if (defender.name().equals("Golem") && super.stage > 40) {
+				attacker.setDexterity(attacker.dexterity() + super.stage - 40);
+				System.out.println("Golem armor hardens...");
+			}
 			System.out.println(defender.name + " health: " + defender.health + "/" + defender.maxHealth);
 			System.out.println("Waiting for turn end...");
 			if (defender.health <= 0) {
