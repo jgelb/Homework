@@ -72,7 +72,7 @@ public class Exec{
 					System.out.println("Invalid choice. Choose an integer between 0 and 3.");
 				}
 			}
-		}	
+		}
 		switch (choice) {
 			case 0:
 			Harry.warriorTemplate("Harry");
