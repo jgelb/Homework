@@ -182,7 +182,7 @@ public class Labyrinth extends World{
 						case 4:
 							System.out.println("A mist of ailment comes out of the chest!");
 							player.setMaxHealth(player.maxHealth() - 10);
-							player.setHealth(player.maxHealth();
+							player.setHealth(player.maxHealth());
 							System.out.println("Your health has been decreased!");
 							break;
 						case 5:
