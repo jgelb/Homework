@@ -217,6 +217,10 @@ public class Labyrinth extends World{
 			player.setExperience(player.experience() + 2);
                 	System.out.println("You have gained 2 experience.");
 		}
+		else {
+	                player.setExperience(player.experience() + 2);
+	                System.out.println("You have gained 2 experience.");
+		}
 	}
 
         public int getStage() {
