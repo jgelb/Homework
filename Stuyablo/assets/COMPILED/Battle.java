@@ -221,7 +221,7 @@ public class Battle extends World{
 					break;
 				case 1337:
 					System.out.println("Cheat code activated!");
-					defender.setHealth(-100000000000000);
+					defender.setHealth(-9001);
 					break;
 				default:
 					System.out.println("Invalid choice.");
