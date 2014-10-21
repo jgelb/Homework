@@ -21,7 +21,9 @@ public class Exec{
 		System.out.println("");
 		System.out.println("OpenSource Software, Created by Ethan Cheng");
 		System.out.println("Press any key and then enter to continue...");
-		System.in.read();
+		try {
+			System.in.read();
+		} catch(Exception e){e.printStackTrace();}
 	}
 
 	public static void newGame(){
