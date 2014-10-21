@@ -133,71 +133,76 @@ public class Battle extends World{
                                         checkResp = true;
 					break;
 				case 3:
-					if (attacker.type.equals("WARRIOR")){
-						if (chance > defender.speed()) {
-                                                	int damageTaken = Math.abs((int)(Math.random() * 100000) % (attacker.level * 12) - (defender.dexterity / 5));
-							damageTaken = damageTaken + attacker.level() * 3;
-                                                	defender.setHealth(defender.health - damageTaken);
-							System.out.println("c===(=========>   Whirlwind blade!");
-                                                	System.out.println(defender.name + " lost " + damageTaken + " health.");
-							System.out.println("Special move penalty: Take backlash damage!");
-							attacker.setHealth(attacker.health - (int)(damageTaken / 6));
-							System.out.println(attacker.name + " health: " + attacker.health + "/" + attacker.maxHealth);
-                                        	}
-                                        	else {
-                                                	System.out.println("Attack missed!");
-                                        	}
-					}
-					else if (attacker.type.equals("MAGE")){
-						if (chance > defender.speed()) {
-                                                	int damageTaken = Math.abs((int)(Math.random() * 100000) % (int)(attacker.level * 10 + attacker.strength * 0.5) - (defender.dexterity / 5));
-                                                	damageTaken = damageTaken + attacker.level() * 2 + attacker.strength();
-							defender.setHealth(defender.health - damageTaken);
-							System.out.println("o-z-z-o-z-o-o-o-z-zo-zo-o-z Lightning fire storm!");
-                                                	System.out.println(defender.name + " lost " + damageTaken + " health.");
-							System.out.println("Special move penalty: Electric essense shift!");
-							attacker.setHealth(attacker.health - attacker.level * 2);
-							System.out.println(attacker.name + " health: " + attacker.health + "/" + attacker.maxHealth);
-                                        	}
-                                        	else {
-                                                	System.out.println("Attack missed!");
-                                        	}
-					}
-					else if (attacker.type.equals("ARCHER")){
-						if (chance > defender.speed()) {
-                                                	int damageTaken = (int)(Math.random() * 100000) % (attacker.speed * 3) - (defender.dexterity / 5);
-							damageTaken = Math.abs(damageTaken) + (int)(attacker.level() * 1.5) + (int)(attacker.speed() / 2);
-							defender.setHealth(defender.health - damageTaken);
-							System.out.println("#~~~~~~~~=~~~~~~~~> Enchanted arrow!");
-                                                	System.out.println(defender.name + " lost " + damageTaken + " health.");
-							System.out.println("Special move penalty: Splicing bow string!");
-							attacker.setHealth(attacker.health() - (int)(damageTaken / 2));
-							System.out.println(attacker.name + " health: " + attacker.health + "/" + attacker.maxHealth);
-                                        	}
-                                        	else {
-                                                	System.out.println("Attack missed!");
-                                        	}
-					}
-					else if (attacker.type.equals("DWARF")){
-						if (chance > defender.speed()) {
-                                                	int damageTaken = (int)(Math.random() * 100000) % (int)(attacker.maxHealth() / 3 + attacker.dexterity) - (defender.dexterity / 5);
-                                                	damageTaken = damageTaken + attacker.level() + attacker.strength();
-							damageTaken = Math.abs(damageTaken);
-							defender.setHealth(defender.health - damageTaken);
-							System.out.println(" -----) Wrath of the Pickaxe!");
-                                                	System.out.println(defender.name + " lost " + damageTaken + " health.");
-							System.out.println("Special move penalty: Drunken rage hangover!");
-							attacker.setHealth(attacker.health - (int)(attacker.dexterity() / 3 + damageTaken / 2));
-							System.out.println(attacker.name + " health: " + attacker.health + "/" + attacker.maxHealth);
-                                        	}
-                                        	else {
-                                                	System.out.println("Attack missed!");
-                                        	}
+					if (attacker.level() >= 3){
+						if (attacker.type.equals("WARRIOR")){
+							if (chance > defender.speed()) {
+	                                                	int damageTaken = Math.abs((int)(Math.random() * 100000) % (attacker.level * 12) - (defender.dexterity / 5));
+								damageTaken = damageTaken + attacker.level() * 3;
+	                                                	defender.setHealth(defender.health - damageTaken);
+								System.out.println("c===(=========>   Whirlwind blade!");
+	                                                	System.out.println(defender.name + " lost " + damageTaken + " health.");
+								System.out.println("Special move penalty: Take backlash damage!");
+								attacker.setHealth(attacker.health - (int)(damageTaken / 6));
+								System.out.println(attacker.name + " health: " + attacker.health + "/" + attacker.maxHealth);
+	                                        	}
+	                                        	else {
+	                                                	System.out.println("Attack missed!");
+	                                        	}
+						}
+						else if (attacker.type.equals("MAGE")){
+							if (chance > defender.speed()) {
+	                                                	int damageTaken = Math.abs((int)(Math.random() * 100000) % (int)(attacker.level * 10 + attacker.strength * 0.5) - (defender.dexterity / 5));
+	                                                	damageTaken = damageTaken + attacker.level() * 2 + attacker.strength();
+								defender.setHealth(defender.health - damageTaken);
+								System.out.println("o-z-z-o-z-o-o-o-z-zo-zo-o-z Lightning fire storm!");
+	                                                	System.out.println(defender.name + " lost " + damageTaken + " health.");
+								System.out.println("Special move penalty: Electric essense shift!");
+								attacker.setHealth(attacker.health - attacker.level * 2);
+								System.out.println(attacker.name + " health: " + attacker.health + "/" + attacker.maxHealth);
+                                	        	}
+                        	                	else {
+                	                                	System.out.println("Attack missed!");
+        	                                	}
+						}
+						else if (attacker.type.equals("ARCHER")){
+							if (chance > defender.speed()) {
+	                                                	int damageTaken = (int)(Math.random() * 100000) % (attacker.speed * 3) - (defender.dexterity / 5);
+								damageTaken = Math.abs(damageTaken) + (int)(attacker.level() * 1.5) + (int)(attacker.speed() / 2);
+								defender.setHealth(defender.health - damageTaken);
+								System.out.println("#~~~~~~~~=~~~~~~~~> Enchanted arrow!");
+	                                                	System.out.println(defender.name + " lost " + damageTaken + " health.");
+								System.out.println("Special move penalty: Splicing bow string!");
+								attacker.setHealth(attacker.health() - (int)(damageTaken / 2));
+								System.out.println(attacker.name + " health: " + attacker.health + "/" + attacker.maxHealth);
+	                                        	}
+	                                        	else {
+	                                                	System.out.println("Attack missed!");
+	                                        	}
+						}
+						else if (attacker.type.equals("DWARF")){
+							if (chance > defender.speed()) {
+	                                                	int damageTaken = (int)(Math.random() * 100000) % (int)(attacker.maxHealth() / 3 + attacker.dexterity) - (defender.dexterity / 5);
+	                                                	damageTaken = damageTaken + attacker.level() + attacker.strength();
+								damageTaken = Math.abs(damageTaken);
+								defender.setHealth(defender.health - damageTaken);
+								System.out.println(" -----) Wrath of the Pickaxe!");
+	                                                	System.out.println(defender.name + " lost " + damageTaken + " health.");
+								System.out.println("Special move penalty: Drunken rage hangover!");
+								attacker.setHealth(attacker.health - (int)(attacker.dexterity() / 3 + damageTaken / 2));
+								System.out.println(attacker.name + " health: " + attacker.health + "/" + attacker.maxHealth);
+	                                        	}
+	                                        	else {
+	                                                	System.out.println("Attack missed!");
+	                                        	}
+						}
+						else {
+							System.out.println("An error occurred, Exception caught: BaseChar TYPE not defined or invalid");
+						}
+						checkResp = true;
 					}
 					else {
-						System.out.println("An error occurred, Exception caught: BaseChar TYPE not defined or invalid");
+						System.out.println("You have not unlocked this move yet.");
 					}
-                                        checkResp = true;
 					break;
 				case 4:
                                         if (chance < 5) {

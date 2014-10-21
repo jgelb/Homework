@@ -25,6 +25,7 @@ public class Exec{
 	public static void newGame(){
 		BaseChar Harry = new BaseChar();
 		Scanner sc = new Scanner(System.in);
+		System.out.println("Choose the number that corresponds to the class. (0-3)");
 		for (int i=0; i<4; i++){
 			System.out.println(i + " - ");
 			switch (i) {
@@ -52,26 +53,35 @@ public class Exec{
 		System.out.println("Choose your class!");
 		boolean chosen = false;
 		while (!chosen){
-			switch ((int)sc.nextInt()) {
-				case 0:
-					Harry.warriorTemplate("Harry");
-					chosen = true;
-					break;
-				case 1:
-					Harry.mageTemplate("Harry");
-					chosen = true;
-					break;
-				case 2:
-					Harry.archerTemplate("Harry");
-					chosen = true;
-					break;
-				case 3:
-					Harry.dwarfTemplate("Harry");
-					chosen = true;
-					break;
-				default:
-					System.out.println("Invalid choice. Please choose again.");
-					break;
+			try {
+				int choice = (int)sc.nextInt();
+				switch (choice) {
+					case 0:
+						Harry.warriorTemplate("Harry");
+						chosen = true;
+						break;
+					case 1:
+						Harry.mageTemplate("Harry");
+						chosen = true;
+						break;
+					case 2:
+						Harry.archerTemplate("Harry");
+						chosen = true;
+						break;
+					case 3:
+						Harry.dwarfTemplate("Harry");
+						chosen = true;
+						break;
+					default:
+						System.out.println("Invalid choice. Please choose again.");
+						break;
+				}
+			} catch(Exception e){
+				Harry.warriorTemplate("Harry");
+				chosen = true;
+				System.out.println("Invalid choice. Choose an integer between 0 and 3.");
+				System.out.println("Game will now exit. Restart the game and choose a valid choice upon character creation.");
+				System.exit(0);
 			}
 		}
 		System.out.print("Name your character: ");
