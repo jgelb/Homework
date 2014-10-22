@@ -278,7 +278,7 @@ public class Battle extends World{
                 if (chance > defender.speed - 30) {
 			System.out.println(attacker.name + " is attacking " + defender.name);
 			int damageTaken = (int)(Math.random() * 10000) % attacker.strength - (defender.dexterity / 5);
-			damageTaken = Math.abs(damageTaken) + gamestage;
+			damageTaken = Math.abs(damageTaken) + (int)(gamestage / 3);
 			defender.setHealth(defender.health - damageTaken);
 			System.out.println(defender.name + " lost " + damageTaken + " health.");
 			if (attacker.name().toUpperCase().equals("SPIDER") && gamestage > 40) {

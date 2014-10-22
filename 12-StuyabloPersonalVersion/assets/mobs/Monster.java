@@ -53,6 +53,9 @@ public class Monster extends Mob{
 		super.level = l;
 		super.experience = 0;
 		super.strength = 5 + 2 * l;
+		if (super.strength > 88){
+			super.strength = 88;
+		}
 		super.dexterity = 5 + 2 * l;
 		super.speed = 15 + l;
 		if (super.speed > 50) {
@@ -68,6 +71,9 @@ public class Monster extends Mob{
 		super.level = l;
 		super.experience = 0;
 		super.strength = 5 + 2 * l;
+                if (super.strength > 82){
+                        super.strength = 82;
+                }
 		super.dexterity = 1 + 2 * l;
 		super.speed = 15 + 2 * l;
 		if (super.speed > 50) {
@@ -85,10 +91,13 @@ public class Monster extends Mob{
 		super.strength = 7 + 2 * l;
 		super.dexterity = 8 + 2 * l;
 		super.speed = 2 + l;
-		if (super.speed > 50) {
-                        super.speed = 50;
+		if (super.speed > 80) {
+                        super.speed = 80;
                 }
 //		super.type = "GOLEM";
+                if (super.strength > 125){
+                        super.strength = 125;
+                }
 	}
 
 	public void DRAGONTemplate(String s, int l){
