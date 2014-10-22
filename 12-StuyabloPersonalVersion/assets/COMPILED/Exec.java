@@ -106,13 +106,10 @@ public class Exec{
 			game.move();
 		}
                 if (Harry.health() <= 0){
-			Harry = null;
-			game = null;
-			sc = null;
-//			chosen = null;
 			Labyrinth.clrConsole();
-                        newGame();
-                }
+			System.out.println("Sorry this is a roguelike! You can't respawn! If you want, load up from your save file if you made one.");
+			System.exit(0);
+		}
                 else if(game.getStage() >= 200){
                         System.out.println("You walk out the portal created by Zim 'Ann Skior's body...");
                         game.pauseSleep(2000);
