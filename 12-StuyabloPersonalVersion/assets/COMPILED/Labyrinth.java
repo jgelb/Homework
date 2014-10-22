@@ -293,6 +293,9 @@ public class Labyrinth extends World{
 				System.out.println("Exiting... ");
 				System.exit(0);
 			}
+			else if (response.toUpperCase().equals("CLEAR")){
+				System.out.print("\033\143");
+			}
 			else if (response.toUpperCase().equals("DEVMODE")){
 				if (devmd) {devmd = false;}
 				else {devmd = true;}
@@ -320,6 +323,34 @@ public class Labyrinth extends World{
 					chosen = true;
                                 } catch(Exception e){}
 			}
+                        else if (response.toUpperCase().equals("SETDEXTERITY") && devmd) {
+                                Scanner devconsole = new Scanner(System.in);
+                                System.out.print(" $ Value: ");
+                                try {
+                                        player.setDexterity((int)(devconsole.nextInt()));
+                                } catch(Exception e){}
+                        }
+                        else if (response.toUpperCase().equals("SETSPEED") && devmd) {
+                                Scanner devconsole = new Scanner(System.in);
+                                System.out.print(" $ Value: ");
+                                try {
+                                        player.setSpeed((int)(devconsole.nextInt()));
+                                } catch(Exception e){}
+                        }
+                        else if (response.toUpperCase().equals("SETLEVEL") && devmd) {
+                                Scanner devconsole = new Scanner(System.in);
+                                System.out.print(" $ Value: ");
+                                try {
+                                        player.setLevel((int)(devconsole.nextInt()));
+                                } catch(Exception e){}
+                        }
+                        else if (response.toUpperCase().equals("SETNAME") && devmd) {
+                                Scanner devconsole = new Scanner(System.in);
+                                System.out.print(" $ Value: ");
+                                try {
+                                        player.setName(devconsole.next());
+                                } catch(Exception e){}
+                        }
 			else {
 				System.out.println("Invalid Command");
 			}

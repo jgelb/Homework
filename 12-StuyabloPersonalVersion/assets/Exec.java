@@ -27,6 +27,7 @@ public class Exec{
 	}
 
 	public static void newGame(){
+		Labyrinth.clrConsole();
 		BaseChar Harry = new BaseChar();
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Choose the number that corresponds to the class. (0-3)");
@@ -130,6 +131,7 @@ public class Exec{
 	}
 
 	public static void loadGame(){
+		Labyrinth.clrConsole();
 		try{
 			FileInputStream saveFile = new FileInputStream("stuyablosave.txt");
 			ObjectInputStream save = new ObjectInputStream(saveFile);

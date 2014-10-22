@@ -13,6 +13,7 @@ public class Labyrinth extends World{
 	}
 
 	public void print(String s){System.out.println(s);}
+	public void clrConsole(){System.out.print("\033\143");}
 
 	public boolean isMonster(){
 		Random random = new Random();
