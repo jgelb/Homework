@@ -79,26 +79,8 @@ public class Battle extends World{
 		System.out.println("You ended the game with: ");
 		System.out.println(loser.level + " levels");
 		System.out.println(loser.experience + "Exp");
-		boolean checkResp = false;
-		while (!checkResp){
-			System.out.println("Do you wish to be reborn anew? (Y/N)");
-			System.out.print(loser.name + "@Stuyablo $ ");
-			Scanner sc = new Scanner(System.in);
-			String response = sc.next();
-			if (response.toUpperCase().equals("Y") || response.toUpperCase().equals("YES")){
-				//RESTART THE GAME HERE
-				checkResp = true;
-				//Restart mechanism handled by Exec.java
-			}
-			else if (response.toUpperCase().equals("N") || response.toUpperCase().equals("NO")){
-				//Exit cleanly
-				checkResp = true;
-				System.exit(0);
-			}
-			else {
-				System.out.println("Make a choice! Yes/No, Y/N");
-			}
-		}
+		System.out.println("Game exitting... You can respawn from your save file.");
+		System.exit(0);
 	}
 /*
 	public void attack1(BaseChar attacker, Monster defender){
