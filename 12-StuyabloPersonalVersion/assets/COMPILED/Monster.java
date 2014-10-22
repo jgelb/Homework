@@ -58,6 +58,7 @@ public class Monster extends Mob{
 		if (super.speed > 50) {
 			super.speed = 50;
 		}
+//		super.type = "KOBOLD";
 	}
 
 	public void spiderTemplate(String s, int l){
@@ -72,7 +73,7 @@ public class Monster extends Mob{
 		if (super.speed > 50) {
                         super.speed = 50;
                 }
-
+//		super.type = "SPIDER";
 	}
 
 	public void golemTemplate(String s, int l){
@@ -87,7 +88,7 @@ public class Monster extends Mob{
 		if (super.speed > 50) {
                         super.speed = 50;
                 }
-
+//		super.type = "GOLEM";
 	}
 
 	public void DRAGONTemplate(String s, int l){
