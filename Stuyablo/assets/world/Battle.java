@@ -105,7 +105,6 @@ public class Battle extends World{
                         	response = (int)sc.nextInt();
 			} catch(Exception e) {
 				response = -1;
-				}
 			}
 			Random n = new Random();
 	                int chance = n.nextInt(100);
