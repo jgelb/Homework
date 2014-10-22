@@ -3,7 +3,10 @@ import java.io.*;
 
 public class Battle extends World{
 
-	public Battle(BaseChar ch , Monster mon){
+	int gamestage;
+
+	public Battle(BaseChar ch , Monster mon , int x){
+		gamestage = x;
 		while (ch.health() > 0 && mon.health() > 0) {
                 	System.out.println(ch.name + " health: " + ch.health + "/" + ch.maxHealth);
                 	System.out.println(mon.name + " health: " + mon.health + "/" + mon.maxHealth);
@@ -21,6 +24,27 @@ public class Battle extends World{
 			}
 		}
 	}
+
+        public Battle(BaseChar ch , Monster mon){
+		gamestage = 0; //Prevents crash
+                while (ch.health() > 0 && mon.health() > 0) {
+                        System.out.println(ch.name + " health: " + ch.health + "/" + ch.maxHealth);
+                        System.out.println(mon.name + " health: " + mon.health + "/" + mon.maxHealth);
+                        attack1(ch , mon);
+                        try{
+                                Thread.sleep(450);
+                        } catch(Exception e) {}
+//                      System.out.print("\033\143");
+                        if (ch.health() > 0 && mon.health() > 0){
+                                attack2(mon , ch);
+                                try{
+                                        Thread.sleep(1720);
+                                } catch(Exception e) {}
+                                System.out.print("\033\143");
+                        }
+                }
+        }
+
 
 	public void endScreenMonster(BaseChar victor){
 		System.out.println("You defeated the monster!");
@@ -254,20 +278,20 @@ public class Battle extends World{
                 if (chance > defender.speed - 30) {
 			System.out.println(attacker.name + " is attacking " + defender.name);
 			int damageTaken = (int)(Math.random() * 10000) % attacker.strength - (defender.dexterity / 5);
-			damageTaken = Math.abs(damageTaken) + super.stage;
+			damageTaken = Math.abs(damageTaken) + gamestage;
 			defender.setHealth(defender.health - damageTaken);
 			System.out.println(defender.name + " lost " + damageTaken + " health.");
-			if (attacker.name().toUpperCase().equals("SPIDER") && super.stage > 40) {
-				int poisonDmg = (int)(super.stage / 10);
+			if (attacker.name().toUpperCase().equals("SPIDER") && gamestage > 40) {
+				int poisonDmg = (int)(gamestage / 10);
 				System.out.println("Spider has toxic fangs! You have taken " + poisonDmg +  " points of poison damage!");
 				defender.setHealth(defender.health - poisonDmg);
 			}
-			if (attacker.name().toUpperCase().equals("KOBOLD") && super.stage > 40) {
-				attacker.setStrength(attacker.strength() + super.stage - 40);
+			if (attacker.name().toUpperCase().equals("KOBOLD") && gamestage > 40) {
+				attacker.setStrength(attacker.strength() + gamestage - 40);
 				System.out.println("Kobold grows in strength...");
 			}
-			if (attacker.name().toUpperCase().equals("GOLEM") && super.stage > 40) {
-				attacker.setDexterity(attacker.dexterity() + super.stage - 40);
+			if (attacker.name().toUpperCase().equals("GOLEM") && gamestage > 40) {
+				attacker.setDexterity(attacker.dexterity() + gamestage - 40);
 				System.out.println("Golem armor hardens...");
 			}
 			System.out.println(defender.name + " health: " + defender.health + "/" + defender.maxHealth);

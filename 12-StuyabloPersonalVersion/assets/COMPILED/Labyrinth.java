@@ -68,7 +68,7 @@ public class Labyrinth extends World{
 			System.out.println("THE DRAGON LORD!");
 			pauseSleep(500);
 			System.out.println("Ebonmaw, the Wicked Dragon crashed down from the ceiling!");
-			Battle boss1 = new Battle(player , drag);
+			Battle boss1 = new Battle(player , drag , getStage());
 			if (drag.health() <= 0) {
 				System.out.println("You have vanquished the Wicked Dragon!");
 				pauseSleep(1300);
@@ -118,7 +118,7 @@ public class Labyrinth extends World{
 			pauseSleep(500);
 			System.out.println("I am Rangor... You are my prey...");
 			pauseSleep(1000);
-			Battle boss2 = new Battle(player , pred);
+			Battle boss2 = new Battle(player , pred , getStage());
 			System.out.println("You have vanquished Rangor, the Esteemed Hunter...");
 			pauseSleep(1000);
 			System.out.print("...");
@@ -143,10 +143,10 @@ public class Labyrinth extends World{
 			pauseSleep(750);
 			System.out.println("You will never escape...");
 			pauseSleep(600);
-			Battle boss3 = new Battle(player , gate);
+			Battle boss3 = new Battle(player , gate , getStage());
 		}
 		else if (isMonster()){
-                	Battle b = new Battle(player , getMonster());
+                	Battle b = new Battle(player , getMonster() , getStage());
                 }
 		else if (potionRoom() < 15){
 			int upgrade = potionRoom() % 12;

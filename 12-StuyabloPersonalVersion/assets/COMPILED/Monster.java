@@ -49,7 +49,7 @@ public class Monster extends Mob{
 	public void koboldTemplate(String s, int l){
 		super.health = 20 + 3 * l;
 		super.maxHealth = super.health;
-		super.name = s;
+		super.name = "Kobold";
 		super.level = l;
 		super.experience = 0;
 		super.strength = 5 + 2 * l;
@@ -64,7 +64,7 @@ public class Monster extends Mob{
 	public void spiderTemplate(String s, int l){
 		super.health = 20 + 3 * l;
 		super.maxHealth = super.health;
-		super.name = s;
+		super.name = "Spider";
 		super.level = l;
 		super.experience = 0;
 		super.strength = 5 + 2 * l;
@@ -79,7 +79,7 @@ public class Monster extends Mob{
 	public void golemTemplate(String s, int l){
 		super.health = 40 + 3 * l;
 		super.maxHealth = super.health;
-		super.name = s;
+		super.name = "Golem";
 		super.level = l;
 		super.experience = 0;
 		super.strength = 7 + 2 * l;
