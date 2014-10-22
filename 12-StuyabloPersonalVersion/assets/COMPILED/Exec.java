@@ -110,6 +110,7 @@ public class Exec{
 			game = null;
 			sc = null;
 //			chosen = null;
+			Labyrinth.clrConsole();
                         newGame();
                 }
                 else if(game.getStage() >= 200){
@@ -154,6 +155,7 @@ public class Exec{
                         	gameRes.move();
                 	}
 			if (load.health() <= 0){
+				Labyrinth.clrConsole();
 				newGame();
 			}
 			else if(gameRes.getStage() >= 200){
