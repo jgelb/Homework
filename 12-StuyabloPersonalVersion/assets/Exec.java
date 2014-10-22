@@ -97,6 +97,7 @@ public class Exec{
 		}
 		System.out.print("Name your character: ");
 		Harry.setName(sc.next());
+		Labyrinth.clrConsole();
 		System.out.println("Welcome " + Harry.name + ".");
 		System.out.println("You wake up in a dungeon. You look around and are confused. How do I get out?");
 		Labyrinth game = new Labyrinth(Harry);
