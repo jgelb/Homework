@@ -3,9 +3,13 @@ import java.io.*;
 
 public class Labyrinth extends World{
 	private BaseChar player;
+	private boolean devmd;
+
+//	devmd = false;
 
 	public Labyrinth(BaseChar bc){
 		player = bc;
+		devmd = false;
 	}
 
 	public void print(String s){System.out.println(s);}
@@ -288,6 +292,33 @@ public class Labyrinth extends World{
 			else if (response.toUpperCase().equals("QUIT")){
 				System.out.println("Exiting... ");
 				System.exit(0);
+			}
+			else if (response.toUpperCase().equals("DEVMODE")){
+				if (devmd) {devmd = false;}
+				else {devmd = true;}
+			}
+			else if (response.toUpperCase().equals("SETHEALTH") && devmd) {
+				Scanner devconsole = new Scanner(System.in);
+				System.out.print(" $ Value: ");
+				try {
+					player.setMaxHealth((int)(devconsole.nextInt()));
+					player.setHealth(player.maxHealth());
+				} catch(Exception e){}
+			}
+			else if (response.toUpperCase().equals("SETSTRENGTH") && devmd) {
+				Scanner devconsole = new Scanner(System.in);
+				System.out.print(" $ Value: ");
+				try {
+					player.setStrength((int)(devconsole.nextInt()));
+				} catch(Exception e){}
+			}
+			else if (response.toUpperCase().equals("SETSTAGE") && devmd) {
+                                Scanner devconsole = new Scanner(System.in);
+                                System.out.print(" $ Value: ");
+                                try {
+                                        setStage((int)(devconsole.nextInt()));
+					chosen = true;
+                                } catch(Exception e){}
 			}
 			else {
 				System.out.println("Invalid Command");
