@@ -16,6 +16,29 @@ public class RoomGen{
 				line = br.readLine();
 			}
 			String everything = sb.toString();
+			while (everything.contains(".")){
+				// k = kobold
+				// s = spider
+				// g = golem
+				// t = treasure chest
+				Random x = new Random();
+				int chance = x.nextInt(100);
+				if (chance < 7) {
+					everything.replaceFirst("." , "k");
+				}
+				else if (chance < 14) {
+					everything.replaceFirst("." , "s");
+				}
+				else if (chance < 21) {
+					everything.replaceFirst("." , "g");
+				}
+				else if (chance < 26) {
+					everything.replaceFirst("." , "t");
+				}
+				else {
+					everything.replaceFirst("." , " ");
+				}
+			}
 			return everything;
 		} catch(Exception e){e.printStackTrace(); return "NULL";}
 	}
