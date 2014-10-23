@@ -25,7 +25,16 @@ public class Labyrinth extends World {
 
 //Game Methods
 	public void mapGen(){
-		
+		try(BufferedReader br = new BufferedReader(new FileReader("file.txt"))) {
+        		StringBuilder sb = new StringBuilder();
+        		String line = br.readLine();
+	        	while (line != null) {
+        			sb.append(line);
+            			sb.append(System.lineSeparator());
+        			line = br.readLine();
+        		}
+        	String everything = sb.toString();
+    		}
 	}
 
 	public boolean isMonster(){ //Returns whether or not there is a monster in room
