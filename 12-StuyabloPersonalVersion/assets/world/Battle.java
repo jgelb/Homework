@@ -78,7 +78,9 @@ public class Battle extends World{
 		System.out.println("You have died... Your story has ended.");
 		System.out.println("You ended the game with: ");
 		System.out.println(loser.level + " levels");
-		System.out.println(loser.experience + "Exp");
+		System.out.println(loser.experience + " Exp");
+		int score = loser.level() * 100 + loser.experience();
+		System.out.println("Total score: " + score);
 		System.out.println("Game exitting... You can respawn from your save file.");
 		System.exit(0);
 	}
