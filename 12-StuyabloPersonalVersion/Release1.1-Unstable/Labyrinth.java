@@ -24,18 +24,6 @@ public class Labyrinth extends World {
         public void setStage(int n) {super.stage = n;}
 
 //Game Methods
-	public void mapGen(){
-		try(BufferedReader br = new BufferedReader(new FileReader("file.txt"))) {
-        		StringBuilder sb = new StringBuilder();
-        		String line = br.readLine();
-	        	while (line != null) {
-        			sb.append(line);
-            			sb.append(System.lineSeparator());
-        			line = br.readLine();
-        		}
-        	String everything = sb.toString();
-    		}
-	}
 
 	public boolean isMonster(){ //Returns whether or not there is a monster in room
 		Random random = new Random();

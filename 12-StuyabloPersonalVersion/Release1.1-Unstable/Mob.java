@@ -8,6 +8,8 @@ public class Mob{
 	public int experience;
 	public int maxHealth;
 	public String type;
+	public int xcor;
+	public int ycor;
 /*
 	public Mob(int h, String s, int l, int atkdmg, int dex, int spd){
 		health = h;

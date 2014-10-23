@@ -26,6 +26,8 @@ public class BaseChar extends Mob{
 	public int maxHealth(){return super.maxHealth;}
 	public String name(){return super.name;}
 	public String type(){return super.type;}
+	public int xcor(){return super.xcor;}
+	public int ycor(){return super.ycor;}
 
 //Data Setters
 	public void setHealth(int n){super.health = n;}
@@ -44,6 +46,8 @@ public class BaseChar extends Mob{
 	public void setMaxHealth(int n){super.maxHealth = n;}
 	public void setName(String s){super.name = s;}
 	public void setType(String s){super.type = s;}
+	public void setXCOR(int n){super.xcor = n;}
+	public void setYCOR(int n){super.ycor = n;}
 
 //BaseChar types:
 /*
@@ -62,6 +66,8 @@ public class BaseChar extends Mob{
 		super.dexterity = 5;
 		super.speed = 2;
 		super.type = "WARRIOR";
+		super.xcor = 17;
+		super.ycor = 7;
 	}
 
 	public void mageTemplate(String s){
@@ -74,6 +80,8 @@ public class BaseChar extends Mob{
 		super.dexterity = 1;
 		super.speed =  4;
 		super.type = "MAGE";
+		super.xcor = 17;
+		super.ycor = 7;
 	}
 
 	public void archerTemplate(String s){
@@ -86,6 +94,8 @@ public class BaseChar extends Mob{
 		super.dexterity = 0;
 		super.speed = 5;
 		super.type = "ARCHER";
+		super.xcor = 17;
+		super.ycor = 7;
 	}
 
 	public void dwarfTemplate(String s){
@@ -98,6 +108,8 @@ public class BaseChar extends Mob{
 		super.dexterity = 9;
 		super.speed = 1;
 		super.type = "DWARF";
+		super.xcor = 17;
+		super.ycor = 7;
 	}
 
 	public void displayStats(){
