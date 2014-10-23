@@ -117,7 +117,7 @@ public class Battle extends World{
                         switch (response) {
 				case 1:
 					if (chance > defender.speed() - 5) {
-						int damageTaken = (int)(Math.random() * 100000) % (attacker.strength - attacker.level()) - (defender.dexterity / 5);
+						int damageTaken = (int)(Math.random() * 100000) % attacker.strength() - (defender.dexterity / 5);
 						damageTaken = Math.abs(damageTaken) + attacker.level();
 						defender.setHealth(defender.health - damageTaken);
 						System.out.println(defender.name + " lost " + damageTaken + " health.");
