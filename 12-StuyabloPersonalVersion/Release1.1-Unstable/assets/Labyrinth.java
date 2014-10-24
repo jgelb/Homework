@@ -124,8 +124,8 @@ public class Labyrinth extends World {
 		}
 		else {
 			currRm.move(dir , player);
-	                player.setExperience(player.experience() + 2);
-	                System.out.println("You have gained 2 experience.");
+//	                player.setExperience(player.experience() + 2);
+//	                System.out.println("You have gained 2 experience.");
 		}
 	}
 

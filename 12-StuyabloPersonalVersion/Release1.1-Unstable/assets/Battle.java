@@ -14,7 +14,6 @@ public class Battle extends World{
 			try{
                                 Thread.sleep(450);
                         } catch(Exception e) {}
-//			System.out.print("\033\143");
 			if (ch.health() > 0 && mon.health() > 0){
 				attack2(mon , ch);
 				try{
@@ -34,7 +33,6 @@ public class Battle extends World{
                         try{
                                 Thread.sleep(450);
                         } catch(Exception e) {}
-//                      System.out.print("\033\143");
                         if (ch.health() > 0 && mon.health() > 0){
                                 attack2(mon , ch);
                                 try{
