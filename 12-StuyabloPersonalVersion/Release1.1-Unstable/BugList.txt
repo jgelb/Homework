@@ -1,0 +1,8 @@
+List of Known Bugs
+======================================
+
+- File load does not have persistent map. Must add map array to the list of objects to be saved
+- Randomly returns crash: Invalid char / item in map with seemingly random situations
+- Must improve console messages: MOVE UNDER THE MAP!
+- No boss room art
+- devmode > setstage glitches out weirdly
