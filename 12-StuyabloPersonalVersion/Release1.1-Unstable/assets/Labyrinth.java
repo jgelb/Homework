@@ -5,7 +5,7 @@ public class Labyrinth extends World {
 //Instance vars
 	private BaseChar player;
 	private boolean devmd;
-	private RoomGen currRm;
+	public RoomGen currRm; //Forced public to prevent crash during loading of save file
 
 //Constructor
 	public Labyrinth(BaseChar bc){
@@ -176,6 +176,7 @@ public class Labyrinth extends World {
 					save.writeObject(player.dexterity());
 					save.writeObject(super.stage);
 					save.writeObject(player.type());
+					save.writeObject(currRm.room);
 					save.close();
 				} catch(Exception e) {e.printStackTrace();}
 			}

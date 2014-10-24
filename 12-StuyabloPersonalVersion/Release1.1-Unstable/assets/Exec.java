@@ -148,6 +148,7 @@ public class Exec{
 			load.setDexterity((Integer) save.readObject());
 			gameRes.setStage((Integer) save.readObject());
 			load.setType((String) save.readObject());
+			gameRes.currRm.room = (String[]) save.readObject();
 			save.close();
 			while (gameRes.getStage() < 200 && load.health() > 0) {
                         	gameRes.move();

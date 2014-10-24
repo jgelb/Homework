@@ -2,10 +2,10 @@ import java.util.*;
 import java.io.*;
 
 public class RoomGen{
-	String[] room = new String[18]; //0-15 = Room, 16 = Blank line, 17 = Console Message , 18 = Blank line
-	BaseChar localCH;
-	Labyrinth gameHost;
-	String consoleMessage;
+	public String[] room = new String[18]; //0-14 = Room, 15 = Blank line, 16 = Console Message , 17 = Blank line
+	private BaseChar localCH;
+	private Labyrinth gameHost;
+	private String consoleMessage;
 
 	public RoomGen(BaseChar bc , Labyrinth l){
 		localCH = bc;
@@ -54,9 +54,9 @@ public class RoomGen{
 				tick++;
 			}
 			consoleMessage = "You enter a room.";
-			room[16] = "";
-			room[17] = consoleMessage;
-			room[18] = "";
+			room[15] = "";
+			room[16] = consoleMessage;
+			room[17] = "";
 			String everything = sb.toString();
 			return everything;
 		} catch(Exception e){e.printStackTrace(); return "NULL";}
@@ -422,7 +422,7 @@ public class RoomGen{
 	}
 
 	public void updateMap(){
-		room[17] = consoleMessage;
+		room[16] = consoleMessage;
 		boolean rmCleared = false;
 		int xenter = 0;
 		int yenter = 0;
