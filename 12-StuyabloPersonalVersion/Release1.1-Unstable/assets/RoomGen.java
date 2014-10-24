@@ -400,7 +400,13 @@ public class RoomGen{
 			xenter = 2;
 			yenter = 7;
 		}
-		if (rmCleared){MapGen(xenter , yenter); gameHost.setStage(gameHost.getStage() + 1); rmCleared = false;}
+		if (rmCleared){
+			MapGen(xenter , yenter);
+			gameHost.setStage(gameHost.getStage() + 1);
+			rmCleared = false;
+			localCH.setXCOR(xenter);
+			localCH.setYCOR(yenter);
+		}
 		for(int i = 0; i < 15; i++){
 			System.out.println(room[i]);
 		}
