@@ -5,11 +5,14 @@ public class Labyrinth extends World {
 //Instance vars
 	private BaseChar player;
 	private boolean devmd;
+	private RoomGen currRm;
 
 //Constructor
 	public Labyrinth(BaseChar bc){
 		player = bc;
 		devmd = false;
+		currRm = new RoomGen(player , this);
+		currRm.MapGen(player.xcor() , player.ycor());
 	}
 
 //Coolio Methods
@@ -25,37 +28,7 @@ public class Labyrinth extends World {
 
 //Game Methods
 
-	public boolean isMonster(){ //Returns whether or not there is a monster in room
-		Random random = new Random();
-		return random.nextBoolean();
-	}
-
-	public Monster getMonster(){//Returns a random non-boss monster
-		Monster m = new Monster();
-		Random n = new Random();
-		int chance = n.nextInt(100);
-		int lev = (int)((super.stage / 10) + 1);
-		if (chance < 33) {
-			m.koboldTemplate("Kobold" , lev);
-		}
-		else if (chance < 67 && chance >= 33) {
-			m.spiderTemplate("Spider" , lev);
-		}
-		else if (chance < 100 && chance >= 67) {
-			m.golemTemplate("Golem" , lev);
-		}
-		m.setMaxHealth(m.maxHealth() + (int)(super.stage / 2) + (int)(lev / 2.5) + (int)(player.maxHealth() / 30));
-		m.setHealth(m.maxHealth());
-		return m;
-	}
-
-	public int potionRoom(){
-		Random room = new Random();
-		int upgrade = room.nextInt(100);
-		return upgrade;
-	}
-
-	public void action(){
+	public void action(String dir){
 //		try{
 //	                Thread.sleep(650);
 //		} catch(Exception e) {}
@@ -149,90 +122,15 @@ public class Labyrinth extends World {
 			pauseSleep(600);
 			Battle boss3 = new Battle(player , gate , getStage());
 		}
-		else if (isMonster()){
-                	Battle b = new Battle(player , getMonster() , getStage());
-                }
-		else if (potionRoom() < 15){
-			int upgrade = potionRoom() % 12;
-			Random amount = new Random();
-			int x = 0;
-			System.out.print("You have come across a treasure chest. Open it? (Y/N)");
-			Scanner chestChoice = new Scanner(System.in);
-			boolean chestChosen = false;
-			while (!chestChosen) {
-				String chCh = chestChoice.next();
-				if (chCh.toUpperCase().equals("YES") || chCh.toUpperCase().equals("Y")){
-					switch (upgrade) {
-						case 0:
-							System.out.println("You have found a Potion of Vitality!");
-							x = amount.nextInt(25) + 10;
-							System.out.println("You have gained " + x + " health!");
-							player.setMaxHealth(player.maxHealth() + x);
-							player.setHealth(player.maxHealth());
-							break;
-						case 1:
-							System.out.println("You have found a Potion of Vorocity!");
-							x = amount.nextInt(5) + 5;
-							System.out.println("You have gained " + x + " strength!");
-							player.setStrength(player.strength() + x);
-							break;
-						case 2:
-							System.out.println("You have found a Potion of Will!");
-							x = amount.nextInt(10) + 3;
-							System.out.println("You have gained " + x + " dexterity!");
-							player.setDexterity(player.dexterity() + x);
-							break;
-						case 3:
-							System.out.println("You have found a Potion of Alacrity!");
-							x = amount.nextInt(3) + 3;
-							System.out.println("You have gained " + x + " speed!");
-							player.setSpeed(player.speed() + x);
-							break;
-						case 4:
-							System.out.println("A mist of ailment comes out of the chest!");
-							player.setMaxHealth(player.maxHealth() - 10);
-							player.setHealth(player.maxHealth());
-							System.out.println("Your health has been decreased!");
-							break;
-						case 5:
-							System.out.println("A mist of weakness comes out of the chest!");
-							player.setStrength(player.strength() - 3);
-							System.out.println("Your strength has been decreased.");
-							break;
-						case 6:
-							System.out.println("A mist of slowness comes out of the chest!");
-							player.setSpeed(player.speed() - 3);
-							System.out.println("Your speed has been decreased.");
-							break;
-						case 7:
-							System.out.println("A mist of deterioration comes out of the chest!");
-							player.setDexterity(player.dexterity() - 4);
-							System.out.println("Your dexterity has been decreased.");
-							break;
-						default:
-							System.out.println("You have found a glorious empty bottle.");
-							break;
-					}
-					chestChosen = true;
-				}
-				else if (chCh.toUpperCase().equals("NO") || chCh.toUpperCase().equals("N")){
-					System.out.println("You leave the chest alone.");
-					chestChosen = true;
-				}
-				else {
-					System.out.println("Are you going to open the chest or not? (Y/N)");
-				}
-			}
-			player.setExperience(player.experience() + 2);
-                	System.out.println("You have gained 2 experience.");
-		}
 		else {
+			currRm.move(dir , player);
 	                player.setExperience(player.experience() + 2);
 	                System.out.println("You have gained 2 experience.");
 		}
 	}
 
 	public void move(){
+		currRm.updateMap();
 		print("Instructions:");
 		print("u/U -        Up");
 		print("d/D -        Down");
@@ -250,19 +148,19 @@ public class Labyrinth extends World {
 			String response = sc.next();
 			if (response.toUpperCase().equals("U")) {
 				chosen = true;
-				action();
+				action("UP");
 			}
 			else if (response.toUpperCase().equals("D")) {
 				chosen = true;
-				action();
+				action("DOWN");
 			}
 			else if (response.toUpperCase().equals("L")) {
 				chosen = true;
-				action();
+				action("LEFT");
 			}
 			else if (response.toUpperCase().equals("R")) {
 				chosen = true;
-				action();
+				action("RIGHT");
 			}
 			else if (response.toUpperCase().equals("S") || response.toUpperCase().equals("SAVE")){
 				try {
@@ -352,7 +250,7 @@ public class Labyrinth extends World {
 				System.out.println("Invalid Command");
 			}
 		}
-		setStage(getStage() + 1);
+//		setStage(getStage() + 1);
 		if (player.experience() >= player.level * 100){
                         player.setLevel(player.level + 1);
                         if (player.level() == 3){

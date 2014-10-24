@@ -66,7 +66,7 @@ public class BaseChar extends Mob{
 		super.dexterity = 5;
 		super.speed = 2;
 		super.type = "WARRIOR";
-		super.xcor = 17;
+		super.xcor = 18;
 		super.ycor = 7;
 	}
 
@@ -80,7 +80,7 @@ public class BaseChar extends Mob{
 		super.dexterity = 1;
 		super.speed =  4;
 		super.type = "MAGE";
-		super.xcor = 17;
+		super.xcor = 18;
 		super.ycor = 7;
 	}
 
@@ -94,7 +94,7 @@ public class BaseChar extends Mob{
 		super.dexterity = 0;
 		super.speed = 5;
 		super.type = "ARCHER";
-		super.xcor = 17;
+		super.xcor = 18;
 		super.ycor = 7;
 	}
 
@@ -108,7 +108,7 @@ public class BaseChar extends Mob{
 		super.dexterity = 9;
 		super.speed = 1;
 		super.type = "DWARF";
-		super.xcor = 17;
+		super.xcor = 18;
 		super.ycor = 7;
 	}
 

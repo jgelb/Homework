@@ -4,6 +4,7 @@ import java.io.*;
 public class Exec{
 
 	public static void titleScreen(){
+		Labyrinth.clrConsole();
 		System.out.println("                                                                              ");
 		System.out.println(" @@@@@@   @@@@@@@  @@@  @@@  @@@ @@@   @@@@@@   @@@@@@@   @@@        @@@@@@   ");
 		System.out.println("@@@@@@@   @@@@@@@  @@@  @@@  @@@ @@@  @@@@@@@@  @@@@@@@@  @@@       @@@@@@@@  ");
