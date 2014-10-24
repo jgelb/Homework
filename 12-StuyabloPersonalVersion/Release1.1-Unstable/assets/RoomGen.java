@@ -2,14 +2,18 @@ import java.util.*;
 import java.io.*;
 
 public class RoomGen{
-	String[] room = new String[15];
+	String[] room = new String[18]; //0-15 = Room, 16 = Blank line, 17 = Console Message , 18 = Blank line
 	BaseChar localCH;
 	Labyrinth gameHost;
+	String consoleMessage;
 
 	public RoomGen(BaseChar bc , Labyrinth l){
 		localCH = bc;
 		gameHost = l;
+		consoleMessage = "";
 	}
+
+	public String getConMessage(){return consoleMessage;}
 
 	public String MapGen(int column , int row){
 
@@ -49,6 +53,10 @@ public class RoomGen{
 				}
 				tick++;
 			}
+			consoleMessage = "You enter a room.";
+			room[16] = "";
+			room[17] = consoleMessage;
+			room[18] = "";
 			String everything = sb.toString();
 			return everything;
 		} catch(Exception e){e.printStackTrace(); return "NULL";}
@@ -201,6 +209,7 @@ public class RoomGen{
 			Monster m = null;
 			if (getUp(trans.xcor() , trans.ycor()).equals("g")){
 				m = new Monster();
+				consoleMessage = "You fight a golem.";
 				m.golemTemplate("Golem" , lev);
 				Battle b = new Battle(localCH , m , gameHost.getStage());
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + " " + room[trans.ycor].substring(trans.xcor + 1);
@@ -209,6 +218,7 @@ public class RoomGen{
 			}
 			else if (getUp(trans.xcor() , trans.ycor()).equals("k")){
 				m = new Monster();
+				consoleMessage = "You fight a kobold.";
 				m.koboldTemplate("Kobold" , lev);
 				Battle b = new Battle(localCH , m , gameHost.getStage());
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + " " + room[trans.ycor].substring(trans.xcor + 1);
@@ -217,6 +227,7 @@ public class RoomGen{
 			}
 			else if (getUp(trans.xcor() , trans.ycor()).equals("s")){
 				m = new Monster();
+				consoleMessage = "You fith a spider.";
 				m.spiderTemplate("Spider" , lev);
 				Battle b = new Battle(localCH , m , gameHost.getStage());
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + " " + room[trans.ycor].substring(trans.xcor + 1);
@@ -226,16 +237,17 @@ public class RoomGen{
 			}
 			else if (getUp(trans.xcor() , trans.ycor()).equals("t")){
 				treasureChest();
+				consoleMessage = "You find a treasure chest!";
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + " " + room[trans.ycor].substring(trans.xcor + 1);
 				localCH.setYCOR(localCH.ycor() - 1);
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + "@" + room[trans.ycor].substring(trans.xcor + 1);
 
 			}
 			else if (getUp(trans.xcor() , trans.ycor()).equals("#")){
-				System.out.println("You walked into a wall.");
+				consoleMessage = "You walked into a wall.";
 			}
 			else if (getDown(trans.xcor() , trans.ycor()).equals(" ")){
-				System.out.println("Nothing special here.");
+				consoleMessage = "Nothing special here.";
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + " " + room[trans.ycor].substring(trans.xcor + 1);
 				localCH.setYCOR(localCH.ycor() - 1);
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + "@" + room[trans.ycor].substring(trans.xcor + 1);
@@ -252,6 +264,7 @@ public class RoomGen{
 			Monster m = null;
 			if (getDown(trans.xcor() , trans.ycor()).equals("g")){
 				m = new Monster();
+				consoleMessage = "You fight a golem.";
 				m.golemTemplate("Golem" , lev);
 				Battle b = new Battle(localCH , m , gameHost.getStage());
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + " " + room[trans.ycor].substring(trans.xcor + 1);
@@ -260,6 +273,7 @@ public class RoomGen{
 			}
 			else if (getDown(trans.xcor() , trans.ycor()).equals("k")){
 				m = new Monster();
+				consoleMessage = "You fight a kobold.";
 				m.koboldTemplate("Kobold" , lev);
 				Battle b = new Battle(localCH , m , gameHost.getStage());
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + " " + room[trans.ycor].substring(trans.xcor + 1);
@@ -268,6 +282,7 @@ public class RoomGen{
 			}
 			else if (getDown(trans.xcor() , trans.ycor()).equals("s")){
 				m = new Monster();
+				consoleMessage = "You fight a spider.";
 				m.spiderTemplate("Spider" , lev);
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + " " + room[trans.ycor].substring(trans.xcor + 1);
 				localCH.setYCOR(localCH.ycor() + 1);
@@ -275,15 +290,16 @@ public class RoomGen{
 			}
 			else if (getDown(trans.xcor() , trans.ycor()).equals("t")){
 				treasureChest();
+				consoleMessage = "You find a treasure chest!";
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + " " + room[trans.ycor].substring(trans.xcor + 1);
 				localCH.setYCOR(localCH.ycor() + 1);
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + "@" + room[trans.ycor].substring(trans.xcor + 1);
 			}
 			else if (getDown(trans.xcor() , trans.ycor()).equals("#")){
-				System.out.println("You walked into a wall.");
+				consoleMessage = "You walked into a wall.";
 			}
 			else if (getDown(trans.xcor() , trans.ycor()).equals(" ")){
-				System.out.println("Nothing special here.");
+				consoleMessage = "Nothing special here.";
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + " " + room[trans.ycor].substring(trans.xcor + 1);
 				localCH.setYCOR(localCH.ycor() + 1);
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + "@" + room[trans.ycor].substring(trans.xcor + 1);
@@ -299,6 +315,7 @@ public class RoomGen{
 			Monster m = null;
 			if (getLeft(trans.xcor() , trans.ycor()).equals("g")){
 				m = new Monster();
+				consoleMessage = "You fight a golem.";
 				m.golemTemplate("Golem" , lev);
 				Battle b = new Battle(localCH , m , gameHost.getStage());
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + " " + room[trans.ycor].substring(trans.xcor + 1);
@@ -307,6 +324,7 @@ public class RoomGen{
 			}
 			else if (getLeft(trans.xcor() , trans.ycor()).equals("k")){
 				m = new Monster();
+				consoleMessage = "You fight a kobold.";
 				m.koboldTemplate("Kobold" , lev);
 				Battle b = new Battle(localCH , m , gameHost.getStage());
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + " " + room[trans.ycor].substring(trans.xcor + 1);
@@ -316,6 +334,7 @@ public class RoomGen{
 			}
 			else if (getLeft(trans.xcor() , trans.ycor()).equals("s")){
 				m = new Monster();
+				consoleMessage = "You fight a spider.";
 				m.spiderTemplate("Spider" , lev);
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + " " + room[trans.ycor].substring(trans.xcor + 1);
 				localCH.setXCOR(localCH.xcor() - 1);
@@ -324,16 +343,17 @@ public class RoomGen{
 			}
 			else if (getLeft(trans.xcor() , trans.ycor()).equals("t")){
 				treasureChest();
+				consoleMessage = "You find a treasure chest!";
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + " " + room[trans.ycor].substring(trans.xcor + 1);
 				localCH.setXCOR(localCH.xcor() - 1);
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + "@" + room[trans.ycor].substring(trans.xcor + 1);
 
 			}
 			else if (getLeft(trans.xcor() , trans.ycor()).equals("#")){
-				System.out.println("You walked into a wall.");
+				consoleMessage = "You walked into a wall.";
 			}
 			else if (getLeft(trans.xcor() , trans.ycor()).equals(" ")){
-				System.out.println("Nothing special here.");
+				consoleMessage = "Nothing special here.";
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + " " + room[trans.ycor].substring(trans.xcor + 1);
 				localCH.setXCOR(localCH.xcor() - 1);
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + "@" + room[trans.ycor].substring(trans.xcor + 1);
@@ -350,6 +370,7 @@ public class RoomGen{
 			Monster m = null;
 			if (getRight(trans.xcor() , trans.ycor()).equals("g")){
 				m = new Monster();
+				consoleMessage = "You fight a golem.";
 				m.golemTemplate("Golem" , lev);
 				Battle b = new Battle(localCH , m , gameHost.getStage());
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + " " + room[trans.ycor].substring(trans.xcor + 1);
@@ -358,6 +379,7 @@ public class RoomGen{
 			}
 			else if (getRight(trans.xcor() , trans.ycor()).equals("k")){
 				m = new Monster();
+				consoleMessage = "You fight a kobold.";
 				m.koboldTemplate("Kobold" , lev);
 				Battle b = new Battle(localCH , m , gameHost.getStage());
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + " " + room[trans.ycor].substring(trans.xcor + 1);
@@ -366,6 +388,7 @@ public class RoomGen{
 			}
 			else if (getRight(trans.xcor() , trans.ycor()).equals("s")){
 				m = new Monster();
+				consoleMessage = "You fight a spider.";
 				m.spiderTemplate("Spider" , lev);
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + " " + room[trans.ycor].substring(trans.xcor + 1);
 				localCH.setXCOR(localCH.xcor() + 1);
@@ -373,15 +396,16 @@ public class RoomGen{
 			}
 			else if (getRight(trans.xcor() , trans.ycor()).equals("t")){
 				treasureChest();
+				consoleMessage = "You find a treasure chest!";
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + " " + room[trans.ycor].substring(trans.xcor + 1);
 				localCH.setXCOR(localCH.xcor() + 1);
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + "@" + room[trans.ycor].substring(trans.xcor + 1);
 			}
 			else if (getRight(trans.xcor() , trans.ycor()).equals("#")){
-				System.out.println("You walked into a wall.");
+				consoleMessage = "You walked into a wall.";
 			}
 			else if (getRight(trans.xcor() , trans.ycor()).equals(" ")){
-				System.out.println("Nothing special here.");
+				consoleMessage = "Nothing special here.";
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + " " + room[trans.ycor].substring(trans.xcor + 1);
 				localCH.setXCOR(localCH.xcor() + 1);
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + "@" + room[trans.ycor].substring(trans.xcor + 1);
@@ -398,6 +422,7 @@ public class RoomGen{
 	}
 
 	public void updateMap(){
+		room[17] = consoleMessage;
 		boolean rmCleared = false;
 		int xenter = 0;
 		int yenter = 0;
@@ -428,7 +453,7 @@ public class RoomGen{
 			localCH.setXCOR(xenter);
 			localCH.setYCOR(yenter);
 		}
-		for(int i = 0; i < 15; i++){
+		for(int i = 0; i < 18; i++){
 			System.out.println(room[i]);
 		}
 	}
