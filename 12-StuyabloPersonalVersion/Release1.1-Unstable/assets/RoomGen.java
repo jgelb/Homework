@@ -383,21 +383,21 @@ public class RoomGen{
 		if (room[1].substring(17,20).contains("@") || room[0].substring(17,20).contains("@")){
 			rmCleared = true;
 			xenter = 18;
-			yenter = 13;
+			yenter = 12;
 		}
 		if (room[13].substring(17,20).contains("@")){
 			rmCleared = true;
 			xenter = 18;
-			yenter = 1;
+			yenter = 2;
 		}
 		if (room[7].substring(0,2).contains("@")){
 			rmCleared = true;
-			xenter = 36;
+			xenter = 35;
 			yenter = 7;
 		}
 		if (room[7].substring(36,38).contains("@")){
 			rmCleared = true;
-			xenter = 1;
+			xenter = 2;
 			yenter = 7;
 		}
 		if (rmCleared){MapGen(xenter , yenter); gameHost.setStage(gameHost.getStage() + 1);}
