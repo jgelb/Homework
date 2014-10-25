@@ -193,6 +193,7 @@ public class Labyrinth extends World{
 			}
 			else if (response.toUpperCase().equals("CLEAR")){
 				System.out.print("\033\143");
+				currRm.updateMap();
 			}
 			else if (response.toUpperCase().equals("DEVMODE")){
 				if (devmd) {devmd = false;}
