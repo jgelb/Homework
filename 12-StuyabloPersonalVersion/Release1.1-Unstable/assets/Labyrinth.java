@@ -1,12 +1,12 @@
 import java.util.*;
 import java.io.*;
 
-public class Labyrinth extends World {
+public class Labyrinth extends World{
 //Instance vars
+//	@Override public void keyReleased(KeyEvent ke){}
 	private BaseChar player;
 	private boolean devmd;
 	public RoomGen currRm; //Forced public to prevent crash during loading of save file
-
 //Constructor
 	public Labyrinth(BaseChar bc){
 		player = bc;
