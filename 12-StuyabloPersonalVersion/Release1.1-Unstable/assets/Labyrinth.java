@@ -177,6 +177,8 @@ public class Labyrinth extends World {
 					save.writeObject(super.stage);
 					save.writeObject(player.type());
 					save.writeObject(currRm.room);
+					save.writeObject(player.xcor());
+					save.writeObject(player.ycor());
 					save.close();
 				} catch(Exception e) {e.printStackTrace();}
 			}
