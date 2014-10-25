@@ -36,7 +36,7 @@ public class RoomGen{
                        	        	else if (chance < 6) {
                                		        line = line.replaceFirst("B" , "g");
                                		}
-	                               	else if (chance < 8) {
+	                               	else if (chance < 7) {
 	                               	        line = line.replaceFirst("B" , "t");
 	                               	}
 	                               	else {
