@@ -27,16 +27,16 @@ public class RoomGen{
 			while (line != null) {
                        		while (line.contains("B")){
 					chance = (int)(Math.random() * 100);
-               	                	if (chance < 3) {
+               	                	if (chance < 2) {
                        	        	        line = line.replaceFirst("B" , "k");
                                		}
-                                	else if (chance < 6) {
+                                	else if (chance < 4) {
        	                        	        line = line.replaceFirst("B" , "s");
                	                	}
-                       	        	else if (chance < 9) {
+                       	        	else if (chance < 6) {
                                		        line = line.replaceFirst("B" , "g");
                                		}
-	                               	else if (chance < 12) {
+	                               	else if (chance < 8) {
 	                               	        line = line.replaceFirst("B" , "t");
 	                               	}
 	                               	else {
