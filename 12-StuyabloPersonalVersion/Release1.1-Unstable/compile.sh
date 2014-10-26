@@ -1,3 +1,6 @@
+echo "Running git updater..."
+echo "$: git pull"
+git pull
 cd assets
 pwd
 echo "Compiling java files..."
