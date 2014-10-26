@@ -246,7 +246,7 @@ public class RoomGen{
 			else if (getUp(trans.xcor() , trans.ycor()).equals("#")){
 				consoleMessage = "You walked into a wall.";
 			}
-			else if (getDown(trans.xcor() , trans.ycor()).equals(" ")){
+			else if (getUp(trans.xcor() , trans.ycor()).equals(" ")){
 				consoleMessage = "Nothing special here.";
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + " " + room[trans.ycor].substring(trans.xcor + 1);
 				localCH.setYCOR(localCH.ycor() - 1);
@@ -254,9 +254,13 @@ public class RoomGen{
 
 			}
 			else {
+/*
 				System.out.println("ERROR - Please shut down game");
 				System.out.println("ERROR: Invalid symbol in game map.");
 				System.exit(0);
+*/
+				consoleMessage = "Travel Mechanism returned null error. Invalid symbol in game map";
+//				consoleMessage += getUp(trans.xcor() , trans.ycor());
 			}
 		}
 		else if (dir.toUpperCase().equals("DOWN")){
@@ -306,9 +310,12 @@ public class RoomGen{
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + "@" + room[trans.ycor].substring(trans.xcor + 1);
 			}
 			else {
+/*
 				System.out.println("ERROR - Please shut down game");
 				System.out.println("ERROR: Invalid symbol in game map.");
 				System.exit(0);
+*/
+				consoleMessage = "Travel Mechanism returned null error. Invalid symbol in game map";
 			}
 		}
 		else if (dir.toUpperCase().equals("LEFT")){
@@ -362,9 +369,12 @@ public class RoomGen{
 
 			}
 			else {
+/*
 				System.out.println("ERROR - Please shut down game");
 				System.out.println("ERROR: Invalid symbol in game map.");
 				System.exit(0);
+*/
+				consoleMessage = "Travel Mechanism returned null error. Invalid symbol in game map";
 			}
 		}
 		else if (dir.toUpperCase().equals("RIGHT")){
@@ -414,9 +424,12 @@ public class RoomGen{
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + "@" + room[trans.ycor].substring(trans.xcor + 1);
 			}
 			else {
+/*
 				System.out.println("ERROR - Please shut down game");
 				System.out.println("ERROR: Invalid symbol in game map.");
 				System.exit(0);
+*/
+				consoleMessage = "Travel Mechanism returned null error. Invalid symbol in game map";
 			}
 		}
 		else{
