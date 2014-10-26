@@ -337,6 +337,7 @@ public class RoomGen{
 				m = new Monster();
 				consoleMessage = "You fight a spider.";
 				m.spiderTemplate("Spider" , lev);
+				Battle b = new Battle(localCH , m , gameHost.getStage());
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + " " + room[trans.ycor].substring(trans.xcor + 1);
 				localCH.setXCOR(localCH.xcor() - 1);
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + "@" + room[trans.ycor].substring(trans.xcor + 1);
@@ -391,6 +392,7 @@ public class RoomGen{
 				m = new Monster();
 				consoleMessage = "You fight a spider.";
 				m.spiderTemplate("Spider" , lev);
+				Battle b = new Battle(localCH , m , gameHost.getStage());
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + " " + room[trans.ycor].substring(trans.xcor + 1);
 				localCH.setXCOR(localCH.xcor() + 1);
 				room[trans.ycor] = room[trans.ycor].substring(0,trans.xcor) + "@" + room[trans.ycor].substring(trans.xcor + 1);

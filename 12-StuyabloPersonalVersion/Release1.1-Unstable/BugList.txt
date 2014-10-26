@@ -4,5 +4,4 @@ List of Known Bugs
 - Randomly returns crash: Invalid char / item in map with seemingly random situations
 - No boss room art
 - devmode > setstage glitches out weirdly
-- Clear function wipes the map off
 - Map is not in static position if too many lines of input
