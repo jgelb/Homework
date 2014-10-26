@@ -80,6 +80,7 @@ public class Labyrinth extends World{
 					}
 				}
 			}
+			setStage(getStage() + 1);
 		}
 		else if (getStage() == 149){
 			Monster pred = new Monster();
@@ -108,6 +109,7 @@ public class Labyrinth extends World{
 			player.setStrength(player.strength() + 10);
 			player.setSpeed(player.speed() + 10);
 			pauseSleep(1300);
+			setStage(getStage() + 1);
 		}
 		else if (getStage() == 199){
 			Monster gate = new Monster();
@@ -121,6 +123,7 @@ public class Labyrinth extends World{
 			System.out.println("You will never escape...");
 			pauseSleep(600);
 			Battle boss3 = new Battle(player , gate , getStage());
+			setStage(getStage() + 1);
 		}
 		else {
 			currRm.move(dir , player);
