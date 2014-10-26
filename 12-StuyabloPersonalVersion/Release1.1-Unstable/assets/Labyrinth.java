@@ -196,8 +196,8 @@ public class Labyrinth extends World{
 				currRm.updateMap();
 			}
 			else if (response.toUpperCase().equals("DEVMODE")){
-				if (devmd) {devmd = false;}
-				else {devmd = true;}
+				if (devmd) {devmd = false; System.out.println("Devmode off");}
+				else {devmd = true; System.out.println("Devmode on");}
 			}
 			else if (response.toUpperCase().equals("SETHEALTH") && devmd) {
 				Scanner devconsole = new Scanner(System.in);
@@ -205,14 +205,14 @@ public class Labyrinth extends World{
 				try {
 					player.setMaxHealth((int)(devconsole.nextInt()));
 					player.setHealth(player.maxHealth());
-				} catch(Exception e){}
+				} catch(Exception e){System.out.println("Invalid value. Please use an int");}
 			}
 			else if (response.toUpperCase().equals("SETSTRENGTH") && devmd) {
 				Scanner devconsole = new Scanner(System.in);
 				System.out.print(" $ Value: ");
 				try {
 					player.setStrength((int)(devconsole.nextInt()));
-				} catch(Exception e){}
+				} catch(Exception e){System.out.println("Invalid value. Please use an int");}
 			}
 			else if (response.toUpperCase().equals("SETSTAGE") && devmd) {
                                 Scanner devconsole = new Scanner(System.in);
@@ -220,35 +220,35 @@ public class Labyrinth extends World{
                                 try {
                                         setStage((int)(devconsole.nextInt()));
 					chosen = true;
-                                } catch(Exception e){}
+                                } catch(Exception e){System.out.println("Invalid value. Please use an int");}
 			}
                         else if (response.toUpperCase().equals("SETDEXTERITY") && devmd) {
                                 Scanner devconsole = new Scanner(System.in);
                                 System.out.print(" $ Value: ");
                                 try {
                                         player.setDexterity((int)(devconsole.nextInt()));
-                                } catch(Exception e){}
+                                } catch(Exception e){System.out.println("Invalid value. Please use an int");}
                         }
                         else if (response.toUpperCase().equals("SETSPEED") && devmd) {
                                 Scanner devconsole = new Scanner(System.in);
                                 System.out.print(" $ Value: ");
                                 try {
                                         player.setSpeed((int)(devconsole.nextInt()));
-                                } catch(Exception e){}
+                                } catch(Exception e){System.out.println("Invalid value. Please use an int");}
                         }
                         else if (response.toUpperCase().equals("SETLEVEL") && devmd) {
                                 Scanner devconsole = new Scanner(System.in);
                                 System.out.print(" $ Value: ");
                                 try {
                                         player.setLevel((int)(devconsole.nextInt()));
-                                } catch(Exception e){}
+                                } catch(Exception e){System.out.println("Invalid value. Please use an int");}
                         }
                         else if (response.toUpperCase().equals("SETNAME") && devmd) {
                                 Scanner devconsole = new Scanner(System.in);
                                 System.out.print(" $ Value: ");
                                 try {
                                         player.setName(devconsole.next());
-                                } catch(Exception e){}
+                                } catch(Exception e){System.out.println("Invalid value.");}
                         }
 			else {
 				System.out.println("Invalid Command");
