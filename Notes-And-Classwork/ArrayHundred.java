@@ -13,15 +13,20 @@ public class ArrayHundred{
 	}
 
 	public int find(int n , int[] someArray){
+		int value = -1;
 		for (int i = 0; i < someArray.length; i++){
-			if (someArray[i] == n) {return i;}
+			if (someArray[i] == n) {value = i;}
+		//	return value;
 		}
+		return value;
 	}
 
 	public int maxNum(int[] someArray){
+		int answer = 0;
 		for (int i = 0; i < someArray.length; i++){
-			
+			answer = Math.max(answer , someArray[i]);
 		}
+		return answer;
 	}
 
 	public String toString(){
@@ -35,5 +40,8 @@ public class ArrayHundred{
 	public static void main(String[] args){
 		ArrayHundred x = new ArrayHundred();
 		System.out.println(x.toString());
+		String k = "";
+		k += x.maxNum(x.stuff);
+		System.out.println(k);
 	}
 }
