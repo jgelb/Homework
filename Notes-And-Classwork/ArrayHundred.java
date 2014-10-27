@@ -18,6 +18,12 @@ public class ArrayHundred{
 		}
 	}
 
+	public int maxNum(int[] someArray){
+		for (int i = 0; i < someArray.length; i++){
+			
+		}
+	}
+
 	public String toString(){
 		String s = "";
 		for (int i = 0; i < stuff.length; i++){
