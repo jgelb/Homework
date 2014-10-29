@@ -1,10 +1,10 @@
 import java.io.*;
 import java.util.*;
 
-public class ArrayHundred{
+public class ArrayStuff{
 	public int[] stuff;
 
-	public ArrayHundred() {
+	public ArrayStuff() {
                 stuff = new int[100];
                 for (int i = 0; i < stuff.length; i++){
                         stuff[i] = (int)(Math.random() * 100) % 75 + 75;
@@ -29,6 +29,17 @@ public class ArrayHundred{
 		return answer;
 	}
 
+	public int freq(int i){
+		int val = stuff[i];
+		int count = 0;
+		for (int k = 0; k < stuff.length; k++){
+			if (stuff[k] == val){
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public String toString(){
 		String s = "";
 		for (int i = 0; i < stuff.length; i++){
@@ -38,10 +49,11 @@ public class ArrayHundred{
 		return s;
 	}
 	public static void main(String[] args){
-		ArrayHundred x = new ArrayHundred();
+		ArrayStuff x = new ArrayStuff();
 		System.out.println(x.toString());
 		String k = "";
-		k += x.maxNum(x.stuff);
+		k += "\n" + x.maxNum(x.stuff);
+		k += "\n" + x.freq(2);
 		System.out.println(k);
 	}
 }
