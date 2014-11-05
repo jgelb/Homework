@@ -29,15 +29,24 @@ public class ArrayStuff{
 		return answer;
 	}
 
-	public int freq(int i){
-		int val = stuff[i];
+	public int freq(int i , int[] foobar){
+		int val = foobar[i];
 		int count = 0;
-		for (int k = 0; k < stuff.length; k++){
-			if (stuff[k] == val){
+		for (int k = 0; k < foobar.length; k++){
+			if (foobar[k] == val){
 				count++;
 			}
 		}
 		return count;
+	}
+
+	public int mode(int[] foobar){
+		//Get maximum frequency of item
+		int[] freqs = new int[foobar.length];
+		for (int i = 0; i < freqs.length; i++){
+			freqs[i]= freq(foobar[i] , foobar);
+		}
+		return maxNum(freqs);
 	}
 
 	public String toString(){
@@ -53,7 +62,8 @@ public class ArrayStuff{
 		System.out.println(x.toString());
 		String k = "";
 		k += "\n" + x.maxNum(x.stuff);
-		k += "\n" + x.freq(2);
+		k += "\n" + x.freq(2 , x.stuff);
 		System.out.println(k);
+		System.out.println(x.mode(x.stuff));
 	}
 }
