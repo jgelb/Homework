@@ -49,6 +49,18 @@ public class ArrayStuff{
 		return maxNum(freqs);
 	}
 
+	public int optimalMode(int[] foobar){
+		int maxFreq = 0;
+		int[] tallyBucket = int[150];
+		for (int i = 0; i < 150; i++){
+			tallyBucket[i] = 0;
+		}
+		for (int i = 0; i < foobar.length; i++){
+			tallyBucket[foobar[i]] = tallyBucket[foobar[i]] + 1;
+		}
+		return maxNum(tallyBucket);
+	}
+
 	public String toString(){
 		String s = "";
 		for (int i = 0; i < stuff.length; i++){
