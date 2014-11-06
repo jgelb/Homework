@@ -12,6 +12,13 @@ public class ArrayStuff{
 
 	}
 
+	public ArrayStuff(int poop){
+		stuff = new int[poop];
+		for (int i = 0; i < stuff.length; i++){
+			stuff[i] = (int)(Math.random() * 100) % 75 + 75;
+		}
+	}
+
 	public int find(int n , int[] someArray){
 		int value = -1;
 		for (int i = 0; i < someArray.length; i++){
@@ -50,15 +57,24 @@ public class ArrayStuff{
 	}
 
 	public int optimalMode(int[] foobar){
-		int maxFreq = 0;
-		int[] tallyBucket = int[150];
-		for (int i = 0; i < 150; i++){
+		int maxIndex = -1;
+		int[] tallyBucket = new int[maxNum(foobar) + 1];
+		for (int i = 0; i < tallyBucket.length; i++){
 			tallyBucket[i] = 0;
 		}
 		for (int i = 0; i < foobar.length; i++){
 			tallyBucket[foobar[i]] = tallyBucket[foobar[i]] + 1;
 		}
-		return maxNum(tallyBucket);
+		int maximum = 0;
+		for (int i = 0; i < tallyBucket.length; i++){
+			if (tallyBucket[i] > maximum) {
+				maximum = tallyBucket[i];
+				maxIndex = i;
+			}
+//			if (i == tallyBucket.length - 1) {return maxIndex;}
+		}
+		//Default
+		return maxIndex;
 	}
 
 	public String toString(){
@@ -70,12 +86,12 @@ public class ArrayStuff{
 		return s;
 	}
 	public static void main(String[] args){
-		ArrayStuff x = new ArrayStuff();
-		System.out.println(x.toString());
+		ArrayStuff x = new ArrayStuff(1000000);
+//		System.out.println(x.toString());
 		String k = "";
 		k += "\n" + x.maxNum(x.stuff);
 		k += "\n" + x.freq(2 , x.stuff);
 		System.out.println(k);
-		System.out.println(x.mode(x.stuff));
+		System.out.println(x.optimalMode(x.stuff));
 	}
 }
