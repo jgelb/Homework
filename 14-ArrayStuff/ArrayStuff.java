@@ -86,7 +86,10 @@ public class ArrayStuff{
 		return s;
 	}
 	public static void main(String[] args){
-		ArrayStuff x = new ArrayStuff(1000000);
+		ArrayStuff x;
+		try {
+			x = new ArrayStuff(Integer.parseInt(args[0]));
+		} catch(Exception e){x = new ArrayStuff(1000000);}
 //		System.out.println(x.toString());
 		String k = "";
 		k += "\n" + x.maxNum(x.stuff);
