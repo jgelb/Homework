@@ -7,6 +7,12 @@ public class SArray{
 			data[i] = null;
 		}
 	}
+	public SArray(int len){
+		data = new Object[len];
+		for (int i = 0; i < data.length; i++){
+			data[i] = null;
+		}
+	}
 	public Object[] add(Object obj){
 		//Adds object to end of array
 		if (size() == data.length){
@@ -36,7 +42,7 @@ public class SArray{
 				}
 			}
 			return buffer;
-		} catch(Exception e){e.printStackTrace();}
+		} catch(Exception e){e.printStackTrace(); System.out.println("Index cannot be inserted, Out of Range.");}
 		return data;
 	}
 	public Object get(int index){
