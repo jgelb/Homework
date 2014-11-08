@@ -54,11 +54,22 @@ public class SArray{
 	}
 	public Object get(int index){
 		//Gets object at index
-		return data[index];
+		try{
+			return data[index];
+		} catch(Exception e){
+			System.out.println("Index does not exist: Index = " + index);
+			e.printStackTrace();
+		}
+		return null;
 	}
 	public void set(int index , Object obj){
 		//Set object at index to obj
-		data[index] = obj;
+		try{
+			data[index] = obj;
+		} catch(Exception e){
+			System.out.println("Index does not exist. Cannot set object: Index = " + index);
+			e.printStackTrace();
+		}
 	}
 	public int size(){
 		//Returns length of array
@@ -66,21 +77,25 @@ public class SArray{
 	}
 	public void remove(int index){
 		//Removes object at index, shifts everything over
-		Object[] buffer = new Object[size() - 1];
-		for (int i = 0; i < buffer.length; i++){
-			if (i < index){
-                        	buffer[i] = data[i];
-                        }
-                        else if (i == index) {
-                                //buffer[i] = obj;
-                        }
-                        else {
-                                buffer[i] = data[i + 1];
-                        }
-                }
-		internalLength--;
-		data = buffer;
-                //return buffer;
+		try{
+			Object[] buffer = new Object[size() - 1];
+			for (int i = 0; i < buffer.length; i++){
+				if (i < index){
+	                        	buffer[i] = data[i];
+	                        }
+	                        else if (i == index) {
+	                                //buffer[i] = obj;
+	                        }
+	                        else {
+	                                buffer[i] = data[i + 1];
+	                        }
+	                }
+			internalLength--;
+			data = buffer;
+		} catch(Exception e){
+			System.out.println("Index does not exist. Cannot be removed: Index = " + index);
+			e.printStackTrace();
+		}
 	}
 	public void print(){
 		String toPrint = "{";
@@ -90,9 +105,4 @@ public class SArray{
 		toPrint = toPrint.substring(0,toPrint.length() - 2) + "}";
 		System.out.println(toPrint);
 	}
-/*
-	public Object[] pop(int index){
-		//Removes object , turns it to null
-	}
-*/
-}
+
