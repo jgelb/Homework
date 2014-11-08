@@ -8,5 +8,8 @@ public class Exec{
 		test.add(9001);
 		test.add(true);
 		test.add(false);
+		System.out.println(test.size());
+		test.remove(0);
+		System.out.println(test.size());
 	}
 }

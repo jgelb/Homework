@@ -1,32 +1,37 @@
 public class SArray{
 	private Object[] data; //Should really be object[] data
+	private int internalLength;
 	public SArray(){
 		//Start array at size 16
 		data = new Object[16];
 		for (int i = 0; i < data.length; i++){
 			data[i] = null;
 		}
+		internalLength = 0;
 	}
 	public SArray(int len){
 		data = new Object[len];
 		for (int i = 0; i < data.length; i++){
 			data[i] = null;
 		}
+		internalLength = len;
 	}
-	public Object[] add(Object obj){
+	public void add(Object obj){
 		//Adds object to end of array
-		if (size() == data.length){
+		if (internalLength == data.length){
 			Object[] buffer = new Object[data.length + 1];
 			for (int i = 0; i < data.length; i++){buffer[i] = data[i];}
 			buffer[data.length] = obj;
-			return buffer;
+		//	return buffer;
+			data = buffer;
 		}
 		else {
-			data[size()] = obj;
-			return data;
+			data[internalLength] = obj;
+		//	return data;
 		}
+		internalLength++;
 	}
-	public Object[] add(int index , Object obj){
+	public void add(int index , Object obj){
 		//Adds object at index of array, shifts everything else over
 		try{
 			Object[] buffer = new Object[size() + 1];
@@ -41,9 +46,11 @@ public class SArray{
 					buffer[i] = data[i - 1];
 				}
 			}
-			return buffer;
+			data = buffer;
+			internalLength++;
+		//	return buffer;
 		} catch(Exception e){e.printStackTrace(); System.out.println("Index cannot be inserted, Out of Range.");}
-		return data;
+		//return data;
 	}
 	public Object get(int index){
 		//Gets object at index
@@ -55,15 +62,9 @@ public class SArray{
 	}
 	public int size(){
 		//Returns length of array
-		int k = 0;
-		for (k = 0; k < data.length; k++){
-			if (data[k] == null){
-				return k;
-			}
-		}
-		return data.length; //Default case
+		return internalLength;
 	}
-	public Object[] remove(int index){
+	public void remove(int index){
 		//Removes object at index, shifts everything over
 		Object[] buffer = new Object[size() - 1];
 		for (int i = 0; i < buffer.length; i++){
@@ -77,7 +78,8 @@ public class SArray{
                                 buffer[i] = data[i - 1];
                         }
                 }
-                return buffer;
+		internalLength--;
+                //return buffer;
 	}
 /*
 	public Object[] pop(int index){
