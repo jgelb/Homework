@@ -37,12 +37,27 @@ public class Sarray {
 		return false;
     	}
 
-    	public void add(int index, int i){
+    	public void add(int index, int k){
         	// adds item i  at index, shifting everything down as needed.
         	// also grows as needed
 		if (last < index) {last = index - 1;} //Grow!
 		int[] buffer = new int[last + 1]; // OBOE! Off By One Error! Binary exploitation time :D
-		
+		try{
+			for (int i = 0; i < buffer.length; i++){
+				if (i < index){
+					buffer[i] = data[i];
+				}
+				else if (i == indek){
+					buffer[i] = k;
+				}
+				else {
+					buffer[i] = data[i - 1];
+				}
+			}
+			data = buffer;
+			last++;
+		} catch(Exception e){e.printStackTrace();}
+
     	}
 
     	public int size() {
@@ -52,15 +67,40 @@ public class Sarray {
 
     	public int get(int index) {
         	// returns the item at location index of the lsit
+        	try{
+	        	return data[index];
+	        } catch(Exception e){System.out.println("Out of bounds.");}
+	        return -1;
     	}
 
     	public int set(int index, int i){
         	// sets the item at location index to value i
         	// returns the old value.
+        	try{
+        		int buffer = data[index];
+        		data[index] = i;
+        		return buffer;
+        	} catch(Exception e){System.out.println("Out of bounds.");}
+        	return -1;
+        	
     	}
 
     	public int remove(int index){
         	// removes the item at index i
         	// returns the old value
+		int[] buffer = new Object[size() - 1];
+		for (int i = 0; i < buffer.length; i++){
+			if (i < index){
+                        	buffer[i] = data[i];
+                        }
+                        else if (i == index) {
+                                //buffer[i] = obj;
+                        }
+                        else {
+                                buffer[i] = data[i + 1];
+                        }
+                }
+		last--;
+		data = buffer;
     	}
 }
