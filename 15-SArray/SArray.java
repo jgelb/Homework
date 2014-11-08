@@ -75,11 +75,20 @@ public class SArray{
                                 //buffer[i] = obj;
                         }
                         else {
-                                buffer[i] = data[i - 1];
+                                buffer[i] = data[i + 1];
                         }
                 }
 		internalLength--;
+		data = buffer;
                 //return buffer;
+	}
+	public void print(){
+		String toPrint = "{";
+		for (int i = 0; i < internalLength; i++){
+			toPrint += data[i] + ", ";
+		}
+		toPrint = toPrint.substring(0,toPrint.length() - 2) + "}";
+		System.out.println(toPrint);
 	}
 /*
 	public Object[] pop(int index){
