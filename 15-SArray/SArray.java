@@ -87,6 +87,17 @@ public class SArray{
 			e.printStackTrace();
 		}
 	}
+	public static SArray concatenate(SArray beginning , SArray end){
+		//USAGE: SArray x = SArray.concatenate(a , b);
+		SArray combined = new SArray(beginning.size() + end.size()); // Create the final array
+		for (int i = 0; i < beginning.size(); i++){
+			combined.replace(i , beginning.get(i));
+		}
+		for (int i = 0; i < end.size(); i++){
+			combined.replace(i + beginning.size() , end.get(i));
+		}
+		return combined;
+	}
 	public int size(){
 		//Returns length of array
 		return internalLength;

@@ -26,5 +26,8 @@ public class Exec{
 		substringTest = test.subset(16 , test.size());
 		substringTest.print();
 		System.out.println(substringTest.size());
+		SArray combine = SArray.concatenate(test.subset(0,16) , test.subset(1,15));
+		combine.print();
+		System.out.println(combine.size());
 	}
 }
