@@ -89,12 +89,14 @@ public class Sarray {
         	// removes the item at index i
         	// returns the old value
 		int[] buffer = new Object[size() - 1];
+		int toReturn;
 		for (int i = 0; i < buffer.length; i++){
 			if (i < index){
                         	buffer[i] = data[i];
                         }
                         else if (i == index) {
                                 //buffer[i] = obj;
+                                toReturn = buffer[i];
                         }
                         else {
                                 buffer[i] = data[i + 1];
@@ -102,5 +104,6 @@ public class Sarray {
                 }
 		last--;
 		data = buffer;
+		return toReturn;
     	}
 }
