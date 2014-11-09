@@ -20,5 +20,11 @@ public class Exec{
 		}
 		test.print();
 		System.out.println(test.size());
+		SArray substringTest = test.subset(0 , 16);
+		substringTest.print();
+		System.out.println(substringTest.size());
+		substringTest = test.subset(16 , test.size());
+		substringTest.print();
+		System.out.println(substringTest.size());
 	}
 }

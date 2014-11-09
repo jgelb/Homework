@@ -79,6 +79,7 @@ public class SArray{
 	}
 	public void set(int index , Object obj){
 		//Set object at index to obj
+		//Same as replace, just a different name, and arguably more stable. Or less stable.
 		try{
 			data[index] = obj;
 		} catch(Exception e){
@@ -111,6 +112,14 @@ public class SArray{
 			System.out.println("Index does not exist. Cannot be removed: Index = " + index);
 			e.printStackTrace();
 		}
+	}
+	public SArray subset(int lower, int higher){
+		//Lower is inclusive, higher is exclusive
+		SArray sub = new SArray(higher - lower);
+		for (int i = 0; i < sub.size(); i++){
+			sub.replace(i , data[i + lower]);
+		}
+		return sub;
 	}
 	public void print(){
 		String toPrint = "{";
