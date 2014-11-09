@@ -16,7 +16,7 @@ public class SArray{
 		}
 		internalLength = len;
 	}
-	public void add(Object obj){
+	public void append(Object obj){
 		//Adds object to end of array
 		if (internalLength == data.length){
 			Object[] buffer = new Object[data.length + 1];
@@ -51,6 +51,21 @@ public class SArray{
 		//	return buffer;
 		} catch(Exception e){e.printStackTrace(); System.out.println("Index cannot be inserted, Out of Range.");}
 		//return data;
+	}
+	public void addAtBeginning(Object obj){
+		add(0 , obj);
+	}
+	public void replace(int index , Object obj){
+		//Replaces object at index of array, does not shift elements
+		if (index > internalLength - 1){
+			System.out.println("Index does not exist. Cannot modify.");
+		}
+		else{
+			data[index] = obj;
+		}
+	}
+	public void terminate(int index){
+		replace(index , null);
 	}
 	public Object get(int index){
 		//Gets object at index
@@ -105,4 +120,4 @@ public class SArray{
 		toPrint = toPrint.substring(0,toPrint.length() - 2) + "}";
 		System.out.println(toPrint);
 	}
-
+}
