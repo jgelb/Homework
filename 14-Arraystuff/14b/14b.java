@@ -112,3 +112,15 @@ public int sum67(int[] nums) {
   return sum;
      
 }
+public int mode(int[] nums){
+    int i = 0;
+    int[] x = new int[nums.length];
+    while (i < nums.length) {
+         x[nums[i]] = freq(nums[i]);
+         i += 1;
+    }
+    return Arrays.asList(x).indexOf(max(x));
+
+    }     
+
+
