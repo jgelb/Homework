@@ -16,6 +16,10 @@ public class SArray{
 		}
 		internalLength = len;
 	}
+	public SArray(Object[] someArray){
+		data = someArray;
+		internalLength = someArray.length;
+	}
 	public void append(Object obj){
 		//Adds object to end of array
 		if (internalLength == data.length){
