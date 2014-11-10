@@ -16,8 +16,39 @@ public class SArray{
 		}
 		internalLength = len;
 	}
+        public SArray(int[] someArray){
+                data = new Object[someArray.length];
+                for (int i = 0; i < someArray.length; i++){
+                        data[i] = someArray[i];
+                }
+                internalLength = someArray.length;
+        }
+        public SArray(String[] someArray){
+                data = new Object[someArray.length];
+                for (int i = 0; i < someArray.length; i++){
+                        data[i] = someArray[i];
+                }
+                internalLength = someArray.length;
+        }
+        public SArray(boolean[] someArray){
+                data = new Object[someArray.length];
+                for (int i = 0; i < someArray.length; i++){
+                        data[i] = someArray[i];
+                }
+                internalLength = someArray.length;
+        }
+        public SArray(char[] someArray){
+                data = new Object[someArray.length];
+                for (int i = 0; i < someArray.length; i++){
+                        data[i] = someArray[i];
+                }
+                internalLength = someArray.length;
+        }
 	public SArray(Object[] someArray){
-		data = someArray;
+		data = new Object[someArray.length];
+		for (int i = 0; i < someArray.length; i++){
+			data[i] = someArray[i];
+		}
 		internalLength = someArray.length;
 	}
 	public void append(Object obj){

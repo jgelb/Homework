@@ -29,5 +29,11 @@ public class Exec{
 		SArray combine = SArray.concatenate(test.subset(0,16) , test.subset(1,15));
 		combine.print();
 		System.out.println(combine.size());
+		int[] x = new int[55];
+		for (int i = 0; i < x.length; i++){
+			x[i] = i;
+		}
+		SArray constructorTest = new SArray(x);
+		constructorTest.print();
 	}
 }
