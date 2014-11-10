@@ -1,5 +1,5 @@
 public class SArray{
-	private Object[] data; //Should really be object[] data
+	private Object[] data;
 	private int internalLength;
 	public SArray(){
 		//Start array at size 16
