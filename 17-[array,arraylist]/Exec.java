@@ -13,7 +13,7 @@ public class Exec{
 		for (int i = 0; i <= lastNum; i++){
 			ai.add(i);
 		}
-		System.out.println("Original Array: " + ai);
+//		System.out.println("Original Array: " + ai);
 		//Time Efficient :D :D :D :D :D
 /* 		Try 1
 		ArrayList<Integer> answer = new ArrayList<Integer>();
@@ -26,8 +26,8 @@ public class Exec{
 */
 //		Try 2
 		Random r = new Random();
-		while (lastNum>0){
-			int a = r.nextInt(lastNum);
+		while (lastNum >= 0){
+			int a = r.nextInt(lastNum + 1);
 			ai.add(ai.get(a));
 			ai.remove(a);
 			lastNum--;
