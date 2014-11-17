@@ -28,8 +28,9 @@ public class Exec{
 		Random r = new Random();
 		while (lastNum >= 0){
 			int a = r.nextInt(lastNum + 1);
-			ai.add(ai.get(a));
-			ai.remove(a);
+			int tmp = ai.get(a);
+			ai.set(a , ai.get(lastNum));
+			ai.set(lastNum , tmp);
 			lastNum--;
 		}
 
