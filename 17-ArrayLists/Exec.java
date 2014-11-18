@@ -34,6 +34,6 @@ public class Exec{
 			lastNum--;
 		}
 
-		System.out.println("Randomized:    " + ai);
+//		System.out.println("Randomized:    " + ai);
 	}
 }
