@@ -9,11 +9,9 @@
 using namespace std;
 
 int main(int argc, char* argv[]){
-	int numElements;
+	int numElements = 10;
 	if (argc > 0){
 		stringstream(argv[1]) >> numElements;
-	} else{
-		numElements = 10;
 	}
 	printf("%d \n" , numElements);
 	int data[numElements];
