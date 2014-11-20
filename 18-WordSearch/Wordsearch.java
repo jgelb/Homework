@@ -1,3 +1,6 @@
+import java.util.*;
+import java.io.*;
+
 public class Wordsearch{
 
 	//Global Variables
@@ -35,25 +38,27 @@ public class Wordsearch{
 
 	//Input Methods:
 
-	public getWordsFromArray(String[] in){
+	public void getWordsFromArray(String[] in){
 		for (int i = 0; i < in.length; i++){
 			words.add(in[i]);
 		}
 	}
 
-	public getWordsFromFile(File f){
+	public void getWordsFromFile(File f){
 		//f should be declared: File f = new File("/PATH/TO/FILE");
 		//An alternative would be getWordsFromFile(new File("/PATH/TO/FILE"));
-		Scanner fread = new Scanner(f);
-		while (fread.nextLine() != null || fread.nextLine().length() > 2){ // Do not allow words with less than 3 letters
-			words.add(fread.nextLine());
-		}
+		try{
+			Scanner fread = new Scanner(f);
+			while (fread.nextLine() != null || fread.nextLine().length() > 2){ // Do not allow words with less than 3 letters
+				words.add(fread.nextLine());
+			}
+		} catch(Exception e){e.printStackTrace();}
 	}
 
-	public getWordsFromUserInput(){
+	public void getWordsFromUserInput(){
 		Scanner sc = new Scanner(System.in);
 		while (!sc.nextLine().equals("STOP_INPUT")){
-			words.add(sc.nextLine();
+			words.add(sc.nextLine());
 		}
 	}
 
@@ -73,16 +78,28 @@ public class Wordsearch{
 				response = response && (column + word.length() > board[row].length);
 				if (response){
 					for (int i = column; i < column + word.length(); i++){
-						response = response && (board[row][i].equals(".") || word.charAt(i - column)); 
+						response = response && (board[row][i] == '.' || board[row][i] == word.charAt(i - column));
 					}
 				}
 				if (response){
 					for (int i = column; i < column + word.length(); i++){
-						response = response && (board[row][i].equals(".") || word.charAt(i - column)); 
+						board[row][i] = word.charAt(i - column);
 					}
 				}
 				break;
-			case 2:
+			case 2://Horizontally right to left
+				response = response && (row > board.length);
+				response = response && (column - word.length() < 0);
+				if (response){
+					for (int i = column; i < column - word.length(); i--){
+						response = response && ((board[row][i] == '.') || board[row][i] == word.charAt(column - i));
+					}
+				}
+				if (response){
+					for (int i = column; i < column + word.length(); i++){
+						board[row][i] = word.charAt(column - i);
+					}
+				}
 				break;
 			default:
 				break;
@@ -92,5 +109,6 @@ public class Wordsearch{
 	public static void main(String[] args){
 		Wordsearch test = new Wordsearch();
 		System.out.println(test);
+		test.insertWord(1 , 2 , "HELLO" , 1);
 	}
 }
