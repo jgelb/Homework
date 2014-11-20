@@ -34,15 +34,17 @@ public class Wordsearch{
 			s += "\n\n";
 		}
 		s += "\n";
+		s += "Word Bank: \n";
+		s += words.toString();
 		return s;
 	}
 
 	//Out file:
 
-	public void outFile(){
+	public void outFile(String name){
 		Writer writer = null;
 		try {
-			writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("WORDSEARCH.out"), "utf-8"));
+			writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(name), "utf-8"));
 			writer.write(this.toString());
 		} catch (Exception e) {
   			e.printStackTrace();
@@ -89,7 +91,21 @@ public class Wordsearch{
 	insertWord(String word, int row, int column , int direction) will first check overlap, if true, insert the word in given direction
 */
 
-	public void insertWord (int row, int column, String word , int direction){
+	public void randomWordFill(){
+		Random rnd = new Random();
+		int tries = 0;
+		for (int i = 0; i < words.size(); i++){
+			while (!insertWord(rnd.nextInt(board.length - words.get(i).length()) , rnd.nextInt(board[0].length - words.get(i).length()) , words.get(i) , rnd.nextInt(8) + 1)){
+				tries++;			
+			}
+			tries = 0;
+		}
+		outFile("WORDSEARCH.key");
+		this.fillWithRandomChar();
+		outFile("WORDSEARCH.puzzle");
+	}
+
+	public boolean insertWord(int row, int column, String word , int direction){
 		boolean response = true;
 		word = word.toUpperCase();
 		int r = row;
@@ -241,6 +257,7 @@ public class Wordsearch{
 			default:
 				break;
 		}
+		return response;
 	}
 
 	public void fillWithRandomChar(){
@@ -252,23 +269,5 @@ public class Wordsearch{
 				}
 			}
 		}
-	}
-
-	public static void main(String[] args){
-		Wordsearch test = new Wordsearch();
-		//System.out.println(test);
-		test.insertWord(10 , 20 , "HELLO" , 1);
-		test.insertWord(10 , 20 , "HELLO" , 2);
-		test.insertWord(10 , 20 , "HELLO" , 3);
-		test.insertWord(10 , 20 , "HELLO" , 3);
-		test.insertWord(10 , 20 , "HELLO" , 4);
-		test.insertWord(10 , 20 , "HELLO" , 5);
-		test.insertWord(10 , 20 , "HELLO" , 6);
-		test.insertWord(10 , 20 , "HELLO" , 7);
-		test.insertWord(10 , 20 , "HELLO" , 8);
-		//System.out.println(test);
-		test.fillWithRandomChar();
-		System.out.println(test);
-		test.outFile();
 	}
 }
