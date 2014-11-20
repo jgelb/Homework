@@ -74,8 +74,8 @@ public class Wordsearch{
 		boolean response = true;
 		switch (direction){
 			case 1://Horizontally left to right
-				response = response && (row > board.length);
-				response = response && (column + word.length() > board[row].length);
+				response = response && (row < board.length);
+				response = response && (column + word.length() < board[row].length);
 				if (response){
 					for (int i = column; i < column + word.length(); i++){
 						response = response && (board[row][i] == '.' || board[row][i] == word.charAt(i - column));
@@ -88,8 +88,8 @@ public class Wordsearch{
 				}
 				break;
 			case 2://Horizontally right to left
-				response = response && (row > board.length);
-				response = response && (column - word.length() < 0);
+				response = response && (row < board.length);
+				response = response && (column - word.length() > 0);
 				if (response){
 					for (int i = column; i < column - word.length(); i--){
 						response = response && ((board[row][i] == '.') || board[row][i] == word.charAt(column - i));
@@ -110,5 +110,6 @@ public class Wordsearch{
 		Wordsearch test = new Wordsearch();
 		System.out.println(test);
 		test.insertWord(1 , 2 , "HELLO" , 1);
+		System.out.println(test);
 	}
 }
