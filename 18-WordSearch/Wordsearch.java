@@ -90,14 +90,45 @@ public class Wordsearch{
 			case 2://Horizontally right to left
 				response = response && (row < board.length);
 				response = response && (column - word.length() > 0);
+				//System.out.println("Checkpt 1: " + response);
 				if (response){
-					for (int i = column; i < column - word.length(); i--){
+					for (int i = column; i > column - word.length(); i--){
 						response = response && ((board[row][i] == '.') || board[row][i] == word.charAt(column - i));
+						//System.out.println("Checkpt 2: " + word.charAt(column - i));
 					}
 				}
 				if (response){
-					for (int i = column; i < column + word.length(); i++){
+					for (int i = column; i > column - word.length(); i--){
 						board[row][i] = word.charAt(column - i);
+						//System.out.println("Checkpt 3: " + word.charAt(column - i));
+					}
+				}
+				break;
+			case 3://Vertical downwards
+				response = response && (row < board.length);
+				response = response && (row + word.length() < board.length);
+				if (response){
+					for (int i = row; i < row + word.length(); i++){
+						response = response && (board[i][column] == '.' || board[i][column] == word.charAt(i - row));
+					}
+				}
+				if (response){
+					for (int i = row; i < row + word.length(); i++){
+						board[i][column] = word.charAt(i - row);
+					}
+				}
+				break;
+			case 4://Vertical upwards
+				response = response && (row < board.length);
+				response = response && (row - word.length() > 0);
+				if (response){
+					for (int i = row; i > row - word.length(); i--){
+						response = response && (board[i][column] == '.' || board[i][column] == word.charAt(row - i));
+					}
+				}
+				if (response){
+					for (int i = row; i > row - word.length(); i--){
+						board[i][column] = word.charAt(row - i);
 					}
 				}
 				break;
@@ -110,6 +141,9 @@ public class Wordsearch{
 		Wordsearch test = new Wordsearch();
 		System.out.println(test);
 		test.insertWord(1 , 2 , "HELLO" , 1);
+//		test.insertWord(1 , 12 , "HELLO" , 2);
+		test.insertWord(1 , 2 , "HELLO" , 3);
+		test.insertWord(10 , 3 , "HELLO" , 4);
 		System.out.println(test);
 	}
 }
