@@ -11,6 +11,7 @@ public class Exec {
 		test[3] = "JUSTICE";
 		test[4] = "INGENIOUS";
 		ws.getWordsFromArray(test);
+		ws.getWordsFromFile(new File("wordlist.in"));
 		ws.randomWordFill();
 	}
 }
