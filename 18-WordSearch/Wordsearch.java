@@ -78,7 +78,7 @@ public class Wordsearch{
 		//An alternative would be getWordsFromFile(new File("/PATH/TO/FILE"));
 		try{
 			Scanner fread = new Scanner(f);
-			while (fread.nextLine() != null || fread.nextLine().length() > 2){ // Do not allow words with less than 3 letters
+			while (fread.hasNext() || fread.nextLine().length() > 2){ // Do not allow words with less than 3 letters
 				words.add(fread.nextLine());
 			}
 		} catch(Exception e){/*e.printStackTrace();*/}

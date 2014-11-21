@@ -29,6 +29,17 @@ public class StressTest {
 		ws.getWordsFromArray(test);
 		ws.getWordsFromFile(new File("wordlist.in"));
 		ws.randomWordFill();
+/*
+		Runtime cmd = Runtime.getRuntime();
+		try{
+			System.out.println(cmd.exec("cat WORDSEARCH.key"));
+			System.out.println();
+			System.out.println(cmd.exec("cat WORDSEARCH.puzzle"));
+			System.out.println();
+		} catch(Exception e){
+			System.out.println("");
+		}
+*/
 	}
 }
 /*
