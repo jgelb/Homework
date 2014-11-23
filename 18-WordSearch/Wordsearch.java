@@ -7,10 +7,25 @@ public class Wordsearch{
 
 	private char[][] board;
 	private ArrayList<String> words = new ArrayList<String>();
+<<<<<<< HEAD
+=======
+	private final String alphabet = "AAAABBCCDDEEEEFFFGHIIIJKLMNOOPQRSTTTUUVWXYZ"; //Note duplicates of letters gives higher chance for that letter
+>>>>>>> 1c5d11fe995a81336097ea3925fec5f29bd638de
 
 	//Constructors
 
 	public Wordsearch(int r, int c){
+<<<<<<< HEAD
+=======
+		if (r > 100 || c > 100){
+			System.out.println("The number of rows and the number of columns cannot exceed 100");
+			try {
+				System.exit(0);
+			} catch(Exception e){
+				System.out.println("System Exit failed. Exit the program manually.");
+			}
+		}
+>>>>>>> 1c5d11fe995a81336097ea3925fec5f29bd638de
 		board = new char[r][c];
 		for (int i = 0; i < board.length; i++){
 			for (int j = 0; j < board[i].length; j++){
@@ -28,6 +43,7 @@ public class Wordsearch{
 		String s = "";
 		for (int i = 0; i < board.length; i++){
 			for (int j = 0; j < board[i].length; j++){
+<<<<<<< HEAD
 				s += board[i][j];
 			}
 			s += "\n";
@@ -36,6 +52,36 @@ public class Wordsearch{
 		return s;
 	}
 
+=======
+				s += board[i][j] + " ";
+			}
+			s += "\n\n";
+		}
+		s += "\n";
+		s += "Word Bank: \n";
+		s += words.toString();
+		return s;
+	}
+
+	//Out file:
+
+	public void outFile(String name){
+		Writer writer = null;
+		try {
+			writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(name), "utf-8"));
+			writer.write(this.toString());
+		} catch (Exception e) {
+  			e.printStackTrace();
+		} finally {
+   			try {
+				writer.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+>>>>>>> 1c5d11fe995a81336097ea3925fec5f29bd638de
 	//Input Methods:
 
 	public void getWordsFromArray(String[] in){
@@ -49,10 +95,17 @@ public class Wordsearch{
 		//An alternative would be getWordsFromFile(new File("/PATH/TO/FILE"));
 		try{
 			Scanner fread = new Scanner(f);
+<<<<<<< HEAD
 			while (fread.nextLine() != null || fread.nextLine().length() > 2){ // Do not allow words with less than 3 letters
 				words.add(fread.nextLine());
 			}
 		} catch(Exception e){e.printStackTrace();}
+=======
+			while (fread.hasNext() || fread.nextLine().length() > 2){ // Do not allow words with less than 3 letters
+				words.add(fread.nextLine());
+			}
+		} catch(Exception e){/*e.printStackTrace();*/}
+>>>>>>> 1c5d11fe995a81336097ea3925fec5f29bd638de
 	}
 
 	public void getWordsFromUserInput(){
@@ -70,14 +123,44 @@ public class Wordsearch{
 	insertWord(String word, int row, int column , int direction) will first check overlap, if true, insert the word in given direction
 */
 
+<<<<<<< HEAD
 	public void insertWord (int row, int column, String word , int direction){
 		boolean response = true;
+=======
+	public void randomWordFill(){
+		Random rnd = new Random();
+		int tries = 0;
+		for (int i = 0; i < words.size(); i++){
+			while (!insertWord(rnd.nextInt(board.length - words.get(i).length()) , rnd.nextInt(board[0].length - words.get(i).length()) , words.get(i) , rnd.nextInt(8) + 1)){
+				if (tries > 20){
+					System.out.println("Word excluded: Unable to find valid space: " + words.get(i));
+					break;}
+					tries++;
+			}
+			tries = 0;
+		}
+		outFile("WORDSEARCH.key");
+		this.fillWithRandomChar();
+		outFile("WORDSEARCH.puzzle");
+		System.out.println("Answer key saved as WORDSEARCH.key \nPuzzle saved as WORDSEARCH.puzzle");
+	}
+
+	public boolean insertWord(int row, int column, String word , int direction){
+		boolean response = true;
+		word = word.toUpperCase();
+		int r = row;
+		int c = column;
+>>>>>>> 1c5d11fe995a81336097ea3925fec5f29bd638de
 		switch (direction){
 			case 1://Horizontally left to right
 				response = response && (row < board.length);
 				response = response && (column + word.length() < board[row].length);
 				if (response){
+<<<<<<< HEAD
 					for (int i = column; i < column + word.length(); i++){
+=======
+					for (int i = column; i < column + word.length() && response; i++){
+>>>>>>> 1c5d11fe995a81336097ea3925fec5f29bd638de
 						response = response && (board[row][i] == '.' || board[row][i] == word.charAt(i - column));
 					}
 				}
@@ -92,7 +175,11 @@ public class Wordsearch{
 				response = response && (column - word.length() > 0);
 				//System.out.println("Checkpt 1: " + response);
 				if (response){
+<<<<<<< HEAD
 					for (int i = column; i > column - word.length(); i--){
+=======
+					for (int i = column; i > column - word.length() && response; i--){
+>>>>>>> 1c5d11fe995a81336097ea3925fec5f29bd638de
 						response = response && ((board[row][i] == '.') || board[row][i] == word.charAt(column - i));
 						//System.out.println("Checkpt 2: " + word.charAt(column - i));
 					}
@@ -108,7 +195,11 @@ public class Wordsearch{
 				response = response && (row < board.length);
 				response = response && (row + word.length() < board.length);
 				if (response){
+<<<<<<< HEAD
 					for (int i = row; i < row + word.length(); i++){
+=======
+					for (int i = row; i < row + word.length() && response; i++){
+>>>>>>> 1c5d11fe995a81336097ea3925fec5f29bd638de
 						response = response && (board[i][column] == '.' || board[i][column] == word.charAt(i - row));
 					}
 				}
@@ -118,11 +209,19 @@ public class Wordsearch{
 					}
 				}
 				break;
+<<<<<<< HEAD
 			case 4://Vertical upwards
 				response = response && (row < board.length);
 				response = response && (row - word.length() > 0);
 				if (response){
 					for (int i = row; i > row - word.length(); i--){
+=======
+			case 4: //Vertical upwards
+				response = response && (row < board.length);
+				response = response && (row - word.length() > 0);
+				if (response){
+					for (int i = row; i > row - word.length() && response; i--){
+>>>>>>> 1c5d11fe995a81336097ea3925fec5f29bd638de
 						response = response && (board[i][column] == '.' || board[i][column] == word.charAt(row - i));
 					}
 				}
@@ -132,6 +231,7 @@ public class Wordsearch{
 					}
 				}
 				break;
+<<<<<<< HEAD
 			default:
 				break;
 		}
@@ -147,3 +247,106 @@ public class Wordsearch{
 		System.out.println(test);
 	}
 }
+=======
+			case 5://Diagonally, towards Quadrant I
+				response = response && (row < board.length);
+				response = response && (column + word.length() < board[row].length);		//Case 1 - Right
+				response = response && (row - word.length() > 0);				//Case 4 - Up
+				if (response){
+					for (int i = 0; i < word.length() && response; i++){
+						response = response && (board[r][c] == word.charAt(i) || board[r][c] == '.');
+						r--;
+						c++;
+					}
+					r += word.length();
+					c -= word.length();
+				}
+				if (response){
+					for (int i = 0; i < word.length(); i++){
+						board[r][c] = word.charAt(i);
+						r--;
+						c++;
+					}
+				}
+				break;
+			case 6://Diagonally, towards Quadrant II
+				response = response && (row < board.length);
+				response = response && (column - word.length() > 0);				//Case 2 - Left
+				response = response && (row - word.length() > 0);				//Case 4 - Up
+				if (response){
+					for (int i = 0; i < word.length() && response; i++){
+						response = response && (board[r][c] == word.charAt(i) || board[r][c] == '.');
+						r--;
+						c--;
+					}
+					r += word.length();
+					c += word.length();
+				}
+				if (response){
+					for (int i = 0; i < word.length(); i++){
+						board[r][c] = word.charAt(i);
+						r--;
+						c--;
+					}
+				}
+				break;
+			case 7://Diagonally, towards Quadrant III
+				response = response && (row < board.length);
+				response = response && (column - word.length() > 0);				//Case 2 - Left
+				response = response && (row + word.length() < board.length);			//Case 3 - Down
+				if (response){
+					for (int i = 0; i < word.length() && response; i++){
+						response = response && (board[r][c] == word.charAt(i) || board[r][c] == '.');
+						r++;
+						c--;
+					}
+					r -= word.length();
+					c += word.length();
+				}
+				if (response){
+					for (int i = 0; i < word.length(); i++){
+						board[r][c] = word.charAt(i);
+						r++;
+						c--;
+					}
+				}
+				break;
+			case 8://Diagonally, towards Quadrant IV
+				response = response && (row < board.length);
+				response = response && (column + word.length() < board[row].length);		//Case 1 - Right
+				response = response && (row + word.length() < board.length);			//Case 3 - Down
+				if (response){
+					for (int i = 0; i < word.length() && response; i++){
+						response = response && (board[r][c] == word.charAt(i) || board[r][c] == '.');
+						r++;
+						c++;
+					}
+					r -= word.length();
+					c -= word.length();
+				}
+				if (response){
+					for (int i = 0; i < word.length(); i++){
+						board[r][c] = word.charAt(i);
+						r++;
+						c++;
+					}
+				}
+				break;
+			default:
+				break;
+		}
+		return response;
+	}
+
+	public void fillWithRandomChar(){
+		Random r = new Random();
+		for (int i = 0; i < board.length; i++){
+			for (int j = 0; j < board[i].length; j++){
+				if (board[i][j] == '.'){
+					board[i][j] = alphabet.charAt(r.nextInt(alphabet.length() - 1));
+				}
+			}
+		}
+	}
+}
+>>>>>>> 1c5d11fe995a81336097ea3925fec5f29bd638de
