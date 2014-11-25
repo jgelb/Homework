@@ -1,3 +1,5 @@
+Our program can add words in all directions.  It can get words from either an array, or a text file.  After running, it generates 2 files, one of which contains the puzzle.  The other one contains the locations of the words (solution).
+
 Files:
 
 Wordsearch.java - Source code for the Wordsearch class. It generates and processes the source code
