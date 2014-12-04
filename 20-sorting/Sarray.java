@@ -80,7 +80,7 @@ public class Sarray{
 	    if (data[q].compareTo(data[q+1])>0) {
 		String newvalue = data[q];
 		remove(q);
-		for (i=last;i>0&&newvalue.compareTo(data[i-1])<0;i--) {
+		for (i=last;i>0 && newvalue.compareTo(data[i-1])<0;i--) {
 		    data[i]=data[i-1];
 		}
 		data[i+1]=newvalue;
@@ -111,7 +111,7 @@ public class Sarray{
 
     public void ssort(int[] x){
 	int i = 0;
-	int[messy] = x
+	int[] messy = x
 
 	while (i < x.length){
 	    int temp = findmin(x);
@@ -120,8 +120,10 @@ public class Sarray{
 	    
 	    x[loc] = x[i];
 	    x[i] = x[loc];
-	    messy.remove(i);
+	    messy = messy.remove(i);
 	    i += 1;
+	}
+	
 }
 
 
