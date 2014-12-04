@@ -87,7 +87,41 @@ public class Sarray{
 	    }
 	}
     }
+    public int findmin(int[] x){
+	int i = 0;
+	int min = x[0];
+	
+	while (i < x.length){
+	    if (x[i] < min) min = x[i];
+	    i ++;
+	}
+	return min;
+    }
 
+    public int findloc(int[] x){
+	int i = 0;
+	int min = x[0];
+	int loc = 0
+	while (i < x.length){
+	    if (x[i] < min) min = x[i]; loc = i;
+	    i ++;
+	}
+	return min;
+    }
+
+    public void ssort(int[] x){
+	int i = 0;
+	int[messy] = x
+
+	while (i < x.length){
+	    int temp = findmin(x);
+	    int loc = findloc(x);
+	    temp = findmin(messy);
+	    
+	    x[loc] = x[i];
+	    x[i] = x[loc];
+	    messy.remove(i);
+	    i += 1;
 }
 
 
