@@ -1,5 +1,6 @@
 public class Sarray{
     private Object[] data;
+    private int[] messy;
     private int last;
     public Sarray(){
 	this(10);
@@ -65,66 +66,63 @@ public class Sarray{
     public void remove(int index){
 	if (index<=last){
 	    for (int i=index; i<last; i++){
-		data[i]=data[i+1];
+		messy[i]=messy[i+1];
 	    }
-	    data[last]=null;
+	    messy[last]=0;
 	    last--;
 	}
 	else
 	    throw new ArrayIndexOutOfBoundsException();
     }
    
-    public void isort() {
+/*    public void isort() {
 	int i;
 	for (int q=0;q<size()-1;q++) {
 	    if (data[q].compareTo(data[q+1])>0) {
 		String newvalue = data[q];
 		remove(q);
-		for (i=last;i>0 && newvalue.compareTo(data[i-1])<0;i--) {
+		for (i=last;i>0&&newvalue.compareTo(data[i-1])<0;i--) {
 		    data[i]=data[i-1];
 		}
 		data[i+1]=newvalue;
 	    }
 	}
     }
+*/
     public int findmin(int[] x){
 	int i = 0;
 	int min = x[0];
-	
 	while (i < x.length){
 	    if (x[i] < min) min = x[i];
 	    i ++;
 	}
 	return min;
     }
-
     public int findloc(int[] x){
 	int i = 0;
 	int min = x[0];
-	int loc = 0
-	while (i < x.length){
-	    if (x[i] < min) min = x[i]; loc = i;
-	    i ++;
-	}
+	int loc = 0;
+	    while (i < x.length){
+		if (x[i] < min) min = x[i]; loc = i;
+		i ++;
+	    }
 	return min;
     }
-
     public void ssort(int[] x){
 	int i = 0;
-	int[] messy = x
+	messy = x;
+	    while (i < x.length){
+		int temp = findmin(x);
+		int loc = findloc(x);
+		temp = findmin(messy);
+		x[loc] = x[i];
+		x[i] = x[loc];
+		messy  = messy.remove(i);
+		i += 1;
+	    }}
 
-	while (i < x.length){
-	    int temp = findmin(x);
-	    int loc = findloc(x);
-	    temp = findmin(messy);
-	    
-	    x[loc] = x[i];
-	    x[i] = x[loc];
-	    messy = messy.remove(i);
-	    i += 1;
-	}
-	
 }
+
 
 
 
