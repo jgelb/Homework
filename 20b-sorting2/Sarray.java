@@ -84,6 +84,8 @@ public class Sarray {
 	    data[index] = temp;
 	    assgns += 2;
 	}
+	System.out.println("Assignments = " + assgns);
+	System.out.println("Comparisons = " + comps);
     }
     public void ssort() {
     	int comps = 0;
@@ -100,6 +102,8 @@ public class Sarray {
 	    data[i] = n;
 	    assgns += 3
 	}
+	System.out.println("Assignments = " + assgns);
+	System.out.println("Comparisons = " + comps);
     }
     public void bsort() {
     	int comps = 0;
@@ -115,5 +119,8 @@ public class Sarray {
 		}
 		comps += 1;
 	}
+	System.out.println("Assignments = " + assgns);
+	System.out.println("Comparisons = " + comps);
     }
+    
 }
