@@ -1,7 +1,7 @@
 
 public class Driver {
     public static void main(String[] args) {
-	Sarray A = new Sarray(20);
+	Sarray A = new Sarray(5);
 	A.add("chicken");
 	A.add("broccoli");
 	A.add("cheese");
