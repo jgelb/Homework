@@ -31,7 +31,7 @@ public class Interval {
 		return this.getHigh() - other.getHigh();
 	}
 	else{
-	return this.getLow()-other.getLow();}
+		return this.getLow()-other.getLow();}
     }
 
 	    
