@@ -1,4 +1,3 @@
-
 public class Sarray {
     private String[] data;
     private int nextBlank;
@@ -70,6 +69,8 @@ public class Sarray {
 	}
     }
     public void isort() {
+    	int comps = 0;
+    	int assgns = 0;
 	for (int x=0;x<data.length;x=x+1) {
 	    int index = 0;
 	    String temp = data[x];
@@ -77,24 +78,36 @@ public class Sarray {
 	    while (check(temp,data[y])==true) {
 		index = index + 1;
 		y = y + 1;
+		comps += 1;
 	    }
 	    shift(index);
 	    data[index] = temp;
+	    assgns += 2;
 	}
+	System.out.println("Assignments = " + assgns);
+	System.out.println("Comparisons = " + comps);
     }
     public void ssort() {
+    	int comps = 0;
+    	int assgns = 0;
 	for (int i=0;i<data.length-1;i=i+1) {
 	    int index = i;
 	    for (int j=i+1;j<data.length;j=j+1)
 		if (check(data[index],data[j])==true) {
 		    index = j;
 		}
+		comps += 1;
 	    String n = data[index];
 	    data[index] = data[i];
 	    data[i] = n;
+	    assgns += 3
 	}
+	System.out.println("Assignments = " + assgns);
+	System.out.println("Comparisons = " + comps);
     }
     public void bsort() {
+    	int comps = 0;
+    	int assgns = 0;
 	for (int i=0;i<data.length-1;i=i+1) {
 	    int index = i;
 	    for (int j=i+1;j<data.length;j=j+1)
@@ -102,7 +115,12 @@ public class Sarray {
 		    String temp = data[index];
 		    data[index] = data[j];
 		    data[j] = temp;
+		    assgns += 3;
 		}
+		comps += 1;
 	}
+	System.out.println("Assignments = " + assgns);
+	System.out.println("Comparisons = " + comps);
     }
+    
 }
