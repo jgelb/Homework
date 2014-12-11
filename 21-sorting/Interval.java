@@ -27,8 +27,12 @@ public class Interval {
     }
    
     public int compareTo(Interval other){
-	return this.getLow()-other.getLow();
+	if (this.getLow() == other.getLow() ){
+		return this.getHigh() - other.getHigh();
 	}
+	else{
+		return this.getLow()-other.getLow();}
+    }
 
 	    
 
