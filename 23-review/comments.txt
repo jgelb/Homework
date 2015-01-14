@@ -1,0 +1,18 @@
+Joseph Gelb
+
+Review of Code from:
+
+https://github.com/NicholasLYang/APCSProject
+
+The board class builds a 15 by 15 board, and makes each space a tile.
+
+A method assign letter puts a letter on a specified tile.
+
+The GUI class simply sets up the graphic elements of the board, including color, size, and shape.
+
+In the Letterval class, there seems to be a function that adds letters to the board?
+
+The player class includes variables for score, and player name.  
+There is also a method that places a letter on the board.
+
+The Tiles class contains more variables that determine if a piece has been placed, what letter is on the tile, and how many points the tile is worth.  
